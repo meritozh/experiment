@@ -1,0 +1,2727 @@
+
+lambda:	file format Mach-O 64-bit x86-64
+
+Disassembly of section __TEXT,__text:
+__text:
+; void test_lambda(std::function<int()> lambda) {
+100000750:	55 	pushq	%rbp
+100000751:	48 89 e5 	movq	%rsp, %rbp
+100000754:	48 83 ec 20 	subq	$32, %rsp
+; int i = lambda();
+100000758:	e8 65 15 00 00 	callq	5477
+10000075d:	48 8b 3d bc 18 00 00 	movq	6332(%rip), %rdi
+100000764:	89 45 ec 	movl	%eax, -20(%rbp)
+; std::cout << i << std::endl;
+100000767:	8b 75 ec 	movl	-20(%rbp), %esi
+10000076a:	e8 71 15 00 00 	callq	5489
+10000076f:	48 8d 3d aa 00 00 00 	leaq	170(%rip), %rdi
+100000776:	48 89 45 f8 	movq	%rax, -8(%rbp)
+10000077a:	48 89 7d f0 	movq	%rdi, -16(%rbp)
+10000077e:	48 8b 7d f8 	movq	-8(%rbp), %rdi
+; { return __pf(*this); }
+100000782:	ff 55 f0 	callq	*-16(%rbp)
+; }
+100000785:	48 89 45 e0 	movq	%rax, -32(%rbp)
+100000789:	48 83 c4 20 	addq	$32, %rsp
+10000078d:	5d 	popq	%rbp
+10000078e:	c3 	retq
+10000078f:	90 	nop
+; {
+100000790:	55 	pushq	%rbp
+100000791:	48 89 e5 	movq	%rsp, %rbp
+100000794:	48 83 ec 20 	subq	$32, %rsp
+100000798:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+10000079c:	48 8b 7d f8 	movq	-8(%rbp), %rdi
+; if (__f_ == 0)
+1000007a0:	48 83 7f 20 00 	cmpq	$0, 32(%rdi)
+1000007a5:	48 89 7d f0 	movq	%rdi, -16(%rbp)
+1000007a9:	0f 85 4b 00 00 00 	jne	75 <__ZNKSt3__18functionIFivEEclEv+0x6a>
+1000007af:	b8 08 00 00 00 	movl	$8, %eax
+1000007b4:	89 c7 	movl	%eax, %edi
+; throw bad_function_call();
+1000007b6:	e8 49 15 00 00 	callq	5449
+1000007bb:	31 f6 	xorl	%esi, %esi
+1000007bd:	b9 08 00 00 00 	movl	$8, %ecx
+1000007c2:	89 ca 	movl	%ecx, %edx
+1000007c4:	48 89 c7 	movq	%rax, %rdi
+1000007c7:	48 89 7d e8 	movq	%rdi, -24(%rbp)
+1000007cb:	48 89 c7 	movq	%rax, %rdi
+1000007ce:	48 89 45 e0 	movq	%rax, -32(%rbp)
+1000007d2:	e8 4b 15 00 00 	callq	5451
+1000007d7:	48 8b 7d e8 	movq	-24(%rbp), %rdi
+1000007db:	e8 10 02 00 00 	callq	528 <__ZNSt3__117bad_function_callC1Ev>
+1000007e0:	48 8b 05 49 18 00 00 	movq	6217(%rip), %rax
+1000007e7:	48 8b 15 2a 18 00 00 	movq	6186(%rip), %rdx
+1000007ee:	48 8b 7d e0 	movq	-32(%rbp), %rdi
+1000007f2:	48 89 c6 	movq	%rax, %rsi
+1000007f5:	e8 1c 15 00 00 	callq	5404
+; return (*__f_)(_VSTD::forward<_ArgTypes>(__arg)...);
+1000007fa:	48 8b 45 f0 	movq	-16(%rbp), %rax
+1000007fe:	48 8b 48 20 	movq	32(%rax), %rcx
+100000802:	48 8b 11 	movq	(%rcx), %rdx
+100000805:	48 89 cf 	movq	%rcx, %rdi
+100000808:	ff 52 30 	callq	*48(%rdx)
+10000080b:	48 83 c4 20 	addq	$32, %rsp
+10000080f:	5d 	popq	%rbp
+100000810:	c3 	retq
+100000811:	66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+10000081b:	0f 1f 44 00 00 	nopl	(%rax,%rax)
+; {
+100000820:	55 	pushq	%rbp
+100000821:	48 89 e5 	movq	%rsp, %rbp
+100000824:	48 81 ec 90 00 00 00 	subq	$144, %rsp
+10000082b:	48 89 7d b8 	movq	%rdi, -72(%rbp)
+; __os.put(__os.widen('\n'));
+10000082f:	48 8b 7d b8 	movq	-72(%rbp), %rdi
+100000833:	48 8b 07 	movq	(%rdi), %rax
+100000836:	48 8b 40 e8 	movq	-24(%rax), %rax
+10000083a:	48 89 f9 	movq	%rdi, %rcx
+10000083d:	48 01 c1 	addq	%rax, %rcx
+100000840:	48 89 4d e0 	movq	%rcx, -32(%rbp)
+100000844:	c6 45 df 0a 	movb	$10, -33(%rbp)
+100000848:	48 8b 75 e0 	movq	-32(%rbp), %rsi
+10000084c:	48 8d 45 d0 	leaq	-48(%rbp), %rax
+; return use_facet<ctype<char_type> >(getloc()).widen(__c);
+100000850:	48 89 7d b0 	movq	%rdi, -80(%rbp)
+100000854:	48 89 c7 	movq	%rax, %rdi
+100000857:	48 89 45 a8 	movq	%rax, -88(%rbp)
+10000085b:	e8 68 14 00 00 	callq	5224
+100000860:	48 8b 45 a8 	movq	-88(%rbp), %rax
+100000864:	48 89 45 e8 	movq	%rax, -24(%rbp)
+; return static_cast<const _Facet&>(*__l.use_facet(_Facet::id));
+100000868:	48 8b 7d e8 	movq	-24(%rbp), %rdi
+10000086c:	48 8b 35 b5 17 00 00 	movq	6069(%rip), %rsi
+100000873:	e8 44 14 00 00 	callq	5188
+100000878:	48 89 45 a0 	movq	%rax, -96(%rbp)
+10000087c:	e9 00 00 00 00 	jmp	0 <__ZNSt3__14endlIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_+0x61>
+; return use_facet<ctype<char_type> >(getloc()).widen(__c);
+100000881:	8a 45 df 	movb	-33(%rbp), %al
+100000884:	48 8b 4d a0 	movq	-96(%rbp), %rcx
+100000888:	48 89 4d f8 	movq	%rcx, -8(%rbp)
+10000088c:	88 45 f7 	movb	%al, -9(%rbp)
+10000088f:	48 8b 55 f8 	movq	-8(%rbp), %rdx
+; return do_widen(__c);
+100000893:	48 8b 32 	movq	(%rdx), %rsi
+100000896:	48 8b 76 38 	movq	56(%rsi), %rsi
+10000089a:	0f be 7d f7 	movsbl	-9(%rbp), %edi
+10000089e:	89 7d 9c 	movl	%edi, -100(%rbp)
+1000008a1:	48 89 d7 	movq	%rdx, %rdi
+1000008a4:	44 8b 45 9c 	movl	-100(%rbp), %r8d
+1000008a8:	48 89 75 90 	movq	%rsi, -112(%rbp)
+1000008ac:	44 89 c6 	movl	%r8d, %esi
+1000008af:	48 8b 55 90 	movq	-112(%rbp), %rdx
+1000008b3:	ff d2 	callq	*%rdx
+1000008b5:	88 45 8f 	movb	%al, -113(%rbp)
+1000008b8:	e9 1b 00 00 00 	jmp	27 <__ZNSt3__14endlIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_+0xb8>
+1000008bd:	48 8d 7d d0 	leaq	-48(%rbp), %rdi
+; }
+1000008c1:	89 d1 	movl	%edx, %ecx
+1000008c3:	48 89 45 c8 	movq	%rax, -56(%rbp)
+1000008c7:	89 4d c4 	movl	%ecx, -60(%rbp)
+; return use_facet<ctype<char_type> >(getloc()).widen(__c);
+1000008ca:	e8 17 14 00 00 	callq	5143
+1000008cf:	48 8b 7d c8 	movq	-56(%rbp), %rdi
+1000008d3:	e8 de 13 00 00 	callq	5086
+1000008d8:	48 8d 7d d0 	leaq	-48(%rbp), %rdi
+1000008dc:	e8 05 14 00 00 	callq	5125
+; __os.put(__os.widen('\n'));
+1000008e1:	48 8b 7d b0 	movq	-80(%rbp), %rdi
+1000008e5:	8a 45 8f 	movb	-113(%rbp), %al
+1000008e8:	0f be f0 	movsbl	%al, %esi
+1000008eb:	e8 e4 13 00 00 	callq	5092
+; __os.flush();
+1000008f0:	48 8b 7d b8 	movq	-72(%rbp), %rdi
+1000008f4:	48 89 45 80 	movq	%rax, -128(%rbp)
+1000008f8:	e8 dd 13 00 00 	callq	5085
+; return __os;
+1000008fd:	48 8b 7d b8 	movq	-72(%rbp), %rdi
+100000901:	48 89 85 78 ff ff ff 	movq	%rax, -136(%rbp)
+100000908:	48 89 f8 	movq	%rdi, %rax
+10000090b:	48 81 c4 90 00 00 00 	addq	$144, %rsp
+100000912:	5d 	popq	%rbp
+100000913:	c3 	retq
+100000914:	66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+10000091e:	66 90 	nop
+; int main() {
+100000920:	55 	pushq	%rbp
+100000921:	48 89 e5 	movq	%rsp, %rbp
+100000924:	48 83 ec 60 	subq	$96, %rsp
+100000928:	48 8b 05 39 17 00 00 	movq	5945(%rip), %rax
+10000092f:	48 8b 00 	movq	(%rax), %rax
+100000932:	48 89 45 f8 	movq	%rax, -8(%rbp)
+100000936:	c7 45 bc 00 00 00 00 	movl	$0, -68(%rbp)
+10000093d:	48 8d 45 c0 	leaq	-64(%rbp), %rax
+; test_lambda([]() {
+100000941:	48 89 c7 	movq	%rax, %rdi
+100000944:	48 89 45 a0 	movq	%rax, -96(%rbp)
+100000948:	e8 63 00 00 00 	callq	99 <__ZNSt3__18functionIFivEEC1IZ4mainE3$_0vEET_>
+10000094d:	48 8b 7d a0 	movq	-96(%rbp), %rdi
+100000951:	e8 fa fd ff ff 	callq	-518 <__Z11test_lambdaNSt3__18functionIFivEEE>
+100000956:	e9 00 00 00 00 	jmp	0 <_main+0x3b>
+10000095b:	48 8d 7d c0 	leaq	-64(%rbp), %rdi
+10000095f:	e8 6c 00 00 00 	callq	108 <__ZNSt3__18functionIFivEED1Ev>
+100000964:	48 8b 3d fd 16 00 00 	movq	5885(%rip), %rdi
+10000096b:	48 8b 3f 	movq	(%rdi), %rdi
+10000096e:	48 8b 45 f8 	movq	-8(%rbp), %rax
+100000972:	48 39 c7 	cmpq	%rax, %rdi
+100000975:	0f 85 23 00 00 00 	jne	35 <_main+0x7e>
+10000097b:	31 c0 	xorl	%eax, %eax
+; return 0;
+10000097d:	48 83 c4 60 	addq	$96, %rsp
+100000981:	5d 	popq	%rbp
+100000982:	c3 	retq
+100000983:	48 8d 7d c0 	leaq	-64(%rbp), %rdi
+; }
+100000987:	89 d1 	movl	%edx, %ecx
+100000989:	48 89 45 b0 	movq	%rax, -80(%rbp)
+10000098d:	89 4d ac 	movl	%ecx, -84(%rbp)
+; test_lambda([]() {
+100000990:	e8 3b 00 00 00 	callq	59 <__ZNSt3__18functionIFivEED1Ev>
+100000995:	48 8b 7d b0 	movq	-80(%rbp), %rdi
+100000999:	e8 18 13 00 00 	callq	4888
+10000099e:	e8 79 13 00 00 	callq	4985
+1000009a3:	66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+1000009ad:	0f 1f 00 	nopl	(%rax)
+; {
+1000009b0:	55 	pushq	%rbp
+1000009b1:	48 89 e5 	movq	%rsp, %rbp
+1000009b4:	48 83 ec 10 	subq	$16, %rsp
+1000009b8:	48 89 7d f0 	movq	%rdi, -16(%rbp)
+1000009bc:	48 8b 7d f0 	movq	-16(%rbp), %rdi
+1000009c0:	e8 fb 00 00 00 	callq	251 <__ZNSt3__18functionIFivEEC2IZ4mainE3$_0vEET_>
+; }
+1000009c5:	48 83 c4 10 	addq	$16, %rsp
+1000009c9:	5d 	popq	%rbp
+1000009ca:	c3 	retq
+1000009cb:	0f 1f 44 00 00 	nopl	(%rax,%rax)
+; {
+1000009d0:	55 	pushq	%rbp
+1000009d1:	48 89 e5 	movq	%rsp, %rbp
+1000009d4:	48 83 ec 10 	subq	$16, %rsp
+1000009d8:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+1000009dc:	48 8b 7d f8 	movq	-8(%rbp), %rdi
+1000009e0:	e8 6b 12 00 00 	callq	4715 <__ZNSt3__18functionIFivEED2Ev>
+; }
+1000009e5:	48 83 c4 10 	addq	$16, %rsp
+1000009e9:	5d 	popq	%rbp
+1000009ea:	c3 	retq
+1000009eb:	0f 1f 44 00 00 	nopl	(%rax,%rax)
+; class _LIBCPP_EXCEPTION_ABI bad_function_call
+1000009f0:	55 	pushq	%rbp
+1000009f1:	48 89 e5 	movq	%rsp, %rbp
+1000009f4:	48 83 ec 10 	subq	$16, %rsp
+1000009f8:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+1000009fc:	48 8b 7d f8 	movq	-8(%rbp), %rdi
+100000a00:	e8 2b 00 00 00 	callq	43 <__ZNSt3__117bad_function_callC2Ev>
+100000a05:	48 83 c4 10 	addq	$16, %rsp
+100000a09:	5d 	popq	%rbp
+100000a0a:	c3 	retq
+100000a0b:	0f 1f 44 00 00 	nopl	(%rax,%rax)
+100000a10:	55 	pushq	%rbp
+100000a11:	48 89 e5 	movq	%rsp, %rbp
+100000a14:	48 83 ec 10 	subq	$16, %rsp
+100000a18:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+100000a1c:	48 8b 7d f8 	movq	-8(%rbp), %rdi
+100000a20:	e8 7b 00 00 00 	callq	123 <__ZNSt3__117bad_function_callD2Ev>
+100000a25:	48 83 c4 10 	addq	$16, %rsp
+100000a29:	5d 	popq	%rbp
+100000a2a:	c3 	retq
+100000a2b:	0f 1f 44 00 00 	nopl	(%rax,%rax)
+100000a30:	55 	pushq	%rbp
+100000a31:	48 89 e5 	movq	%rsp, %rbp
+100000a34:	48 8b 05 0d 16 00 00 	movq	5645(%rip), %rax
+100000a3b:	48 83 c0 10 	addq	$16, %rax
+100000a3f:	48 8b 0d 12 16 00 00 	movq	5650(%rip), %rcx
+100000a46:	48 83 c1 10 	addq	$16, %rcx
+100000a4a:	48 89 7d f0 	movq	%rdi, -16(%rbp)
+100000a4e:	48 8b 7d f0 	movq	-16(%rbp), %rdi
+100000a52:	48 89 fa 	movq	%rdi, %rdx
+100000a55:	48 89 55 f8 	movq	%rdx, -8(%rbp)
+100000a59:	48 8b 55 f8 	movq	-8(%rbp), %rdx
+; _LIBCPP_INLINE_VISIBILITY exception() _NOEXCEPT {}
+100000a5d:	48 89 0a 	movq	%rcx, (%rdx)
+; class _LIBCPP_EXCEPTION_ABI bad_function_call
+100000a60:	48 89 07 	movq	%rax, (%rdi)
+100000a63:	5d 	popq	%rbp
+100000a64:	c3 	retq
+100000a65:	66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+100000a6f:	90 	nop
+100000a70:	55 	pushq	%rbp
+100000a71:	48 89 e5 	movq	%rsp, %rbp
+100000a74:	48 83 ec 10 	subq	$16, %rsp
+100000a78:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+100000a7c:	48 8b 7d f8 	movq	-8(%rbp), %rdi
+100000a80:	48 89 7d f0 	movq	%rdi, -16(%rbp)
+100000a84:	e8 87 ff ff ff 	callq	-121 <__ZNSt3__117bad_function_callD1Ev>
+100000a89:	48 8b 7d f0 	movq	-16(%rbp), %rdi
+100000a8d:	e8 66 12 00 00 	callq	4710
+100000a92:	48 83 c4 10 	addq	$16, %rsp
+100000a96:	5d 	popq	%rbp
+100000a97:	c3 	retq
+100000a98:	0f 1f 84 00 00 00 00 00 	nopl	(%rax,%rax)
+100000aa0:	55 	pushq	%rbp
+100000aa1:	48 89 e5 	movq	%rsp, %rbp
+100000aa4:	48 83 ec 10 	subq	$16, %rsp
+100000aa8:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+100000aac:	48 8b 7d f8 	movq	-8(%rbp), %rdi
+100000ab0:	e8 37 12 00 00 	callq	4663
+100000ab5:	48 83 c4 10 	addq	$16, %rsp
+100000ab9:	5d 	popq	%rbp
+100000aba:	c3 	retq
+100000abb:	0f 1f 44 00 00 	nopl	(%rax,%rax)
+; {
+100000ac0:	55 	pushq	%rbp
+100000ac1:	48 89 e5 	movq	%rsp, %rbp
+100000ac4:	53 	pushq	%rbx
+100000ac5:	48 81 ec 38 01 00 00 	subq	$312, %rsp
+100000acc:	b0 01 	movb	$1, %al
+100000ace:	48 8d 8d 50 fe ff ff 	leaq	-432(%rbp), %rcx
+100000ad5:	48 89 bd 48 fe ff ff 	movq	%rdi, -440(%rbp)
+100000adc:	48 8b bd 48 fe ff ff 	movq	-440(%rbp), %rdi
+; : __f_(0)
+100000ae3:	48 c7 47 20 00 00 00 00 	movq	$0, 32(%rdi)
+100000aeb:	48 89 8d 58 fe ff ff 	movq	%rcx, -424(%rbp)
+; if (__function::__not_null(__f))
+100000af2:	a8 01 	testb	$1, %al
+100000af4:	48 89 bd 40 fe ff ff 	movq	%rdi, -448(%rbp)
+100000afb:	0f 85 05 00 00 00 	jne	5 <__ZNSt3__18functionIFivEEC2IZ4mainE3$_0vEET_+0x46>
+100000b01:	e9 09 02 00 00 	jmp	521 <__ZNSt3__18functionIFivEEC2IZ4mainE3$_0vEET_+0x24f>
+100000b06:	48 8d 85 f8 fe ff ff 	leaq	-264(%rbp), %rax
+100000b0d:	48 8d 8d 30 ff ff ff 	leaq	-208(%rbp), %rcx
+100000b14:	48 8d 95 00 ff ff ff 	leaq	-256(%rbp), %rdx
+100000b1b:	48 8d b5 50 ff ff ff 	leaq	-176(%rbp), %rsi
+100000b22:	48 8d bd 70 ff ff ff 	leaq	-144(%rbp), %rdi
+100000b29:	4c 8d 05 e0 15 00 00 	leaq	5600(%rip), %r8
+100000b30:	49 83 c0 10 	addq	$16, %r8
+100000b34:	4c 8b 0d 05 15 00 00 	movq	5381(%rip), %r9
+100000b3b:	49 83 c1 10 	addq	$16, %r9
+100000b3f:	4c 8d 95 50 fe ff ff 	leaq	-432(%rbp), %r10
+; __f_ = ::new((void*)&__buf_) _FF(_VSTD::move(__f));
+100000b46:	4c 8b 9d 40 fe ff ff 	movq	-448(%rbp), %r11
+100000b4d:	4c 89 55 f0 	movq	%r10, -16(%rbp)
+; return static_cast<_Up&&>(__t);
+100000b51:	4c 8b 55 f0 	movq	-16(%rbp), %r10
+100000b55:	4c 89 9d 68 fe ff ff 	movq	%r11, -408(%rbp)
+100000b5c:	4c 89 95 60 fe ff ff 	movq	%r10, -416(%rbp)
+100000b63:	4c 8b 95 68 fe ff ff 	movq	-408(%rbp), %r10
+; _VSTD::forward_as_tuple()) {}
+100000b6a:	48 8b 9d 60 fe ff ff 	movq	-416(%rbp), %rbx
+100000b71:	4c 89 95 a0 fe ff ff 	movq	%r10, -352(%rbp)
+100000b78:	48 89 9d 98 fe ff ff 	movq	%rbx, -360(%rbp)
+100000b7f:	4c 8b 95 a0 fe ff ff 	movq	-352(%rbp), %r10
+100000b86:	4c 89 d3 	movq	%r10, %rbx
+100000b89:	48 89 9d a8 fe ff ff 	movq	%rbx, -344(%rbp)
+100000b90:	48 8b 9d a8 fe ff ff 	movq	-344(%rbp), %rbx
+; _LIBCPP_INLINE_VISIBILITY __base() {}
+100000b97:	4c 89 0b 	movq	%r9, (%rbx)
+; _VSTD::forward_as_tuple()) {}
+100000b9a:	4d 89 02 	movq	%r8, (%r10)
+; : __f_(piecewise_construct, _VSTD::forward_as_tuple(_VSTD::move(__f)),
+100000b9d:	49 83 c2 08 	addq	$8, %r10
+100000ba1:	4c 8b 85 98 fe ff ff 	movq	-360(%rbp), %r8
+100000ba8:	4c 89 45 e8 	movq	%r8, -24(%rbp)
+; return static_cast<_Up&&>(__t);
+100000bac:	4c 8b 45 e8 	movq	-24(%rbp), %r8
+100000bb0:	4c 89 85 68 ff ff ff 	movq	%r8, -152(%rbp)
+; return tuple<_Tp&&...>(_VSTD::forward<_Tp>(__t)...);
+100000bb7:	4c 8b 85 68 ff ff ff 	movq	-152(%rbp), %r8
+100000bbe:	4c 89 85 78 ff ff ff 	movq	%r8, -136(%rbp)
+; return static_cast<_Tp&&>(__t);
+100000bc5:	4c 8b 85 78 ff ff ff 	movq	-136(%rbp), %r8
+100000bcc:	48 89 7d 88 	movq	%rdi, -120(%rbp)
+100000bd0:	4c 89 45 80 	movq	%r8, -128(%rbp)
+100000bd4:	48 8b 7d 88 	movq	-120(%rbp), %rdi
+; _VSTD::forward<_Up>(__u)...) {}
+100000bd8:	4c 8b 45 80 	movq	-128(%rbp), %r8
+100000bdc:	48 89 7d 98 	movq	%rdi, -104(%rbp)
+100000be0:	4c 89 45 90 	movq	%r8, -112(%rbp)
+100000be4:	48 8b 7d 98 	movq	-104(%rbp), %rdi
+100000be8:	4c 8b 45 90 	movq	-112(%rbp), %r8
+100000bec:	4c 89 45 a0 	movq	%r8, -96(%rbp)
+; return static_cast<_Tp&&>(__t);
+100000bf0:	4c 8b 45 a0 	movq	-96(%rbp), %r8
+100000bf4:	48 89 7d b0 	movq	%rdi, -80(%rbp)
+100000bf8:	4c 89 45 a8 	movq	%r8, -88(%rbp)
+100000bfc:	48 8b 7d b0 	movq	-80(%rbp), %rdi
+; {}
+100000c00:	4c 8b 45 a8 	movq	-88(%rbp), %r8
+100000c04:	48 89 7d c0 	movq	%rdi, -64(%rbp)
+100000c08:	4c 89 45 b8 	movq	%r8, -72(%rbp)
+100000c0c:	48 8b 7d c0 	movq	-64(%rbp), %rdi
+; __tuple_leaf<_Uf, _Tf>(_VSTD::forward<_Up>(__u))...,
+100000c10:	4c 8b 45 b8 	movq	-72(%rbp), %r8
+100000c14:	4c 89 45 c8 	movq	%r8, -56(%rbp)
+; return static_cast<_Tp&&>(__t);
+100000c18:	4c 8b 45 c8 	movq	-56(%rbp), %r8
+100000c1c:	48 89 7d d8 	movq	%rdi, -40(%rbp)
+100000c20:	4c 89 45 d0 	movq	%r8, -48(%rbp)
+100000c24:	48 8b 7d d8 	movq	-40(%rbp), %rdi
+; : __value_(_VSTD::forward<_Tp>(__t))
+100000c28:	4c 8b 45 d0 	movq	-48(%rbp), %r8
+100000c2c:	4c 89 45 e0 	movq	%r8, -32(%rbp)
+; return static_cast<_Tp&&>(__t);
+100000c30:	4c 8b 45 e0 	movq	-32(%rbp), %r8
+; : __value_(_VSTD::forward<_Tp>(__t))
+100000c34:	4c 89 07 	movq	%r8, (%rdi)
+; return tuple<_Tp&&...>(_VSTD::forward<_Tp>(__t)...);
+100000c37:	48 8b bd 70 ff ff ff 	movq	-144(%rbp), %rdi
+; : __f_(piecewise_construct, _VSTD::forward_as_tuple(_VSTD::move(__f)),
+100000c3e:	48 89 bd 90 fe ff ff 	movq	%rdi, -368(%rbp)
+100000c45:	48 89 b5 58 ff ff ff 	movq	%rsi, -168(%rbp)
+100000c4c:	48 8b b5 58 ff ff ff 	movq	-168(%rbp), %rsi
+100000c53:	48 89 b5 60 ff ff ff 	movq	%rsi, -160(%rbp)
+100000c5a:	48 8b b5 90 fe ff ff 	movq	-368(%rbp), %rsi
+100000c61:	48 89 b5 b8 fe ff ff 	movq	%rsi, -328(%rbp)
+100000c68:	4c 89 95 b0 fe ff ff 	movq	%r10, -336(%rbp)
+100000c6f:	48 8b b5 b0 fe ff ff 	movq	-336(%rbp), %rsi
+; typename __make_tuple_indices<sizeof...(_Args2)>::type()) {}
+100000c76:	48 8b bd b8 fe ff ff 	movq	-328(%rbp), %rdi
+100000c7d:	48 89 bd 00 ff ff ff 	movq	%rdi, -256(%rbp)
+100000c84:	48 89 b5 f0 fe ff ff 	movq	%rsi, -272(%rbp)
+100000c8b:	48 8b b5 f0 fe ff ff 	movq	-272(%rbp), %rsi
+100000c92:	48 89 f7 	movq	%rsi, %rdi
+100000c95:	48 89 95 08 ff ff ff 	movq	%rdx, -248(%rbp)
+; return static_cast<_Up&&>(__t);
+100000c9c:	48 8b 95 08 ff ff ff 	movq	-248(%rbp), %rdx
+; : _Base1(__pc, _VSTD::move(__first_args),
+100000ca3:	48 8b 12 	movq	(%rdx), %rdx
+100000ca6:	48 89 95 e8 fe ff ff 	movq	%rdx, -280(%rbp)
+100000cad:	48 8b 95 e8 fe ff ff 	movq	-280(%rbp), %rdx
+100000cb4:	48 89 95 30 ff ff ff 	movq	%rdx, -208(%rbp)
+100000cbb:	48 89 bd 28 ff ff ff 	movq	%rdi, -216(%rbp)
+100000cc2:	48 89 8d 38 ff ff ff 	movq	%rcx, -200(%rbp)
+; return static_cast<__tuple_leaf<_Ip, type>&>(__t.__base_).get();
+100000cc9:	48 8b 8d 38 ff ff ff 	movq	-200(%rbp), %rcx
+100000cd0:	48 89 8d 40 ff ff ff 	movq	%rcx, -192(%rbp)
+100000cd7:	48 8b 8d 40 ff ff ff 	movq	-192(%rbp), %rcx
+; _LIBCPP_INLINE_VISIBILITY _LIBCPP_CONSTEXPR_AFTER_CXX11       _Hp& get()       _NOEXCEPT {return __value_;}
+100000cde:	48 8b 09 	movq	(%rcx), %rcx
+100000ce1:	48 89 8d 48 ff ff ff 	movq	%rcx, -184(%rbp)
+100000ce8:	48 89 85 20 ff ff ff 	movq	%rax, -224(%rbp)
+100000cef:	48 89 b5 10 ff ff ff 	movq	%rsi, -240(%rbp)
+100000cf6:	48 8b 85 10 ff ff ff 	movq	-240(%rbp), %rax
+100000cfd:	48 89 85 18 ff ff ff 	movq	%rax, -232(%rbp)
+; __f_ = ::new((void*)&__buf_) _FF(_VSTD::move(__f));
+100000d04:	48 8b 85 40 fe ff ff 	movq	-448(%rbp), %rax
+100000d0b:	4c 89 58 20 	movq	%r11, 32(%rax)
+; }
+100000d0f:	48 81 c4 38 01 00 00 	addq	$312, %rsp
+100000d16:	5b 	popq	%rbx
+100000d17:	5d 	popq	%rbp
+100000d18:	c3 	retq
+100000d19:	0f 1f 80 00 00 00 00 	nopl	(%rax)
+; template<class _FD, class _Alloc, class _FB> class __func;
+100000d20:	55 	pushq	%rbp
+100000d21:	48 89 e5 	movq	%rsp, %rbp
+100000d24:	48 83 ec 10 	subq	$16, %rsp
+100000d28:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+100000d2c:	48 8b 7d f8 	movq	-8(%rbp), %rdi
+100000d30:	e8 6b 0e 00 00 	callq	3691 <__ZNSt3__110__function6__funcIZ4mainE3$_0NS_9allocatorIS2_EEFivEED2Ev>
+100000d35:	48 83 c4 10 	addq	$16, %rsp
+100000d39:	5d 	popq	%rbp
+100000d3a:	c3 	retq
+100000d3b:	0f 1f 44 00 00 	nopl	(%rax,%rax)
+100000d40:	55 	pushq	%rbp
+100000d41:	48 89 e5 	movq	%rsp, %rbp
+100000d44:	48 83 ec 10 	subq	$16, %rsp
+100000d48:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+100000d4c:	48 8b 7d f8 	movq	-8(%rbp), %rdi
+100000d50:	48 89 7d f0 	movq	%rdi, -16(%rbp)
+100000d54:	e8 c7 ff ff ff 	callq	-57 <__ZNSt3__110__function6__funcIZ4mainE3$_0NS_9allocatorIS2_EEFivEED1Ev>
+100000d59:	48 8b 7d f0 	movq	-16(%rbp), %rdi
+100000d5d:	e8 96 0f 00 00 	callq	3990
+100000d62:	48 83 c4 10 	addq	$16, %rsp
+100000d66:	5d 	popq	%rbp
+100000d67:	c3 	retq
+100000d68:	0f 1f 84 00 00 00 00 00 	nopl	(%rax,%rax)
+; {
+100000d70:	55 	pushq	%rbp
+100000d71:	48 89 e5 	movq	%rsp, %rbp
+100000d74:	41 57 	pushq	%r15
+100000d76:	41 56 	pushq	%r14
+100000d78:	41 55 	pushq	%r13
+100000d7a:	41 54 	pushq	%r12
+100000d7c:	53 	pushq	%rbx
+100000d7d:	48 81 ec e8 05 00 00 	subq	$1512, %rsp
+100000d84:	48 b8 ff ff ff ff ff ff ff 0f 	movabsq	$1152921504606846975, %rax
+100000d8e:	48 8d 8d 90 fa ff ff 	leaq	-1392(%rbp), %rcx
+100000d95:	48 89 bd 98 fa ff ff 	movq	%rdi, -1384(%rbp)
+100000d9c:	48 8b bd 98 fa ff ff 	movq	-1384(%rbp), %rdi
+; _Ap __a(__f_.second());
+100000da3:	48 89 fa 	movq	%rdi, %rdx
+100000da6:	48 83 c2 08 	addq	$8, %rdx
+100000daa:	48 89 95 a0 fa ff ff 	movq	%rdx, -1376(%rbp)
+100000db1:	48 8b 95 a0 fa ff ff 	movq	-1376(%rbp), %rdx
+100000db8:	48 89 95 a8 fa ff ff 	movq	%rdx, -1368(%rbp)
+100000dbf:	48 8b 95 a8 fa ff ff 	movq	-1368(%rbp), %rdx
+100000dc6:	48 89 8d 58 fb ff ff 	movq	%rcx, -1192(%rbp)
+100000dcd:	48 89 95 50 fb ff ff 	movq	%rdx, -1200(%rbp)
+100000dd4:	48 8b 95 58 fb ff ff 	movq	-1192(%rbp), %rdx
+; template <class _Up> _LIBCPP_INLINE_VISIBILITY allocator(const allocator<_Up>&) _NOEXCEPT {}
+100000ddb:	48 8b b5 50 fb ff ff 	movq	-1200(%rbp), %rsi
+100000de2:	48 89 95 68 fb ff ff 	movq	%rdx, -1176(%rbp)
+100000de9:	48 89 b5 60 fb ff ff 	movq	%rsi, -1184(%rbp)
+100000df0:	48 89 8d 20 fc ff ff 	movq	%rcx, -992(%rbp)
+100000df7:	48 c7 85 18 fc ff ff 01 00 00 00 	movq	$1, -1000(%rbp)
+100000e02:	48 c7 85 10 fc ff ff 00 00 00 00 	movq	$0, -1008(%rbp)
+100000e0d:	48 8b 8d 20 fc ff ff 	movq	-992(%rbp), %rcx
+; if (__n > max_size())
+100000e14:	48 8b 95 18 fc ff ff 	movq	-1000(%rbp), %rdx
+100000e1b:	48 89 8d 28 fc ff ff 	movq	%rcx, -984(%rbp)
+100000e22:	48 39 c2 	cmpq	%rax, %rdx
+100000e25:	48 89 bd 48 fa ff ff 	movq	%rdi, -1464(%rbp)
+100000e2c:	0f 86 d3 00 00 00 	jbe	211 <__ZNKSt3__110__function6__funcIZ4mainE3$_0NS_9allocatorIS2_EEFivEE7__cloneEv+0x195>
+100000e32:	48 8d 05 85 10 00 00 	leaq	4229(%rip), %rax
+100000e39:	48 89 85 48 fc ff ff 	movq	%rax, -952(%rbp)
+; throw length_error(__msg);
+100000e40:	b9 10 00 00 00 	movl	$16, %ecx
+100000e45:	89 cf 	movl	%ecx, %edi
+100000e47:	e8 b8 0e 00 00 	callq	3768
+100000e4c:	48 89 c7 	movq	%rax, %rdi
+100000e4f:	48 8b 95 48 fc ff ff 	movq	-952(%rbp), %rdx
+100000e56:	48 89 85 58 fc ff ff 	movq	%rax, -936(%rbp)
+100000e5d:	48 89 95 50 fc ff ff 	movq	%rdx, -944(%rbp)
+100000e64:	48 8b 85 58 fc ff ff 	movq	-936(%rbp), %rax
+; _LIBCPP_INLINE_VISIBILITY explicit length_error(const char* __s)   : logic_error(__s) {}
+100000e6b:	48 8b 95 50 fc ff ff 	movq	-944(%rbp), %rdx
+100000e72:	48 89 85 68 fc ff ff 	movq	%rax, -920(%rbp)
+100000e79:	48 89 95 60 fc ff ff 	movq	%rdx, -928(%rbp)
+100000e80:	48 8b 85 68 fc ff ff 	movq	-920(%rbp), %rax
+100000e87:	48 8b b5 60 fc ff ff 	movq	-928(%rbp), %rsi
+100000e8e:	48 89 bd 40 fa ff ff 	movq	%rdi, -1472(%rbp)
+100000e95:	48 89 c7 	movq	%rax, %rdi
+100000e98:	48 89 85 38 fa ff ff 	movq	%rax, -1480(%rbp)
+100000e9f:	e8 2a 0e 00 00 	callq	3626
+100000ea4:	e9 00 00 00 00 	jmp	0 <__ZNKSt3__110__function6__funcIZ4mainE3$_0NS_9allocatorIS2_EEFivEE7__cloneEv+0x139>
+100000ea9:	48 8b 05 88 11 00 00 	movq	4488(%rip), %rax
+100000eb0:	48 8b 0d 59 11 00 00 	movq	4441(%rip), %rcx
+100000eb7:	48 8b 15 92 11 00 00 	movq	4498(%rip), %rdx
+100000ebe:	48 83 c2 10 	addq	$16, %rdx
+100000ec2:	48 8b b5 38 fa ff ff 	movq	-1480(%rbp), %rsi
+100000ec9:	48 89 16 	movq	%rdx, (%rsi)
+; throw length_error(__msg);
+100000ecc:	48 8b bd 40 fa ff ff 	movq	-1472(%rbp), %rdi
+100000ed3:	48 89 c6 	movq	%rax, %rsi
+100000ed6:	48 89 ca 	movq	%rcx, %rdx
+100000ed9:	e8 38 0e 00 00 	callq	3640
+; }
+100000ede:	89 d1 	movl	%edx, %ecx
+100000ee0:	48 89 85 40 fc ff ff 	movq	%rax, -960(%rbp)
+100000ee7:	89 8d 3c fc ff ff 	movl	%ecx, -964(%rbp)
+; throw length_error(__msg);
+100000eed:	48 8b bd 40 fa ff ff 	movq	-1472(%rbp), %rdi
+100000ef4:	e8 17 0e 00 00 	callq	3607
+100000ef9:	48 8b bd 40 fc ff ff 	movq	-960(%rbp), %rdi
+100000f00:	e8 b1 0d 00 00 	callq	3505
+; return static_cast<pointer>(_VSTD::__allocate(__n * sizeof(_Tp)));
+100000f05:	48 8b 85 18 fc ff ff 	movq	-1000(%rbp), %rax
+100000f0c:	48 c1 e0 04 	shlq	$4, %rax
+100000f10:	48 89 85 30 fc ff ff 	movq	%rax, -976(%rbp)
+; return __builtin_operator_new(__size);
+100000f17:	48 8b bd 30 fc ff ff 	movq	-976(%rbp), %rdi
+100000f1e:	e8 db 0d 00 00 	callq	3547
+100000f23:	48 8d bd 88 fe ff ff 	leaq	-376(%rbp), %rdi
+100000f2a:	48 8d 8d 68 fe ff ff 	leaq	-408(%rbp), %rcx
+100000f31:	48 8d 95 b8 fe ff ff 	leaq	-328(%rbp), %rdx
+100000f38:	48 8d b5 70 fe ff ff 	leaq	-400(%rbp), %rsi
+100000f3f:	4c 8d 85 e0 fe ff ff 	leaq	-288(%rbp), %r8
+100000f46:	4c 8d 8d 68 ff ff ff 	leaq	-152(%rbp), %r9
+100000f4d:	4c 8d 15 bc 11 00 00 	leaq	4540(%rip), %r10
+100000f54:	49 83 c2 10 	addq	$16, %r10
+100000f58:	4c 8b 1d e1 10 00 00 	movq	4321(%rip), %r11
+100000f5f:	49 83 c3 10 	addq	$16, %r11
+100000f63:	48 8d 9d 60 fa ff ff 	leaq	-1440(%rbp), %rbx
+100000f6a:	4c 8d b5 90 fa ff ff 	leaq	-1392(%rbp), %r14
+100000f71:	4c 8d bd 78 fa ff ff 	leaq	-1416(%rbp), %r15
+100000f78:	4c 8d a5 c0 fc ff ff 	leaq	-832(%rbp), %r12
+100000f7f:	4c 8d ad 68 fa ff ff 	leaq	-1432(%rbp), %r13
+100000f86:	4c 89 ad 80 fc ff ff 	movq	%r13, -896(%rbp)
+100000f8d:	4c 89 b5 78 fc ff ff 	movq	%r14, -904(%rbp)
+100000f94:	48 c7 85 70 fc ff ff 01 00 00 00 	movq	$1, -912(%rbp)
+100000f9f:	48 89 85 30 fa ff ff 	movq	%rax, -1488(%rbp)
+100000fa6:	48 8b 85 80 fc ff ff 	movq	-896(%rbp), %rax
+; : __alloc_(__a), __s_(__s) {}
+100000fad:	48 89 85 28 fa ff ff 	movq	%rax, -1496(%rbp)
+100000fb4:	48 8b 85 78 fc ff ff 	movq	-904(%rbp), %rax
+100000fbb:	48 89 85 20 fa ff ff 	movq	%rax, -1504(%rbp)
+100000fc2:	48 8b 85 70 fc ff ff 	movq	-912(%rbp), %rax
+100000fc9:	48 89 85 18 fa ff ff 	movq	%rax, -1512(%rbp)
+100000fd0:	48 8b 85 28 fa ff ff 	movq	-1496(%rbp), %rax
+100000fd7:	48 89 85 98 fc ff ff 	movq	%rax, -872(%rbp)
+100000fde:	48 8b 85 20 fa ff ff 	movq	-1504(%rbp), %rax
+100000fe5:	48 89 85 90 fc ff ff 	movq	%rax, -880(%rbp)
+100000fec:	48 8b 85 18 fa ff ff 	movq	-1512(%rbp), %rax
+100000ff3:	48 89 85 88 fc ff ff 	movq	%rax, -888(%rbp)
+100000ffa:	48 8b 85 98 fc ff ff 	movq	-872(%rbp), %rax
+100001001:	48 89 85 10 fa ff ff 	movq	%rax, -1520(%rbp)
+100001008:	48 8b 85 90 fc ff ff 	movq	-880(%rbp), %rax
+10000100f:	48 89 85 08 fa ff ff 	movq	%rax, -1528(%rbp)
+100001016:	48 8b 85 10 fa ff ff 	movq	-1520(%rbp), %rax
+10000101d:	48 89 8d 00 fa ff ff 	movq	%rcx, -1536(%rbp)
+100001024:	48 8b 8d 08 fa ff ff 	movq	-1528(%rbp), %rcx
+10000102b:	48 89 08 	movq	%rcx, (%rax)
+10000102e:	48 8b 8d 88 fc ff ff 	movq	-888(%rbp), %rcx
+100001035:	48 89 48 08 	movq	%rcx, 8(%rax)
+100001039:	4c 89 bd b0 fc ff ff 	movq	%r15, -848(%rbp)
+100001040:	48 8b 8d 30 fa ff ff 	movq	-1488(%rbp), %rcx
+100001047:	48 89 8d a8 fc ff ff 	movq	%rcx, -856(%rbp)
+10000104e:	4c 89 ad a0 fc ff ff 	movq	%r13, -864(%rbp)
+100001055:	4c 8b ad b0 fc ff ff 	movq	-848(%rbp), %r13
+; : __ptr_(__p, _VSTD::move(__d)) {
+10000105c:	48 8b 85 a8 fc ff ff 	movq	-856(%rbp), %rax
+100001063:	48 8b 8d a0 fc ff ff 	movq	-864(%rbp), %rcx
+10000106a:	4c 89 ad c8 fc ff ff 	movq	%r13, -824(%rbp)
+100001071:	48 89 85 c0 fc ff ff 	movq	%rax, -832(%rbp)
+100001078:	48 89 8d b8 fc ff ff 	movq	%rcx, -840(%rbp)
+10000107f:	48 8b 85 c8 fc ff ff 	movq	-824(%rbp), %rax
+100001086:	48 8b 8d b8 fc ff ff 	movq	-840(%rbp), %rcx
+10000108d:	48 89 8d d0 fc ff ff 	movq	%rcx, -816(%rbp)
+; return static_cast<_Up&&>(__t);
+100001094:	48 8b 8d d0 fc ff ff 	movq	-816(%rbp), %rcx
+10000109b:	48 89 85 e8 fc ff ff 	movq	%rax, -792(%rbp)
+1000010a2:	4c 89 a5 e0 fc ff ff 	movq	%r12, -800(%rbp)
+1000010a9:	48 89 8d d8 fc ff ff 	movq	%rcx, -808(%rbp)
+1000010b0:	48 8b 85 e8 fc ff ff 	movq	-792(%rbp), %rax
+; : _Base1(std::forward<_U1>(__t1)), _Base2(std::forward<_U2>(__t2)) {}
+1000010b7:	48 8b 8d e0 fc ff ff 	movq	-800(%rbp), %rcx
+1000010be:	4c 8b a5 d8 fc ff ff 	movq	-808(%rbp), %r12
+1000010c5:	48 89 85 00 fd ff ff 	movq	%rax, -768(%rbp)
+1000010cc:	48 89 8d f8 fc ff ff 	movq	%rcx, -776(%rbp)
+1000010d3:	4c 89 a5 f0 fc ff ff 	movq	%r12, -784(%rbp)
+1000010da:	48 8b 85 00 fd ff ff 	movq	-768(%rbp), %rax
+1000010e1:	48 89 c1 	movq	%rax, %rcx
+1000010e4:	4c 8b a5 f8 fc ff ff 	movq	-776(%rbp), %r12
+1000010eb:	4c 89 a5 08 fd ff ff 	movq	%r12, -760(%rbp)
+; return static_cast<_Tp&&>(__t);
+1000010f2:	4c 8b a5 08 fd ff ff 	movq	-760(%rbp), %r12
+1000010f9:	48 89 8d 38 fd ff ff 	movq	%rcx, -712(%rbp)
+100001100:	4c 89 a5 30 fd ff ff 	movq	%r12, -720(%rbp)
+100001107:	48 8b 8d 38 fd ff ff 	movq	-712(%rbp), %rcx
+; : __value_(_VSTD::forward<_Up>(__u)){};
+10000110e:	4c 8b a5 30 fd ff ff 	movq	-720(%rbp), %r12
+100001115:	4c 89 a5 40 fd ff ff 	movq	%r12, -704(%rbp)
+; return static_cast<_Tp&&>(__t);
+10000111c:	4c 8b a5 40 fd ff ff 	movq	-704(%rbp), %r12
+; : __value_(_VSTD::forward<_Up>(__u)){};
+100001123:	4d 8b 24 24 	movq	(%r12), %r12
+100001127:	4c 89 21 	movq	%r12, (%rcx)
+; : _Base1(std::forward<_U1>(__t1)), _Base2(std::forward<_U2>(__t2)) {}
+10000112a:	48 83 c0 08 	addq	$8, %rax
+10000112e:	48 8b 8d f0 fc ff ff 	movq	-784(%rbp), %rcx
+100001135:	48 89 8d 28 fd ff ff 	movq	%rcx, -728(%rbp)
+; return static_cast<_Tp&&>(__t);
+10000113c:	48 8b 8d 28 fd ff ff 	movq	-728(%rbp), %rcx
+100001143:	48 89 85 18 fd ff ff 	movq	%rax, -744(%rbp)
+10000114a:	48 89 8d 10 fd ff ff 	movq	%rcx, -752(%rbp)
+100001151:	48 8b 85 18 fd ff ff 	movq	-744(%rbp), %rax
+; : __value_(_VSTD::forward<_Up>(__u)){};
+100001158:	48 8b 8d 10 fd ff ff 	movq	-752(%rbp), %rcx
+10000115f:	48 89 8d 20 fd ff ff 	movq	%rcx, -736(%rbp)
+; return static_cast<_Tp&&>(__t);
+100001166:	48 8b 8d 20 fd ff ff 	movq	-736(%rbp), %rcx
+; : __value_(_VSTD::forward<_Up>(__u)){};
+10000116d:	4c 8b 21 	movq	(%rcx), %r12
+100001170:	4c 89 20 	movq	%r12, (%rax)
+100001173:	48 8b 49 08 	movq	8(%rcx), %rcx
+100001177:	48 89 48 08 	movq	%rcx, 8(%rax)
+10000117b:	4c 89 bd 48 fd ff ff 	movq	%r15, -696(%rbp)
+100001182:	48 8b 85 48 fd ff ff 	movq	-696(%rbp), %rax
+100001189:	48 89 85 50 fd ff ff 	movq	%rax, -688(%rbp)
+100001190:	48 8b 85 50 fd ff ff 	movq	-688(%rbp), %rax
+100001197:	48 89 85 58 fd ff ff 	movq	%rax, -680(%rbp)
+10000119e:	48 8b 85 58 fd ff ff 	movq	-680(%rbp), %rax
+; return __ptr_.first();
+1000011a5:	48 8b 00 	movq	(%rax), %rax
+; ::new (__hold.get()) __func(__f_.first(), _Alloc(__a));
+1000011a8:	48 8b 8d 48 fa ff ff 	movq	-1464(%rbp), %rcx
+1000011af:	48 83 c1 08 	addq	$8, %rcx
+1000011b3:	48 89 8d 60 fd ff ff 	movq	%rcx, -672(%rbp)
+1000011ba:	48 8b 8d 60 fd ff ff 	movq	-672(%rbp), %rcx
+1000011c1:	48 89 8d 68 fd ff ff 	movq	%rcx, -664(%rbp)
+1000011c8:	48 8b 8d 68 fd ff ff 	movq	-664(%rbp), %rcx
+1000011cf:	48 89 9d 78 fd ff ff 	movq	%rbx, -648(%rbp)
+1000011d6:	4c 89 b5 70 fd ff ff 	movq	%r14, -656(%rbp)
+1000011dd:	4c 8b b5 78 fd ff ff 	movq	-648(%rbp), %r14
+; template <class _Up> _LIBCPP_INLINE_VISIBILITY allocator(const allocator<_Up>&) _NOEXCEPT {}
+1000011e4:	4c 8b bd 70 fd ff ff 	movq	-656(%rbp), %r15
+1000011eb:	4c 89 b5 88 fd ff ff 	movq	%r14, -632(%rbp)
+1000011f2:	4c 89 bd 80 fd ff ff 	movq	%r15, -640(%rbp)
+1000011f9:	48 89 85 d0 fd ff ff 	movq	%rax, -560(%rbp)
+100001200:	48 89 8d c8 fd ff ff 	movq	%rcx, -568(%rbp)
+100001207:	48 89 9d c0 fd ff ff 	movq	%rbx, -576(%rbp)
+10000120e:	48 8b 85 d0 fd ff ff 	movq	-560(%rbp), %rax
+; _VSTD::forward_as_tuple(_VSTD::move(__a))) {}
+100001215:	48 8b 8d c8 fd ff ff 	movq	-568(%rbp), %rcx
+10000121c:	48 8b 9d c0 fd ff ff 	movq	-576(%rbp), %rbx
+100001223:	48 89 85 08 fe ff ff 	movq	%rax, -504(%rbp)
+10000122a:	48 89 8d 00 fe ff ff 	movq	%rcx, -512(%rbp)
+100001231:	48 89 9d f8 fd ff ff 	movq	%rbx, -520(%rbp)
+100001238:	48 8b 85 08 fe ff ff 	movq	-504(%rbp), %rax
+10000123f:	48 89 c1 	movq	%rax, %rcx
+100001242:	48 89 8d 10 fe ff ff 	movq	%rcx, -496(%rbp)
+100001249:	48 8b 8d 10 fe ff ff 	movq	-496(%rbp), %rcx
+; _LIBCPP_INLINE_VISIBILITY __base() {}
+100001250:	4c 89 19 	movq	%r11, (%rcx)
+; _VSTD::forward_as_tuple(_VSTD::move(__a))) {}
+100001253:	4c 89 10 	movq	%r10, (%rax)
+; : __f_(piecewise_construct, _VSTD::forward_as_tuple(__f),
+100001256:	48 83 c0 08 	addq	$8, %rax
+10000125a:	48 8b 8d 00 fe ff ff 	movq	-512(%rbp), %rcx
+100001261:	48 89 8d 60 ff ff ff 	movq	%rcx, -160(%rbp)
+; return tuple<_Tp&&...>(_VSTD::forward<_Tp>(__t)...);
+100001268:	48 8b 8d 60 ff ff ff 	movq	-160(%rbp), %rcx
+10000126f:	48 89 8d 70 ff ff ff 	movq	%rcx, -144(%rbp)
+; return static_cast<_Tp&&>(__t);
+100001276:	48 8b 8d 70 ff ff ff 	movq	-144(%rbp), %rcx
+10000127d:	4c 89 4d 80 	movq	%r9, -128(%rbp)
+100001281:	48 89 8d 78 ff ff ff 	movq	%rcx, -136(%rbp)
+100001288:	48 8b 4d 80 	movq	-128(%rbp), %rcx
+; ) {}
+10000128c:	4c 8b 8d 78 ff ff ff 	movq	-136(%rbp), %r9
+100001293:	48 89 4d 90 	movq	%rcx, -112(%rbp)
+100001297:	4c 89 4d 88 	movq	%r9, -120(%rbp)
+10000129b:	48 8b 4d 90 	movq	-112(%rbp), %rcx
+; __t...
+10000129f:	4c 8b 4d 88 	movq	-120(%rbp), %r9
+1000012a3:	48 89 4d a0 	movq	%rcx, -96(%rbp)
+1000012a7:	4c 89 4d 98 	movq	%r9, -104(%rbp)
+1000012ab:	48 8b 4d a0 	movq	-96(%rbp), %rcx
+; {}
+1000012af:	4c 8b 4d 98 	movq	-104(%rbp), %r9
+1000012b3:	48 89 4d b0 	movq	%rcx, -80(%rbp)
+1000012b7:	4c 89 4d a8 	movq	%r9, -88(%rbp)
+1000012bb:	48 8b 4d b0 	movq	-80(%rbp), %rcx
+; __tuple_leaf<_Uf, _Tf>(_VSTD::forward<_Up>(__u))...,
+1000012bf:	4c 8b 4d a8 	movq	-88(%rbp), %r9
+1000012c3:	4c 89 4d b8 	movq	%r9, -72(%rbp)
+; return static_cast<_Tp&&>(__t);
+1000012c7:	4c 8b 4d b8 	movq	-72(%rbp), %r9
+1000012cb:	48 89 4d c8 	movq	%rcx, -56(%rbp)
+1000012cf:	4c 89 4d c0 	movq	%r9, -64(%rbp)
+1000012d3:	48 8b 4d c8 	movq	-56(%rbp), %rcx
+; : __value_(_VSTD::forward<_Tp>(__t))
+1000012d7:	4c 8b 4d c0 	movq	-64(%rbp), %r9
+1000012db:	4c 89 4d d0 	movq	%r9, -48(%rbp)
+; return static_cast<_Tp&&>(__t);
+1000012df:	4c 8b 4d d0 	movq	-48(%rbp), %r9
+; : __value_(_VSTD::forward<_Tp>(__t))
+1000012e3:	4c 89 09 	movq	%r9, (%rcx)
+; return tuple<_Tp&&...>(_VSTD::forward<_Tp>(__t)...);
+1000012e6:	48 8b 8d 68 ff ff ff 	movq	-152(%rbp), %rcx
+; : __f_(piecewise_construct, _VSTD::forward_as_tuple(__f),
+1000012ed:	48 89 8d f0 fd ff ff 	movq	%rcx, -528(%rbp)
+; _VSTD::forward_as_tuple(_VSTD::move(__a))) {}
+1000012f4:	48 8b 8d f8 fd ff ff 	movq	-520(%rbp), %rcx
+1000012fb:	48 89 8d 58 ff ff ff 	movq	%rcx, -168(%rbp)
+; return static_cast<_Up&&>(__t);
+100001302:	48 8b 8d 58 ff ff ff 	movq	-168(%rbp), %rcx
+100001309:	48 89 8d d8 fe ff ff 	movq	%rcx, -296(%rbp)
+; return tuple<_Tp&&...>(_VSTD::forward<_Tp>(__t)...);
+100001310:	48 8b 8d d8 fe ff ff 	movq	-296(%rbp), %rcx
+100001317:	48 89 8d e8 fe ff ff 	movq	%rcx, -280(%rbp)
+; return static_cast<_Tp&&>(__t);
+10000131e:	48 8b 8d e8 fe ff ff 	movq	-280(%rbp), %rcx
+100001325:	4c 89 85 f8 fe ff ff 	movq	%r8, -264(%rbp)
+10000132c:	48 89 8d f0 fe ff ff 	movq	%rcx, -272(%rbp)
+100001333:	48 8b 8d f8 fe ff ff 	movq	-264(%rbp), %rcx
+; _VSTD::forward<_Up>(__u)...) {}
+10000133a:	4c 8b 85 f0 fe ff ff 	movq	-272(%rbp), %r8
+100001341:	48 89 8d 08 ff ff ff 	movq	%rcx, -248(%rbp)
+100001348:	4c 89 85 00 ff ff ff 	movq	%r8, -256(%rbp)
+10000134f:	48 8b 8d 08 ff ff ff 	movq	-248(%rbp), %rcx
+100001356:	4c 8b 85 00 ff ff ff 	movq	-256(%rbp), %r8
+10000135d:	4c 89 85 10 ff ff ff 	movq	%r8, -240(%rbp)
+; return static_cast<_Tp&&>(__t);
+100001364:	4c 8b 85 10 ff ff ff 	movq	-240(%rbp), %r8
+10000136b:	48 89 8d 20 ff ff ff 	movq	%rcx, -224(%rbp)
+100001372:	4c 89 85 18 ff ff ff 	movq	%r8, -232(%rbp)
+100001379:	48 8b 8d 20 ff ff ff 	movq	-224(%rbp), %rcx
+; {}
+100001380:	4c 8b 85 18 ff ff ff 	movq	-232(%rbp), %r8
+100001387:	48 89 8d 30 ff ff ff 	movq	%rcx, -208(%rbp)
+10000138e:	4c 89 85 28 ff ff ff 	movq	%r8, -216(%rbp)
+100001395:	48 8b 8d 30 ff ff ff 	movq	-208(%rbp), %rcx
+; __tuple_leaf<_Uf, _Tf>(_VSTD::forward<_Up>(__u))...,
+10000139c:	4c 8b 85 28 ff ff ff 	movq	-216(%rbp), %r8
+1000013a3:	4c 89 85 38 ff ff ff 	movq	%r8, -200(%rbp)
+; return static_cast<_Tp&&>(__t);
+1000013aa:	4c 8b 85 38 ff ff ff 	movq	-200(%rbp), %r8
+1000013b1:	48 89 8d 48 ff ff ff 	movq	%rcx, -184(%rbp)
+1000013b8:	4c 89 85 40 ff ff ff 	movq	%r8, -192(%rbp)
+1000013bf:	48 8b 8d 48 ff ff ff 	movq	-184(%rbp), %rcx
+; : __value_(_VSTD::forward<_Tp>(__t))
+1000013c6:	4c 8b 85 40 ff ff ff 	movq	-192(%rbp), %r8
+1000013cd:	4c 89 85 50 ff ff ff 	movq	%r8, -176(%rbp)
+; return static_cast<_Tp&&>(__t);
+1000013d4:	4c 8b 85 50 ff ff ff 	movq	-176(%rbp), %r8
+; : __value_(_VSTD::forward<_Tp>(__t))
+1000013db:	4c 89 01 	movq	%r8, (%rcx)
+; return tuple<_Tp&&...>(_VSTD::forward<_Tp>(__t)...);
+1000013de:	48 8b 8d e0 fe ff ff 	movq	-288(%rbp), %rcx
+; _VSTD::forward_as_tuple(_VSTD::move(__a))) {}
+1000013e5:	48 89 8d e8 fd ff ff 	movq	%rcx, -536(%rbp)
+; : __f_(piecewise_construct, _VSTD::forward_as_tuple(__f),
+1000013ec:	48 8b 8d f0 fd ff ff 	movq	-528(%rbp), %rcx
+1000013f3:	4c 8b 85 e8 fd ff ff 	movq	-536(%rbp), %r8
+1000013fa:	48 89 8d 28 fe ff ff 	movq	%rcx, -472(%rbp)
+100001401:	4c 89 85 20 fe ff ff 	movq	%r8, -480(%rbp)
+100001408:	48 89 85 18 fe ff ff 	movq	%rax, -488(%rbp)
+10000140f:	48 8b 85 18 fe ff ff 	movq	-488(%rbp), %rax
+; typename __make_tuple_indices<sizeof...(_Args2)>::type()) {}
+100001416:	48 8b 8d 28 fe ff ff 	movq	-472(%rbp), %rcx
+10000141d:	4c 8b 85 20 fe ff ff 	movq	-480(%rbp), %r8
+100001424:	48 89 8d 70 fe ff ff 	movq	%rcx, -400(%rbp)
+10000142b:	4c 89 85 68 fe ff ff 	movq	%r8, -408(%rbp)
+100001432:	48 89 85 60 fe ff ff 	movq	%rax, -416(%rbp)
+100001439:	48 8b 85 60 fe ff ff 	movq	-416(%rbp), %rax
+100001440:	48 89 c1 	movq	%rax, %rcx
+100001443:	48 89 b5 78 fe ff ff 	movq	%rsi, -392(%rbp)
+; return static_cast<_Up&&>(__t);
+10000144a:	48 8b b5 78 fe ff ff 	movq	-392(%rbp), %rsi
+; : _Base1(__pc, _VSTD::move(__first_args),
+100001451:	48 8b 36 	movq	(%rsi), %rsi
+100001454:	48 89 b5 58 fe ff ff 	movq	%rsi, -424(%rbp)
+10000145b:	48 8b b5 58 fe ff ff 	movq	-424(%rbp), %rsi
+100001462:	48 89 b5 b8 fe ff ff 	movq	%rsi, -328(%rbp)
+100001469:	48 89 8d b0 fe ff ff 	movq	%rcx, -336(%rbp)
+100001470:	48 89 95 c0 fe ff ff 	movq	%rdx, -320(%rbp)
+; return static_cast<__tuple_leaf<_Ip, type>&>(__t.__base_).get();
+100001477:	48 8b 8d c0 fe ff ff 	movq	-320(%rbp), %rcx
+10000147e:	48 89 8d c8 fe ff ff 	movq	%rcx, -312(%rbp)
+100001485:	48 8b 8d c8 fe ff ff 	movq	-312(%rbp), %rcx
+; _LIBCPP_INLINE_VISIBILITY _LIBCPP_CONSTEXPR_AFTER_CXX11       _Hp& get()       _NOEXCEPT {return __value_;}
+10000148c:	48 8b 09 	movq	(%rcx), %rcx
+10000148f:	48 89 8d d0 fe ff ff 	movq	%rcx, -304(%rbp)
+100001496:	48 8b 8d 00 fa ff ff 	movq	-1536(%rbp), %rcx
+10000149d:	48 89 8d a8 fe ff ff 	movq	%rcx, -344(%rbp)
+; return static_cast<_Up&&>(__t);
+1000014a4:	48 8b 95 a8 fe ff ff 	movq	-344(%rbp), %rdx
+; _Base2(__pc, _VSTD::move(__second_args),
+1000014ab:	48 8b 12 	movq	(%rdx), %rdx
+1000014ae:	48 89 95 40 fe ff ff 	movq	%rdx, -448(%rbp)
+1000014b5:	48 8b 95 40 fe ff ff 	movq	-448(%rbp), %rdx
+1000014bc:	48 89 95 88 fe ff ff 	movq	%rdx, -376(%rbp)
+1000014c3:	48 89 85 80 fe ff ff 	movq	%rax, -384(%rbp)
+1000014ca:	48 89 bd 90 fe ff ff 	movq	%rdi, -368(%rbp)
+; return static_cast<__tuple_leaf<_Ip, type>&>(__t.__base_).get();
+1000014d1:	48 8b 85 90 fe ff ff 	movq	-368(%rbp), %rax
+1000014d8:	48 89 85 98 fe ff ff 	movq	%rax, -360(%rbp)
+1000014df:	48 8b 85 98 fe ff ff 	movq	-360(%rbp), %rax
+; _LIBCPP_INLINE_VISIBILITY _LIBCPP_CONSTEXPR_AFTER_CXX11       _Hp& get()       _NOEXCEPT {return __value_;}
+1000014e6:	48 8b 00 	movq	(%rax), %rax
+1000014e9:	48 89 85 a0 fe ff ff 	movq	%rax, -352(%rbp)
+1000014f0:	48 8d 85 78 fa ff ff 	leaq	-1416(%rbp), %rax
+1000014f7:	48 89 85 98 fd ff ff 	movq	%rax, -616(%rbp)
+1000014fe:	48 8b 8d 98 fd ff ff 	movq	-616(%rbp), %rcx
+100001505:	48 89 8d a0 fd ff ff 	movq	%rcx, -608(%rbp)
+10000150c:	48 8b 95 a0 fd ff ff 	movq	-608(%rbp), %rdx
+100001513:	48 89 95 a8 fd ff ff 	movq	%rdx, -600(%rbp)
+10000151a:	48 8b 95 a8 fd ff ff 	movq	-600(%rbp), %rdx
+; pointer __t = __ptr_.first();
+100001521:	48 8b 12 	movq	(%rdx), %rdx
+100001524:	48 89 95 90 fd ff ff 	movq	%rdx, -624(%rbp)
+10000152b:	48 89 8d b0 fd ff ff 	movq	%rcx, -592(%rbp)
+100001532:	48 8b 8d b0 fd ff ff 	movq	-592(%rbp), %rcx
+100001539:	48 89 8d b8 fd ff ff 	movq	%rcx, -584(%rbp)
+100001540:	48 8b 8d b8 fd ff ff 	movq	-584(%rbp), %rcx
+; __ptr_.first() = pointer();
+100001547:	48 c7 01 00 00 00 00 	movq	$0, (%rcx)
+; return __t;
+10000154e:	48 8b 8d 90 fd ff ff 	movq	-624(%rbp), %rcx
+100001555:	48 89 85 70 fb ff ff 	movq	%rax, -1168(%rbp)
+10000155c:	48 8b 85 70 fb ff ff 	movq	-1168(%rbp), %rax
+100001563:	48 89 85 78 fb ff ff 	movq	%rax, -1160(%rbp)
+10000156a:	48 8b 85 78 fb ff ff 	movq	-1160(%rbp), %rax
+100001571:	48 89 85 90 fb ff ff 	movq	%rax, -1136(%rbp)
+100001578:	48 c7 85 88 fb ff ff 00 00 00 00 	movq	$0, -1144(%rbp)
+100001583:	48 8b 85 90 fb ff ff 	movq	-1136(%rbp), %rax
+10000158a:	48 89 85 98 fb ff ff 	movq	%rax, -1128(%rbp)
+100001591:	48 8b 95 98 fb ff ff 	movq	-1128(%rbp), %rdx
+100001598:	48 89 95 a0 fb ff ff 	movq	%rdx, -1120(%rbp)
+10000159f:	48 8b 95 a0 fb ff ff 	movq	-1120(%rbp), %rdx
+; pointer __tmp = __ptr_.first();
+1000015a6:	48 8b 12 	movq	(%rdx), %rdx
+1000015a9:	48 89 95 80 fb ff ff 	movq	%rdx, -1152(%rbp)
+; __ptr_.first() = __p;
+1000015b0:	48 8b 95 88 fb ff ff 	movq	-1144(%rbp), %rdx
+1000015b7:	48 89 85 f0 fb ff ff 	movq	%rax, -1040(%rbp)
+1000015be:	48 8b b5 f0 fb ff ff 	movq	-1040(%rbp), %rsi
+1000015c5:	48 89 b5 f8 fb ff ff 	movq	%rsi, -1032(%rbp)
+1000015cc:	48 8b b5 f8 fb ff ff 	movq	-1032(%rbp), %rsi
+1000015d3:	48 89 16 	movq	%rdx, (%rsi)
+; if (__tmp)
+1000015d6:	48 83 bd 80 fb ff ff 00 	cmpq	$0, -1152(%rbp)
+1000015de:	48 89 8d f8 f9 ff ff 	movq	%rcx, -1544(%rbp)
+1000015e5:	48 89 85 f0 f9 ff ff 	movq	%rax, -1552(%rbp)
+1000015ec:	0f 84 aa 00 00 00 	je	170 <__ZNKSt3__110__function6__funcIZ4mainE3$_0NS_9allocatorIS2_EEFivEE7__cloneEv+0x92c>
+1000015f2:	48 8b 85 f0 f9 ff ff 	movq	-1552(%rbp), %rax
+1000015f9:	48 89 85 00 fc ff ff 	movq	%rax, -1024(%rbp)
+100001600:	48 8b 8d 00 fc ff ff 	movq	-1024(%rbp), %rcx
+; return static_cast<_Base2&>(*this).__get();
+100001607:	48 83 c1 08 	addq	$8, %rcx
+10000160b:	48 89 8d 08 fc ff ff 	movq	%rcx, -1016(%rbp)
+100001612:	48 8b 8d 08 fc ff ff 	movq	-1016(%rbp), %rcx
+; __ptr_.second()(__tmp);
+100001619:	48 8b 95 80 fb ff ff 	movq	-1152(%rbp), %rdx
+100001620:	48 89 8d b0 fb ff ff 	movq	%rcx, -1104(%rbp)
+100001627:	48 89 95 a8 fb ff ff 	movq	%rdx, -1112(%rbp)
+10000162e:	48 8b 8d b0 fb ff ff 	movq	-1104(%rbp), %rcx
+; {__alloc_traits::deallocate(__alloc_, __p, __s_);}
+100001635:	48 8b 11 	movq	(%rcx), %rdx
+100001638:	48 8b b5 a8 fb ff ff 	movq	-1112(%rbp), %rsi
+10000163f:	48 8b 49 08 	movq	8(%rcx), %rcx
+100001643:	48 89 95 c8 fb ff ff 	movq	%rdx, -1080(%rbp)
+10000164a:	48 89 b5 c0 fb ff ff 	movq	%rsi, -1088(%rbp)
+100001651:	48 89 8d b8 fb ff ff 	movq	%rcx, -1096(%rbp)
+; {__a.deallocate(__p, __n);}
+100001658:	48 8b 8d c8 fb ff ff 	movq	-1080(%rbp), %rcx
+10000165f:	48 8b 95 c0 fb ff ff 	movq	-1088(%rbp), %rdx
+100001666:	48 8b b5 b8 fb ff ff 	movq	-1096(%rbp), %rsi
+10000166d:	48 89 8d e0 fb ff ff 	movq	%rcx, -1056(%rbp)
+100001674:	48 89 95 d8 fb ff ff 	movq	%rdx, -1064(%rbp)
+10000167b:	48 89 b5 d0 fb ff ff 	movq	%rsi, -1072(%rbp)
+; {_VSTD::__libcpp_deallocate((void*)__p);}
+100001682:	48 8b 8d d8 fb ff ff 	movq	-1064(%rbp), %rcx
+100001689:	48 89 8d e8 fb ff ff 	movq	%rcx, -1048(%rbp)
+; __builtin_operator_delete(__ptr);
+100001690:	48 8b bd e8 fb ff ff 	movq	-1048(%rbp), %rdi
+100001697:	e8 5c 06 00 00 	callq	1628
+; }
+10000169c:	48 8b 85 f8 f9 ff ff 	movq	-1544(%rbp), %rax
+1000016a3:	48 81 c4 e8 05 00 00 	addq	$1512, %rsp
+1000016aa:	5b 	popq	%rbx
+1000016ab:	41 5c 	popq	%r12
+1000016ad:	41 5d 	popq	%r13
+1000016af:	41 5e 	popq	%r14
+1000016b1:	41 5f 	popq	%r15
+1000016b3:	5d 	popq	%rbp
+1000016b4:	c3 	retq
+1000016b5:	66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+1000016bf:	90 	nop
+; {
+1000016c0:	55 	pushq	%rbp
+1000016c1:	48 89 e5 	movq	%rsp, %rbp
+1000016c4:	41 56 	pushq	%r14
+1000016c6:	53 	pushq	%rbx
+1000016c7:	48 81 ec b8 01 00 00 	subq	$440, %rsp
+1000016ce:	48 8d 85 a0 fe ff ff 	leaq	-352(%rbp), %rax
+1000016d5:	48 8d 8d 80 fe ff ff 	leaq	-384(%rbp), %rcx
+1000016dc:	48 8d 95 d0 fe ff ff 	leaq	-304(%rbp), %rdx
+1000016e3:	4c 8d 85 88 fe ff ff 	leaq	-376(%rbp), %r8
+1000016ea:	4c 8d 8d f8 fe ff ff 	leaq	-264(%rbp), %r9
+1000016f1:	4c 8d 95 70 ff ff ff 	leaq	-144(%rbp), %r10
+1000016f8:	4c 8d 1d 11 0a 00 00 	leaq	2577(%rip), %r11
+1000016ff:	49 83 c3 10 	addq	$16, %r11
+100001703:	48 8b 1d 36 09 00 00 	movq	2358(%rip), %rbx
+10000170a:	48 83 c3 10 	addq	$16, %rbx
+10000170e:	48 89 bd c0 fd ff ff 	movq	%rdi, -576(%rbp)
+100001715:	48 89 b5 b8 fd ff ff 	movq	%rsi, -584(%rbp)
+10000171c:	48 8b b5 c0 fd ff ff 	movq	-576(%rbp), %rsi
+; ::new (__p) __func(__f_.first(), __f_.second());
+100001723:	48 8b bd b8 fd ff ff 	movq	-584(%rbp), %rdi
+10000172a:	49 89 f6 	movq	%rsi, %r14
+10000172d:	49 83 c6 08 	addq	$8, %r14
+100001731:	4c 89 b5 c8 fd ff ff 	movq	%r14, -568(%rbp)
+100001738:	4c 8b b5 c8 fd ff ff 	movq	-568(%rbp), %r14
+10000173f:	4c 89 b5 d0 fd ff ff 	movq	%r14, -560(%rbp)
+100001746:	4c 8b b5 d0 fd ff ff 	movq	-560(%rbp), %r14
+10000174d:	48 83 c6 08 	addq	$8, %rsi
+100001751:	48 89 75 e0 	movq	%rsi, -32(%rbp)
+100001755:	48 8b 75 e0 	movq	-32(%rbp), %rsi
+100001759:	48 89 75 e8 	movq	%rsi, -24(%rbp)
+10000175d:	48 8b 75 e8 	movq	-24(%rbp), %rsi
+100001761:	48 89 bd e8 fd ff ff 	movq	%rdi, -536(%rbp)
+100001768:	4c 89 b5 e0 fd ff ff 	movq	%r14, -544(%rbp)
+10000176f:	48 89 b5 d8 fd ff ff 	movq	%rsi, -552(%rbp)
+100001776:	48 8b b5 e8 fd ff ff 	movq	-536(%rbp), %rsi
+; _VSTD::forward_as_tuple(__a)) {}
+10000177d:	48 8b bd e0 fd ff ff 	movq	-544(%rbp), %rdi
+100001784:	4c 8b b5 d8 fd ff ff 	movq	-552(%rbp), %r14
+10000178b:	48 89 b5 20 fe ff ff 	movq	%rsi, -480(%rbp)
+100001792:	48 89 bd 18 fe ff ff 	movq	%rdi, -488(%rbp)
+100001799:	4c 89 b5 10 fe ff ff 	movq	%r14, -496(%rbp)
+1000017a0:	48 8b b5 20 fe ff ff 	movq	-480(%rbp), %rsi
+1000017a7:	48 89 f7 	movq	%rsi, %rdi
+1000017aa:	48 89 bd 28 fe ff ff 	movq	%rdi, -472(%rbp)
+1000017b1:	48 8b bd 28 fe ff ff 	movq	-472(%rbp), %rdi
+; _LIBCPP_INLINE_VISIBILITY __base() {}
+1000017b8:	48 89 1f 	movq	%rbx, (%rdi)
+; _VSTD::forward_as_tuple(__a)) {}
+1000017bb:	4c 89 1e 	movq	%r11, (%rsi)
+; : __f_(piecewise_construct, _VSTD::forward_as_tuple(__f),
+1000017be:	48 83 c6 08 	addq	$8, %rsi
+1000017c2:	48 8b bd 18 fe ff ff 	movq	-488(%rbp), %rdi
+1000017c9:	48 89 bd 68 ff ff ff 	movq	%rdi, -152(%rbp)
+; return tuple<_Tp&&...>(_VSTD::forward<_Tp>(__t)...);
+1000017d0:	48 8b bd 68 ff ff ff 	movq	-152(%rbp), %rdi
+1000017d7:	48 89 bd 78 ff ff ff 	movq	%rdi, -136(%rbp)
+; return static_cast<_Tp&&>(__t);
+1000017de:	48 8b bd 78 ff ff ff 	movq	-136(%rbp), %rdi
+1000017e5:	4c 89 55 88 	movq	%r10, -120(%rbp)
+1000017e9:	48 89 7d 80 	movq	%rdi, -128(%rbp)
+1000017ed:	48 8b 7d 88 	movq	-120(%rbp), %rdi
+; ) {}
+1000017f1:	4c 8b 55 80 	movq	-128(%rbp), %r10
+1000017f5:	48 89 7d 98 	movq	%rdi, -104(%rbp)
+1000017f9:	4c 89 55 90 	movq	%r10, -112(%rbp)
+1000017fd:	48 8b 7d 98 	movq	-104(%rbp), %rdi
+; __t...
+100001801:	4c 8b 55 90 	movq	-112(%rbp), %r10
+100001805:	48 89 7d a8 	movq	%rdi, -88(%rbp)
+100001809:	4c 89 55 a0 	movq	%r10, -96(%rbp)
+10000180d:	48 8b 7d a8 	movq	-88(%rbp), %rdi
+; {}
+100001811:	4c 8b 55 a0 	movq	-96(%rbp), %r10
+100001815:	48 89 7d b8 	movq	%rdi, -72(%rbp)
+100001819:	4c 89 55 b0 	movq	%r10, -80(%rbp)
+10000181d:	48 8b 7d b8 	movq	-72(%rbp), %rdi
+; __tuple_leaf<_Uf, _Tf>(_VSTD::forward<_Up>(__u))...,
+100001821:	4c 8b 55 b0 	movq	-80(%rbp), %r10
+100001825:	4c 89 55 c0 	movq	%r10, -64(%rbp)
+; return static_cast<_Tp&&>(__t);
+100001829:	4c 8b 55 c0 	movq	-64(%rbp), %r10
+10000182d:	48 89 7d d0 	movq	%rdi, -48(%rbp)
+100001831:	4c 89 55 c8 	movq	%r10, -56(%rbp)
+100001835:	48 8b 7d d0 	movq	-48(%rbp), %rdi
+; : __value_(_VSTD::forward<_Tp>(__t))
+100001839:	4c 8b 55 c8 	movq	-56(%rbp), %r10
+10000183d:	4c 89 55 d8 	movq	%r10, -40(%rbp)
+; return static_cast<_Tp&&>(__t);
+100001841:	4c 8b 55 d8 	movq	-40(%rbp), %r10
+; : __value_(_VSTD::forward<_Tp>(__t))
+100001845:	4c 89 17 	movq	%r10, (%rdi)
+; return tuple<_Tp&&...>(_VSTD::forward<_Tp>(__t)...);
+100001848:	48 8b bd 70 ff ff ff 	movq	-144(%rbp), %rdi
+; : __f_(piecewise_construct, _VSTD::forward_as_tuple(__f),
+10000184f:	48 89 bd 08 fe ff ff 	movq	%rdi, -504(%rbp)
+; _VSTD::forward_as_tuple(__a)) {}
+100001856:	48 8b bd 10 fe ff ff 	movq	-496(%rbp), %rdi
+10000185d:	48 89 bd f0 fe ff ff 	movq	%rdi, -272(%rbp)
+; return tuple<_Tp&&...>(_VSTD::forward<_Tp>(__t)...);
+100001864:	48 8b bd f0 fe ff ff 	movq	-272(%rbp), %rdi
+10000186b:	48 89 bd 00 ff ff ff 	movq	%rdi, -256(%rbp)
+; return static_cast<_Tp&&>(__t);
+100001872:	48 8b bd 00 ff ff ff 	movq	-256(%rbp), %rdi
+100001879:	4c 89 8d 10 ff ff ff 	movq	%r9, -240(%rbp)
+100001880:	48 89 bd 08 ff ff ff 	movq	%rdi, -248(%rbp)
+100001887:	48 8b bd 10 ff ff ff 	movq	-240(%rbp), %rdi
+; ) {}
+10000188e:	4c 8b 8d 08 ff ff ff 	movq	-248(%rbp), %r9
+100001895:	48 89 bd 20 ff ff ff 	movq	%rdi, -224(%rbp)
+10000189c:	4c 89 8d 18 ff ff ff 	movq	%r9, -232(%rbp)
+1000018a3:	48 8b bd 20 ff ff ff 	movq	-224(%rbp), %rdi
+; __t...
+1000018aa:	4c 8b 8d 18 ff ff ff 	movq	-232(%rbp), %r9
+1000018b1:	48 89 bd 30 ff ff ff 	movq	%rdi, -208(%rbp)
+1000018b8:	4c 89 8d 28 ff ff ff 	movq	%r9, -216(%rbp)
+1000018bf:	48 8b bd 30 ff ff ff 	movq	-208(%rbp), %rdi
+; {}
+1000018c6:	4c 8b 8d 28 ff ff ff 	movq	-216(%rbp), %r9
+1000018cd:	48 89 bd 40 ff ff ff 	movq	%rdi, -192(%rbp)
+1000018d4:	4c 89 8d 38 ff ff ff 	movq	%r9, -200(%rbp)
+1000018db:	48 8b bd 40 ff ff ff 	movq	-192(%rbp), %rdi
+; __tuple_leaf<_Uf, _Tf>(_VSTD::forward<_Up>(__u))...,
+1000018e2:	4c 8b 8d 38 ff ff ff 	movq	-200(%rbp), %r9
+1000018e9:	4c 89 8d 48 ff ff ff 	movq	%r9, -184(%rbp)
+; return static_cast<_Tp&&>(__t);
+1000018f0:	4c 8b 8d 48 ff ff ff 	movq	-184(%rbp), %r9
+1000018f7:	48 89 bd 58 ff ff ff 	movq	%rdi, -168(%rbp)
+1000018fe:	4c 89 8d 50 ff ff ff 	movq	%r9, -176(%rbp)
+100001905:	48 8b bd 58 ff ff ff 	movq	-168(%rbp), %rdi
+; : __value_(_VSTD::forward<_Tp>(__t))
+10000190c:	4c 8b 8d 50 ff ff ff 	movq	-176(%rbp), %r9
+100001913:	4c 89 8d 60 ff ff ff 	movq	%r9, -160(%rbp)
+; return static_cast<_Tp&&>(__t);
+10000191a:	4c 8b 8d 60 ff ff ff 	movq	-160(%rbp), %r9
+; : __value_(_VSTD::forward<_Tp>(__t))
+100001921:	4c 89 0f 	movq	%r9, (%rdi)
+; return tuple<_Tp&&...>(_VSTD::forward<_Tp>(__t)...);
+100001924:	48 8b bd f8 fe ff ff 	movq	-264(%rbp), %rdi
+; _VSTD::forward_as_tuple(__a)) {}
+10000192b:	48 89 bd 00 fe ff ff 	movq	%rdi, -512(%rbp)
+; : __f_(piecewise_construct, _VSTD::forward_as_tuple(__f),
+100001932:	48 8b bd 08 fe ff ff 	movq	-504(%rbp), %rdi
+100001939:	4c 8b 8d 00 fe ff ff 	movq	-512(%rbp), %r9
+100001940:	48 89 bd 40 fe ff ff 	movq	%rdi, -448(%rbp)
+100001947:	4c 89 8d 38 fe ff ff 	movq	%r9, -456(%rbp)
+10000194e:	48 89 b5 30 fe ff ff 	movq	%rsi, -464(%rbp)
+100001955:	48 8b b5 30 fe ff ff 	movq	-464(%rbp), %rsi
+; typename __make_tuple_indices<sizeof...(_Args2)>::type()) {}
+10000195c:	48 8b bd 40 fe ff ff 	movq	-448(%rbp), %rdi
+100001963:	4c 8b 8d 38 fe ff ff 	movq	-456(%rbp), %r9
+10000196a:	48 89 bd 88 fe ff ff 	movq	%rdi, -376(%rbp)
+100001971:	4c 89 8d 80 fe ff ff 	movq	%r9, -384(%rbp)
+100001978:	48 89 b5 78 fe ff ff 	movq	%rsi, -392(%rbp)
+10000197f:	48 8b b5 78 fe ff ff 	movq	-392(%rbp), %rsi
+100001986:	48 89 f7 	movq	%rsi, %rdi
+100001989:	4c 89 85 90 fe ff ff 	movq	%r8, -368(%rbp)
+; return static_cast<_Up&&>(__t);
+100001990:	4c 8b 85 90 fe ff ff 	movq	-368(%rbp), %r8
+; : _Base1(__pc, _VSTD::move(__first_args),
+100001997:	4d 8b 00 	movq	(%r8), %r8
+10000199a:	4c 89 85 70 fe ff ff 	movq	%r8, -400(%rbp)
+1000019a1:	4c 8b 85 70 fe ff ff 	movq	-400(%rbp), %r8
+1000019a8:	4c 89 85 d0 fe ff ff 	movq	%r8, -304(%rbp)
+1000019af:	48 89 bd c8 fe ff ff 	movq	%rdi, -312(%rbp)
+1000019b6:	48 89 95 d8 fe ff ff 	movq	%rdx, -296(%rbp)
+; return static_cast<__tuple_leaf<_Ip, type>&>(__t.__base_).get();
+1000019bd:	48 8b 95 d8 fe ff ff 	movq	-296(%rbp), %rdx
+1000019c4:	48 89 95 e0 fe ff ff 	movq	%rdx, -288(%rbp)
+1000019cb:	48 8b 95 e0 fe ff ff 	movq	-288(%rbp), %rdx
+; _LIBCPP_INLINE_VISIBILITY _LIBCPP_CONSTEXPR_AFTER_CXX11       _Hp& get()       _NOEXCEPT {return __value_;}
+1000019d2:	48 8b 12 	movq	(%rdx), %rdx
+1000019d5:	48 89 95 e8 fe ff ff 	movq	%rdx, -280(%rbp)
+1000019dc:	48 89 8d c0 fe ff ff 	movq	%rcx, -320(%rbp)
+; return static_cast<_Up&&>(__t);
+1000019e3:	48 8b 8d c0 fe ff ff 	movq	-320(%rbp), %rcx
+; _Base2(__pc, _VSTD::move(__second_args),
+1000019ea:	48 8b 09 	movq	(%rcx), %rcx
+1000019ed:	48 89 8d 58 fe ff ff 	movq	%rcx, -424(%rbp)
+1000019f4:	48 8b 8d 58 fe ff ff 	movq	-424(%rbp), %rcx
+1000019fb:	48 89 8d a0 fe ff ff 	movq	%rcx, -352(%rbp)
+100001a02:	48 89 b5 98 fe ff ff 	movq	%rsi, -360(%rbp)
+100001a09:	48 89 85 a8 fe ff ff 	movq	%rax, -344(%rbp)
+; return static_cast<__tuple_leaf<_Ip, type>&>(__t.__base_).get();
+100001a10:	48 8b 85 a8 fe ff ff 	movq	-344(%rbp), %rax
+100001a17:	48 89 85 b0 fe ff ff 	movq	%rax, -336(%rbp)
+100001a1e:	48 8b 85 b0 fe ff ff 	movq	-336(%rbp), %rax
+; _LIBCPP_INLINE_VISIBILITY _LIBCPP_CONSTEXPR_AFTER_CXX11       _Hp& get()       _NOEXCEPT {return __value_;}
+100001a25:	48 8b 00 	movq	(%rax), %rax
+100001a28:	48 89 85 b8 fe ff ff 	movq	%rax, -328(%rbp)
+; }
+100001a2f:	48 81 c4 b8 01 00 00 	addq	$440, %rsp
+100001a36:	5b 	popq	%rbx
+100001a37:	41 5e 	popq	%r14
+100001a39:	5d 	popq	%rbp
+100001a3a:	c3 	retq
+100001a3b:	0f 1f 44 00 00 	nopl	(%rax,%rax)
+; {
+100001a40:	55 	pushq	%rbp
+100001a41:	48 89 e5 	movq	%rsp, %rbp
+100001a44:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+; }
+100001a48:	5d 	popq	%rbp
+100001a49:	c3 	retq
+100001a4a:	66 0f 1f 44 00 00 	nopw	(%rax,%rax)
+; {
+100001a50:	55 	pushq	%rbp
+100001a51:	48 89 e5 	movq	%rsp, %rbp
+100001a54:	48 83 ec 60 	subq	$96, %rsp
+100001a58:	48 8d 45 a0 	leaq	-96(%rbp), %rax
+100001a5c:	48 89 7d a8 	movq	%rdi, -88(%rbp)
+100001a60:	48 8b 7d a8 	movq	-88(%rbp), %rdi
+; _Ap __a(__f_.second());
+100001a64:	48 89 f9 	movq	%rdi, %rcx
+100001a67:	48 83 c1 08 	addq	$8, %rcx
+100001a6b:	48 89 4d b0 	movq	%rcx, -80(%rbp)
+100001a6f:	48 8b 4d b0 	movq	-80(%rbp), %rcx
+100001a73:	48 89 4d b8 	movq	%rcx, -72(%rbp)
+100001a77:	48 8b 4d b8 	movq	-72(%rbp), %rcx
+100001a7b:	48 89 45 e8 	movq	%rax, -24(%rbp)
+100001a7f:	48 89 4d e0 	movq	%rcx, -32(%rbp)
+100001a83:	48 8b 4d e8 	movq	-24(%rbp), %rcx
+; template <class _Up> _LIBCPP_INLINE_VISIBILITY allocator(const allocator<_Up>&) _NOEXCEPT {}
+100001a87:	48 8b 55 e0 	movq	-32(%rbp), %rdx
+100001a8b:	48 89 4d f8 	movq	%rcx, -8(%rbp)
+100001a8f:	48 89 55 f0 	movq	%rdx, -16(%rbp)
+100001a93:	48 89 45 d0 	movq	%rax, -48(%rbp)
+100001a97:	48 89 7d c8 	movq	%rdi, -56(%rbp)
+100001a9b:	48 c7 45 c0 01 00 00 00 	movq	$1, -64(%rbp)
+; {_VSTD::__libcpp_deallocate((void*)__p);}
+100001aa3:	48 8b 45 c8 	movq	-56(%rbp), %rax
+100001aa7:	48 89 45 d8 	movq	%rax, -40(%rbp)
+; __builtin_operator_delete(__ptr);
+100001aab:	48 8b 7d d8 	movq	-40(%rbp), %rdi
+100001aaf:	e8 44 02 00 00 	callq	580
+; }
+100001ab4:	48 83 c4 60 	addq	$96, %rsp
+100001ab8:	5d 	popq	%rbp
+100001ab9:	c3 	retq
+100001aba:	66 0f 1f 44 00 00 	nopw	(%rax,%rax)
+; {
+100001ac0:	55 	pushq	%rbp
+100001ac1:	48 89 e5 	movq	%rsp, %rbp
+100001ac4:	48 83 ec 20 	subq	$32, %rsp
+100001ac8:	48 89 7d e8 	movq	%rdi, -24(%rbp)
+100001acc:	48 8b 7d e8 	movq	-24(%rbp), %rdi
+; return _Invoker::__call(__f_.first(), _VSTD::forward<_ArgTypes>(__arg)...);
+100001ad0:	48 83 c7 08 	addq	$8, %rdi
+100001ad4:	48 89 7d f0 	movq	%rdi, -16(%rbp)
+100001ad8:	48 8b 7d f0 	movq	-16(%rbp), %rdi
+100001adc:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+100001ae0:	48 8b 7d f8 	movq	-8(%rbp), %rdi
+100001ae4:	e8 e7 00 00 00 	callq	231 <__ZNSt3__128__invoke_void_return_wrapperIiE6__callIJRZ4mainE3$_0EEEiDpOT_>
+100001ae9:	48 83 c4 20 	addq	$32, %rsp
+100001aed:	5d 	popq	%rbp
+100001aee:	c3 	retq
+100001aef:	90 	nop
+; {
+100001af0:	55 	pushq	%rbp
+100001af1:	48 89 e5 	movq	%rsp, %rbp
+100001af4:	48 8d 05 8d 06 00 00 	leaq	1677(%rip), %rax
+100001afb:	48 89 7d d0 	movq	%rdi, -48(%rbp)
+100001aff:	48 89 75 c8 	movq	%rsi, -56(%rbp)
+100001b03:	48 8b 75 d0 	movq	-48(%rbp), %rsi
+; if (__ti == typeid(_Fp))
+100001b07:	48 8b 7d c8 	movq	-56(%rbp), %rdi
+100001b0b:	48 89 7d e8 	movq	%rdi, -24(%rbp)
+100001b0f:	48 89 45 e0 	movq	%rax, -32(%rbp)
+100001b13:	48 8b 45 e8 	movq	-24(%rbp), %rax
+; { return __type_name == __arg.__type_name; }
+100001b17:	48 8b 40 08 	movq	8(%rax), %rax
+100001b1b:	48 8b 7d e0 	movq	-32(%rbp), %rdi
+100001b1f:	48 3b 47 08 	cmpq	8(%rdi), %rax
+; if (__ti == typeid(_Fp))
+100001b23:	48 89 75 c0 	movq	%rsi, -64(%rbp)
+100001b27:	0f 85 21 00 00 00 	jne	33 <__ZNKSt3__110__function6__funcIZ4mainE3$_0NS_9allocatorIS2_EEFivEE6targetERKSt9type_info+0x5e>
+; return &__f_.first();
+100001b2d:	48 8b 45 c0 	movq	-64(%rbp), %rax
+100001b31:	48 83 c0 08 	addq	$8, %rax
+100001b35:	48 89 45 f0 	movq	%rax, -16(%rbp)
+100001b39:	48 8b 45 f0 	movq	-16(%rbp), %rax
+100001b3d:	48 89 45 f8 	movq	%rax, -8(%rbp)
+100001b41:	48 8b 45 f8 	movq	-8(%rbp), %rax
+100001b45:	48 89 45 d8 	movq	%rax, -40(%rbp)
+100001b49:	e9 08 00 00 00 	jmp	8 <__ZNKSt3__110__function6__funcIZ4mainE3$_0NS_9allocatorIS2_EEFivEE6targetERKSt9type_info+0x66>
+; return (const void*)0;
+100001b4e:	48 c7 45 d8 00 00 00 00 	movq	$0, -40(%rbp)
+; }
+100001b56:	48 8b 45 d8 	movq	-40(%rbp), %rax
+100001b5a:	5d 	popq	%rbp
+100001b5b:	c3 	retq
+100001b5c:	0f 1f 40 00 	nopl	(%rax)
+; {
+100001b60:	55 	pushq	%rbp
+100001b61:	48 89 e5 	movq	%rsp, %rbp
+100001b64:	48 8d 05 1d 06 00 00 	leaq	1565(%rip), %rax
+100001b6b:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+; return typeid(_Fp);
+100001b6f:	5d 	popq	%rbp
+100001b70:	c3 	retq
+100001b71:	66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+100001b7b:	0f 1f 44 00 00 	nopl	(%rax,%rax)
+; _LIBCPP_INLINE_VISIBILITY virtual ~__base() {}
+100001b80:	55 	pushq	%rbp
+100001b81:	48 89 e5 	movq	%rsp, %rbp
+100001b84:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+100001b88:	0f 0b 	ud2
+100001b8a:	66 0f 1f 44 00 00 	nopw	(%rax,%rax)
+100001b90:	55 	pushq	%rbp
+100001b91:	48 89 e5 	movq	%rsp, %rbp
+100001b94:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+100001b98:	0f 0b 	ud2
+100001b9a:	66 0f 1f 44 00 00 	nopw	(%rax,%rax)
+; template<class _FD, class _Alloc, class _FB> class __func;
+100001ba0:	55 	pushq	%rbp
+100001ba1:	48 89 e5 	movq	%rsp, %rbp
+100001ba4:	48 89 7d f0 	movq	%rdi, -16(%rbp)
+100001ba8:	48 8b 7d f0 	movq	-16(%rbp), %rdi
+100001bac:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+100001bb0:	5d 	popq	%rbp
+100001bb1:	c3 	retq
+100001bb2:	66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+100001bbc:	0f 1f 40 00 	nopl	(%rax)
+100001bc0:	50 	pushq	%rax
+100001bc1:	e8 44 01 00 00 	callq	324
+100001bc6:	48 89 04 24 	movq	%rax, (%rsp)
+100001bca:	e8 23 01 00 00 	callq	291
+100001bcf:	90 	nop
+; static _Ret __call(_Args&&... __args) {
+100001bd0:	55 	pushq	%rbp
+100001bd1:	48 89 e5 	movq	%rsp, %rbp
+100001bd4:	48 83 ec 20 	subq	$32, %rsp
+100001bd8:	48 89 7d e0 	movq	%rdi, -32(%rbp)
+; return __invoke(_VSTD::forward<_Args>(__args)...);
+100001bdc:	48 8b 7d e0 	movq	-32(%rbp), %rdi
+100001be0:	48 89 7d e8 	movq	%rdi, -24(%rbp)
+; return static_cast<_Tp&&>(__t);
+100001be4:	48 8b 7d e8 	movq	-24(%rbp), %rdi
+100001be8:	48 89 7d f0 	movq	%rdi, -16(%rbp)
+; _LIBCPP_INVOKE_RETURN(_VSTD::forward<_Fp>(__f)(_VSTD::forward<_Args>(__args)...))
+100001bec:	48 8b 7d f0 	movq	-16(%rbp), %rdi
+100001bf0:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+; return static_cast<_Tp&&>(__t);
+100001bf4:	48 8b 7d f8 	movq	-8(%rbp), %rdi
+; _LIBCPP_INVOKE_RETURN(_VSTD::forward<_Fp>(__f)(_VSTD::forward<_Args>(__args)...))
+100001bf8:	e8 13 00 00 00 	callq	19 <__ZZ4mainENK3$_0clEv>
+; return __invoke(_VSTD::forward<_Args>(__args)...);
+100001bfd:	48 83 c4 20 	addq	$32, %rsp
+100001c01:	5d 	popq	%rbp
+100001c02:	c3 	retq
+100001c03:	66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+100001c0d:	0f 1f 00 	nopl	(%rax)
+; test_lambda([]() {
+100001c10:	55 	pushq	%rbp
+100001c11:	48 89 e5 	movq	%rsp, %rbp
+100001c14:	48 83 ec 10 	subq	$16, %rsp
+100001c18:	48 8d 05 e3 02 00 00 	leaq	739(%rip), %rax
+100001c1f:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+; printf("%p\n", __builtin_return_address(0));
+100001c23:	48 8b 75 08 	movq	8(%rbp), %rsi
+100001c27:	48 89 c7 	movq	%rax, %rdi
+100001c2a:	b0 00 	movb	$0, %al
+100001c2c:	e8 f7 00 00 00 	callq	247
+100001c31:	b9 05 00 00 00 	movl	$5, %ecx
+; int i = 5;
+100001c36:	c7 45 f4 05 00 00 00 	movl	$5, -12(%rbp)
+; return 5;
+100001c3d:	89 45 f0 	movl	%eax, -16(%rbp)
+100001c40:	89 c8 	movl	%ecx, %eax
+100001c42:	48 83 c4 10 	addq	$16, %rsp
+100001c46:	5d 	popq	%rbp
+100001c47:	c3 	retq
+100001c48:	0f 1f 84 00 00 00 00 00 	nopl	(%rax,%rax)
+; {
+100001c50:	55 	pushq	%rbp
+100001c51:	48 89 e5 	movq	%rsp, %rbp
+100001c54:	48 83 ec 10 	subq	$16, %rsp
+100001c58:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+100001c5c:	48 8b 7d f8 	movq	-8(%rbp), %rdi
+; if ((void *)__f_ == &__buf_)
+100001c60:	48 8b 47 20 	movq	32(%rdi), %rax
+100001c64:	48 89 f9 	movq	%rdi, %rcx
+100001c67:	48 39 c8 	cmpq	%rcx, %rax
+100001c6a:	48 89 7d f0 	movq	%rdi, -16(%rbp)
+100001c6e:	0f 85 16 00 00 00 	jne	22 <__ZNSt3__18functionIFivEED2Ev+0x3a>
+; __f_->destroy();
+100001c74:	48 8b 45 f0 	movq	-16(%rbp), %rax
+100001c78:	48 8b 48 20 	movq	32(%rax), %rcx
+100001c7c:	48 8b 11 	movq	(%rcx), %rdx
+100001c7f:	48 89 cf 	movq	%rcx, %rdi
+100001c82:	ff 52 20 	callq	*32(%rdx)
+100001c85:	e9 25 00 00 00 	jmp	37 <__ZNSt3__18functionIFivEED2Ev+0x5f>
+; else if (__f_)
+100001c8a:	48 8b 45 f0 	movq	-16(%rbp), %rax
+100001c8e:	48 83 78 20 00 	cmpq	$0, 32(%rax)
+100001c93:	0f 84 11 00 00 00 	je	17 <__ZNSt3__18functionIFivEED2Ev+0x5a>
+; __f_->destroy_deallocate();
+100001c99:	48 8b 45 f0 	movq	-16(%rbp), %rax
+100001c9d:	48 8b 48 20 	movq	32(%rax), %rcx
+100001ca1:	48 8b 11 	movq	(%rcx), %rdx
+100001ca4:	48 89 cf 	movq	%rcx, %rdi
+100001ca7:	ff 52 28 	callq	*40(%rdx)
+100001caa:	e9 00 00 00 00 	jmp	0 <__ZNSt3__18functionIFivEED2Ev+0x5f>
+; }
+100001caf:	48 83 c4 10 	addq	$16, %rsp
+100001cb3:	5d 	popq	%rbp
+100001cb4:	c3 	retq
+
+__Z11test_lambdaNSt3__18functionIFivEEE:
+; void test_lambda(std::function<int()> lambda) {
+100000750:	55 	pushq	%rbp
+100000751:	48 89 e5 	movq	%rsp, %rbp
+100000754:	48 83 ec 20 	subq	$32, %rsp
+; int i = lambda();
+100000758:	e8 65 15 00 00 	callq	5477
+10000075d:	48 8b 3d bc 18 00 00 	movq	6332(%rip), %rdi
+100000764:	89 45 ec 	movl	%eax, -20(%rbp)
+; std::cout << i << std::endl;
+100000767:	8b 75 ec 	movl	-20(%rbp), %esi
+10000076a:	e8 71 15 00 00 	callq	5489
+10000076f:	48 8d 3d aa 00 00 00 	leaq	170(%rip), %rdi
+100000776:	48 89 45 f8 	movq	%rax, -8(%rbp)
+10000077a:	48 89 7d f0 	movq	%rdi, -16(%rbp)
+10000077e:	48 8b 7d f8 	movq	-8(%rbp), %rdi
+; { return __pf(*this); }
+100000782:	ff 55 f0 	callq	*-16(%rbp)
+; }
+100000785:	48 89 45 e0 	movq	%rax, -32(%rbp)
+100000789:	48 83 c4 20 	addq	$32, %rsp
+10000078d:	5d 	popq	%rbp
+10000078e:	c3 	retq
+10000078f:	90 	nop
+
+__ZNKSt3__18functionIFivEEclEv:
+; {
+100000790:	55 	pushq	%rbp
+100000791:	48 89 e5 	movq	%rsp, %rbp
+100000794:	48 83 ec 20 	subq	$32, %rsp
+100000798:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+10000079c:	48 8b 7d f8 	movq	-8(%rbp), %rdi
+; if (__f_ == 0)
+1000007a0:	48 83 7f 20 00 	cmpq	$0, 32(%rdi)
+1000007a5:	48 89 7d f0 	movq	%rdi, -16(%rbp)
+1000007a9:	0f 85 4b 00 00 00 	jne	75 <__ZNKSt3__18functionIFivEEclEv+0x6a>
+1000007af:	b8 08 00 00 00 	movl	$8, %eax
+1000007b4:	89 c7 	movl	%eax, %edi
+; throw bad_function_call();
+1000007b6:	e8 49 15 00 00 	callq	5449
+1000007bb:	31 f6 	xorl	%esi, %esi
+1000007bd:	b9 08 00 00 00 	movl	$8, %ecx
+1000007c2:	89 ca 	movl	%ecx, %edx
+1000007c4:	48 89 c7 	movq	%rax, %rdi
+1000007c7:	48 89 7d e8 	movq	%rdi, -24(%rbp)
+1000007cb:	48 89 c7 	movq	%rax, %rdi
+1000007ce:	48 89 45 e0 	movq	%rax, -32(%rbp)
+1000007d2:	e8 4b 15 00 00 	callq	5451
+1000007d7:	48 8b 7d e8 	movq	-24(%rbp), %rdi
+1000007db:	e8 10 02 00 00 	callq	528 <__ZNSt3__117bad_function_callC1Ev>
+1000007e0:	48 8b 05 49 18 00 00 	movq	6217(%rip), %rax
+1000007e7:	48 8b 15 2a 18 00 00 	movq	6186(%rip), %rdx
+1000007ee:	48 8b 7d e0 	movq	-32(%rbp), %rdi
+1000007f2:	48 89 c6 	movq	%rax, %rsi
+1000007f5:	e8 1c 15 00 00 	callq	5404
+; return (*__f_)(_VSTD::forward<_ArgTypes>(__arg)...);
+1000007fa:	48 8b 45 f0 	movq	-16(%rbp), %rax
+1000007fe:	48 8b 48 20 	movq	32(%rax), %rcx
+100000802:	48 8b 11 	movq	(%rcx), %rdx
+100000805:	48 89 cf 	movq	%rcx, %rdi
+100000808:	ff 52 30 	callq	*48(%rdx)
+10000080b:	48 83 c4 20 	addq	$32, %rsp
+10000080f:	5d 	popq	%rbp
+100000810:	c3 	retq
+100000811:	66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+10000081b:	0f 1f 44 00 00 	nopl	(%rax,%rax)
+
+__ZNSt3__14endlIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_:
+; {
+100000820:	55 	pushq	%rbp
+100000821:	48 89 e5 	movq	%rsp, %rbp
+100000824:	48 81 ec 90 00 00 00 	subq	$144, %rsp
+10000082b:	48 89 7d b8 	movq	%rdi, -72(%rbp)
+; __os.put(__os.widen('\n'));
+10000082f:	48 8b 7d b8 	movq	-72(%rbp), %rdi
+100000833:	48 8b 07 	movq	(%rdi), %rax
+100000836:	48 8b 40 e8 	movq	-24(%rax), %rax
+10000083a:	48 89 f9 	movq	%rdi, %rcx
+10000083d:	48 01 c1 	addq	%rax, %rcx
+100000840:	48 89 4d e0 	movq	%rcx, -32(%rbp)
+100000844:	c6 45 df 0a 	movb	$10, -33(%rbp)
+100000848:	48 8b 75 e0 	movq	-32(%rbp), %rsi
+10000084c:	48 8d 45 d0 	leaq	-48(%rbp), %rax
+; return use_facet<ctype<char_type> >(getloc()).widen(__c);
+100000850:	48 89 7d b0 	movq	%rdi, -80(%rbp)
+100000854:	48 89 c7 	movq	%rax, %rdi
+100000857:	48 89 45 a8 	movq	%rax, -88(%rbp)
+10000085b:	e8 68 14 00 00 	callq	5224
+100000860:	48 8b 45 a8 	movq	-88(%rbp), %rax
+100000864:	48 89 45 e8 	movq	%rax, -24(%rbp)
+; return static_cast<const _Facet&>(*__l.use_facet(_Facet::id));
+100000868:	48 8b 7d e8 	movq	-24(%rbp), %rdi
+10000086c:	48 8b 35 b5 17 00 00 	movq	6069(%rip), %rsi
+100000873:	e8 44 14 00 00 	callq	5188
+100000878:	48 89 45 a0 	movq	%rax, -96(%rbp)
+10000087c:	e9 00 00 00 00 	jmp	0 <__ZNSt3__14endlIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_+0x61>
+; return use_facet<ctype<char_type> >(getloc()).widen(__c);
+100000881:	8a 45 df 	movb	-33(%rbp), %al
+100000884:	48 8b 4d a0 	movq	-96(%rbp), %rcx
+100000888:	48 89 4d f8 	movq	%rcx, -8(%rbp)
+10000088c:	88 45 f7 	movb	%al, -9(%rbp)
+10000088f:	48 8b 55 f8 	movq	-8(%rbp), %rdx
+; return do_widen(__c);
+100000893:	48 8b 32 	movq	(%rdx), %rsi
+100000896:	48 8b 76 38 	movq	56(%rsi), %rsi
+10000089a:	0f be 7d f7 	movsbl	-9(%rbp), %edi
+10000089e:	89 7d 9c 	movl	%edi, -100(%rbp)
+1000008a1:	48 89 d7 	movq	%rdx, %rdi
+1000008a4:	44 8b 45 9c 	movl	-100(%rbp), %r8d
+1000008a8:	48 89 75 90 	movq	%rsi, -112(%rbp)
+1000008ac:	44 89 c6 	movl	%r8d, %esi
+1000008af:	48 8b 55 90 	movq	-112(%rbp), %rdx
+1000008b3:	ff d2 	callq	*%rdx
+1000008b5:	88 45 8f 	movb	%al, -113(%rbp)
+1000008b8:	e9 1b 00 00 00 	jmp	27 <__ZNSt3__14endlIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_+0xb8>
+1000008bd:	48 8d 7d d0 	leaq	-48(%rbp), %rdi
+; }
+1000008c1:	89 d1 	movl	%edx, %ecx
+1000008c3:	48 89 45 c8 	movq	%rax, -56(%rbp)
+1000008c7:	89 4d c4 	movl	%ecx, -60(%rbp)
+; return use_facet<ctype<char_type> >(getloc()).widen(__c);
+1000008ca:	e8 17 14 00 00 	callq	5143
+1000008cf:	48 8b 7d c8 	movq	-56(%rbp), %rdi
+1000008d3:	e8 de 13 00 00 	callq	5086
+1000008d8:	48 8d 7d d0 	leaq	-48(%rbp), %rdi
+1000008dc:	e8 05 14 00 00 	callq	5125
+; __os.put(__os.widen('\n'));
+1000008e1:	48 8b 7d b0 	movq	-80(%rbp), %rdi
+1000008e5:	8a 45 8f 	movb	-113(%rbp), %al
+1000008e8:	0f be f0 	movsbl	%al, %esi
+1000008eb:	e8 e4 13 00 00 	callq	5092
+; __os.flush();
+1000008f0:	48 8b 7d b8 	movq	-72(%rbp), %rdi
+1000008f4:	48 89 45 80 	movq	%rax, -128(%rbp)
+1000008f8:	e8 dd 13 00 00 	callq	5085
+; return __os;
+1000008fd:	48 8b 7d b8 	movq	-72(%rbp), %rdi
+100000901:	48 89 85 78 ff ff ff 	movq	%rax, -136(%rbp)
+100000908:	48 89 f8 	movq	%rdi, %rax
+10000090b:	48 81 c4 90 00 00 00 	addq	$144, %rsp
+100000912:	5d 	popq	%rbp
+100000913:	c3 	retq
+100000914:	66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+10000091e:	66 90 	nop
+
+_main:
+; int main() {
+100000920:	55 	pushq	%rbp
+100000921:	48 89 e5 	movq	%rsp, %rbp
+100000924:	48 83 ec 60 	subq	$96, %rsp
+100000928:	48 8b 05 39 17 00 00 	movq	5945(%rip), %rax
+10000092f:	48 8b 00 	movq	(%rax), %rax
+100000932:	48 89 45 f8 	movq	%rax, -8(%rbp)
+100000936:	c7 45 bc 00 00 00 00 	movl	$0, -68(%rbp)
+10000093d:	48 8d 45 c0 	leaq	-64(%rbp), %rax
+; test_lambda([]() {
+100000941:	48 89 c7 	movq	%rax, %rdi
+100000944:	48 89 45 a0 	movq	%rax, -96(%rbp)
+100000948:	e8 63 00 00 00 	callq	99 <__ZNSt3__18functionIFivEEC1IZ4mainE3$_0vEET_>
+10000094d:	48 8b 7d a0 	movq	-96(%rbp), %rdi
+100000951:	e8 fa fd ff ff 	callq	-518 <__Z11test_lambdaNSt3__18functionIFivEEE>
+100000956:	e9 00 00 00 00 	jmp	0 <_main+0x3b>
+10000095b:	48 8d 7d c0 	leaq	-64(%rbp), %rdi
+10000095f:	e8 6c 00 00 00 	callq	108 <__ZNSt3__18functionIFivEED1Ev>
+100000964:	48 8b 3d fd 16 00 00 	movq	5885(%rip), %rdi
+10000096b:	48 8b 3f 	movq	(%rdi), %rdi
+10000096e:	48 8b 45 f8 	movq	-8(%rbp), %rax
+100000972:	48 39 c7 	cmpq	%rax, %rdi
+100000975:	0f 85 23 00 00 00 	jne	35 <_main+0x7e>
+10000097b:	31 c0 	xorl	%eax, %eax
+; return 0;
+10000097d:	48 83 c4 60 	addq	$96, %rsp
+100000981:	5d 	popq	%rbp
+100000982:	c3 	retq
+100000983:	48 8d 7d c0 	leaq	-64(%rbp), %rdi
+; }
+100000987:	89 d1 	movl	%edx, %ecx
+100000989:	48 89 45 b0 	movq	%rax, -80(%rbp)
+10000098d:	89 4d ac 	movl	%ecx, -84(%rbp)
+; test_lambda([]() {
+100000990:	e8 3b 00 00 00 	callq	59 <__ZNSt3__18functionIFivEED1Ev>
+100000995:	48 8b 7d b0 	movq	-80(%rbp), %rdi
+100000999:	e8 18 13 00 00 	callq	4888
+10000099e:	e8 79 13 00 00 	callq	4985
+1000009a3:	66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+1000009ad:	0f 1f 00 	nopl	(%rax)
+
+__ZNSt3__18functionIFivEEC1IZ4mainE3$_0vEET_:
+; {
+1000009b0:	55 	pushq	%rbp
+1000009b1:	48 89 e5 	movq	%rsp, %rbp
+1000009b4:	48 83 ec 10 	subq	$16, %rsp
+1000009b8:	48 89 7d f0 	movq	%rdi, -16(%rbp)
+1000009bc:	48 8b 7d f0 	movq	-16(%rbp), %rdi
+1000009c0:	e8 fb 00 00 00 	callq	251 <__ZNSt3__18functionIFivEEC2IZ4mainE3$_0vEET_>
+; }
+1000009c5:	48 83 c4 10 	addq	$16, %rsp
+1000009c9:	5d 	popq	%rbp
+1000009ca:	c3 	retq
+1000009cb:	0f 1f 44 00 00 	nopl	(%rax,%rax)
+
+__ZNSt3__18functionIFivEED1Ev:
+; {
+1000009d0:	55 	pushq	%rbp
+1000009d1:	48 89 e5 	movq	%rsp, %rbp
+1000009d4:	48 83 ec 10 	subq	$16, %rsp
+1000009d8:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+1000009dc:	48 8b 7d f8 	movq	-8(%rbp), %rdi
+1000009e0:	e8 6b 12 00 00 	callq	4715 <__ZNSt3__18functionIFivEED2Ev>
+; }
+1000009e5:	48 83 c4 10 	addq	$16, %rsp
+1000009e9:	5d 	popq	%rbp
+1000009ea:	c3 	retq
+1000009eb:	0f 1f 44 00 00 	nopl	(%rax,%rax)
+
+__ZNSt3__117bad_function_callC1Ev:
+; class _LIBCPP_EXCEPTION_ABI bad_function_call
+1000009f0:	55 	pushq	%rbp
+1000009f1:	48 89 e5 	movq	%rsp, %rbp
+1000009f4:	48 83 ec 10 	subq	$16, %rsp
+1000009f8:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+1000009fc:	48 8b 7d f8 	movq	-8(%rbp), %rdi
+100000a00:	e8 2b 00 00 00 	callq	43 <__ZNSt3__117bad_function_callC2Ev>
+100000a05:	48 83 c4 10 	addq	$16, %rsp
+100000a09:	5d 	popq	%rbp
+100000a0a:	c3 	retq
+100000a0b:	0f 1f 44 00 00 	nopl	(%rax,%rax)
+
+__ZNSt3__117bad_function_callD1Ev:
+100000a10:	55 	pushq	%rbp
+100000a11:	48 89 e5 	movq	%rsp, %rbp
+100000a14:	48 83 ec 10 	subq	$16, %rsp
+100000a18:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+100000a1c:	48 8b 7d f8 	movq	-8(%rbp), %rdi
+100000a20:	e8 7b 00 00 00 	callq	123 <__ZNSt3__117bad_function_callD2Ev>
+100000a25:	48 83 c4 10 	addq	$16, %rsp
+100000a29:	5d 	popq	%rbp
+100000a2a:	c3 	retq
+100000a2b:	0f 1f 44 00 00 	nopl	(%rax,%rax)
+
+__ZNSt3__117bad_function_callC2Ev:
+100000a30:	55 	pushq	%rbp
+100000a31:	48 89 e5 	movq	%rsp, %rbp
+100000a34:	48 8b 05 0d 16 00 00 	movq	5645(%rip), %rax
+100000a3b:	48 83 c0 10 	addq	$16, %rax
+100000a3f:	48 8b 0d 12 16 00 00 	movq	5650(%rip), %rcx
+100000a46:	48 83 c1 10 	addq	$16, %rcx
+100000a4a:	48 89 7d f0 	movq	%rdi, -16(%rbp)
+100000a4e:	48 8b 7d f0 	movq	-16(%rbp), %rdi
+100000a52:	48 89 fa 	movq	%rdi, %rdx
+100000a55:	48 89 55 f8 	movq	%rdx, -8(%rbp)
+100000a59:	48 8b 55 f8 	movq	-8(%rbp), %rdx
+; _LIBCPP_INLINE_VISIBILITY exception() _NOEXCEPT {}
+100000a5d:	48 89 0a 	movq	%rcx, (%rdx)
+; class _LIBCPP_EXCEPTION_ABI bad_function_call
+100000a60:	48 89 07 	movq	%rax, (%rdi)
+100000a63:	5d 	popq	%rbp
+100000a64:	c3 	retq
+100000a65:	66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+100000a6f:	90 	nop
+
+__ZNSt3__117bad_function_callD0Ev:
+100000a70:	55 	pushq	%rbp
+100000a71:	48 89 e5 	movq	%rsp, %rbp
+100000a74:	48 83 ec 10 	subq	$16, %rsp
+100000a78:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+100000a7c:	48 8b 7d f8 	movq	-8(%rbp), %rdi
+100000a80:	48 89 7d f0 	movq	%rdi, -16(%rbp)
+100000a84:	e8 87 ff ff ff 	callq	-121 <__ZNSt3__117bad_function_callD1Ev>
+100000a89:	48 8b 7d f0 	movq	-16(%rbp), %rdi
+100000a8d:	e8 66 12 00 00 	callq	4710
+100000a92:	48 83 c4 10 	addq	$16, %rsp
+100000a96:	5d 	popq	%rbp
+100000a97:	c3 	retq
+100000a98:	0f 1f 84 00 00 00 00 00 	nopl	(%rax,%rax)
+
+__ZNSt3__117bad_function_callD2Ev:
+100000aa0:	55 	pushq	%rbp
+100000aa1:	48 89 e5 	movq	%rsp, %rbp
+100000aa4:	48 83 ec 10 	subq	$16, %rsp
+100000aa8:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+100000aac:	48 8b 7d f8 	movq	-8(%rbp), %rdi
+100000ab0:	e8 37 12 00 00 	callq	4663
+100000ab5:	48 83 c4 10 	addq	$16, %rsp
+100000ab9:	5d 	popq	%rbp
+100000aba:	c3 	retq
+100000abb:	0f 1f 44 00 00 	nopl	(%rax,%rax)
+
+__ZNSt3__18functionIFivEEC2IZ4mainE3$_0vEET_:
+; {
+100000ac0:	55 	pushq	%rbp
+100000ac1:	48 89 e5 	movq	%rsp, %rbp
+100000ac4:	53 	pushq	%rbx
+100000ac5:	48 81 ec 38 01 00 00 	subq	$312, %rsp
+100000acc:	b0 01 	movb	$1, %al
+100000ace:	48 8d 8d 50 fe ff ff 	leaq	-432(%rbp), %rcx
+100000ad5:	48 89 bd 48 fe ff ff 	movq	%rdi, -440(%rbp)
+100000adc:	48 8b bd 48 fe ff ff 	movq	-440(%rbp), %rdi
+; : __f_(0)
+100000ae3:	48 c7 47 20 00 00 00 00 	movq	$0, 32(%rdi)
+100000aeb:	48 89 8d 58 fe ff ff 	movq	%rcx, -424(%rbp)
+; if (__function::__not_null(__f))
+100000af2:	a8 01 	testb	$1, %al
+100000af4:	48 89 bd 40 fe ff ff 	movq	%rdi, -448(%rbp)
+100000afb:	0f 85 05 00 00 00 	jne	5 <__ZNSt3__18functionIFivEEC2IZ4mainE3$_0vEET_+0x46>
+100000b01:	e9 09 02 00 00 	jmp	521 <__ZNSt3__18functionIFivEEC2IZ4mainE3$_0vEET_+0x24f>
+100000b06:	48 8d 85 f8 fe ff ff 	leaq	-264(%rbp), %rax
+100000b0d:	48 8d 8d 30 ff ff ff 	leaq	-208(%rbp), %rcx
+100000b14:	48 8d 95 00 ff ff ff 	leaq	-256(%rbp), %rdx
+100000b1b:	48 8d b5 50 ff ff ff 	leaq	-176(%rbp), %rsi
+100000b22:	48 8d bd 70 ff ff ff 	leaq	-144(%rbp), %rdi
+100000b29:	4c 8d 05 e0 15 00 00 	leaq	5600(%rip), %r8
+100000b30:	49 83 c0 10 	addq	$16, %r8
+100000b34:	4c 8b 0d 05 15 00 00 	movq	5381(%rip), %r9
+100000b3b:	49 83 c1 10 	addq	$16, %r9
+100000b3f:	4c 8d 95 50 fe ff ff 	leaq	-432(%rbp), %r10
+; __f_ = ::new((void*)&__buf_) _FF(_VSTD::move(__f));
+100000b46:	4c 8b 9d 40 fe ff ff 	movq	-448(%rbp), %r11
+100000b4d:	4c 89 55 f0 	movq	%r10, -16(%rbp)
+; return static_cast<_Up&&>(__t);
+100000b51:	4c 8b 55 f0 	movq	-16(%rbp), %r10
+100000b55:	4c 89 9d 68 fe ff ff 	movq	%r11, -408(%rbp)
+100000b5c:	4c 89 95 60 fe ff ff 	movq	%r10, -416(%rbp)
+100000b63:	4c 8b 95 68 fe ff ff 	movq	-408(%rbp), %r10
+; _VSTD::forward_as_tuple()) {}
+100000b6a:	48 8b 9d 60 fe ff ff 	movq	-416(%rbp), %rbx
+100000b71:	4c 89 95 a0 fe ff ff 	movq	%r10, -352(%rbp)
+100000b78:	48 89 9d 98 fe ff ff 	movq	%rbx, -360(%rbp)
+100000b7f:	4c 8b 95 a0 fe ff ff 	movq	-352(%rbp), %r10
+100000b86:	4c 89 d3 	movq	%r10, %rbx
+100000b89:	48 89 9d a8 fe ff ff 	movq	%rbx, -344(%rbp)
+100000b90:	48 8b 9d a8 fe ff ff 	movq	-344(%rbp), %rbx
+; _LIBCPP_INLINE_VISIBILITY __base() {}
+100000b97:	4c 89 0b 	movq	%r9, (%rbx)
+; _VSTD::forward_as_tuple()) {}
+100000b9a:	4d 89 02 	movq	%r8, (%r10)
+; : __f_(piecewise_construct, _VSTD::forward_as_tuple(_VSTD::move(__f)),
+100000b9d:	49 83 c2 08 	addq	$8, %r10
+100000ba1:	4c 8b 85 98 fe ff ff 	movq	-360(%rbp), %r8
+100000ba8:	4c 89 45 e8 	movq	%r8, -24(%rbp)
+; return static_cast<_Up&&>(__t);
+100000bac:	4c 8b 45 e8 	movq	-24(%rbp), %r8
+100000bb0:	4c 89 85 68 ff ff ff 	movq	%r8, -152(%rbp)
+; return tuple<_Tp&&...>(_VSTD::forward<_Tp>(__t)...);
+100000bb7:	4c 8b 85 68 ff ff ff 	movq	-152(%rbp), %r8
+100000bbe:	4c 89 85 78 ff ff ff 	movq	%r8, -136(%rbp)
+; return static_cast<_Tp&&>(__t);
+100000bc5:	4c 8b 85 78 ff ff ff 	movq	-136(%rbp), %r8
+100000bcc:	48 89 7d 88 	movq	%rdi, -120(%rbp)
+100000bd0:	4c 89 45 80 	movq	%r8, -128(%rbp)
+100000bd4:	48 8b 7d 88 	movq	-120(%rbp), %rdi
+; _VSTD::forward<_Up>(__u)...) {}
+100000bd8:	4c 8b 45 80 	movq	-128(%rbp), %r8
+100000bdc:	48 89 7d 98 	movq	%rdi, -104(%rbp)
+100000be0:	4c 89 45 90 	movq	%r8, -112(%rbp)
+100000be4:	48 8b 7d 98 	movq	-104(%rbp), %rdi
+100000be8:	4c 8b 45 90 	movq	-112(%rbp), %r8
+100000bec:	4c 89 45 a0 	movq	%r8, -96(%rbp)
+; return static_cast<_Tp&&>(__t);
+100000bf0:	4c 8b 45 a0 	movq	-96(%rbp), %r8
+100000bf4:	48 89 7d b0 	movq	%rdi, -80(%rbp)
+100000bf8:	4c 89 45 a8 	movq	%r8, -88(%rbp)
+100000bfc:	48 8b 7d b0 	movq	-80(%rbp), %rdi
+; {}
+100000c00:	4c 8b 45 a8 	movq	-88(%rbp), %r8
+100000c04:	48 89 7d c0 	movq	%rdi, -64(%rbp)
+100000c08:	4c 89 45 b8 	movq	%r8, -72(%rbp)
+100000c0c:	48 8b 7d c0 	movq	-64(%rbp), %rdi
+; __tuple_leaf<_Uf, _Tf>(_VSTD::forward<_Up>(__u))...,
+100000c10:	4c 8b 45 b8 	movq	-72(%rbp), %r8
+100000c14:	4c 89 45 c8 	movq	%r8, -56(%rbp)
+; return static_cast<_Tp&&>(__t);
+100000c18:	4c 8b 45 c8 	movq	-56(%rbp), %r8
+100000c1c:	48 89 7d d8 	movq	%rdi, -40(%rbp)
+100000c20:	4c 89 45 d0 	movq	%r8, -48(%rbp)
+100000c24:	48 8b 7d d8 	movq	-40(%rbp), %rdi
+; : __value_(_VSTD::forward<_Tp>(__t))
+100000c28:	4c 8b 45 d0 	movq	-48(%rbp), %r8
+100000c2c:	4c 89 45 e0 	movq	%r8, -32(%rbp)
+; return static_cast<_Tp&&>(__t);
+100000c30:	4c 8b 45 e0 	movq	-32(%rbp), %r8
+; : __value_(_VSTD::forward<_Tp>(__t))
+100000c34:	4c 89 07 	movq	%r8, (%rdi)
+; return tuple<_Tp&&...>(_VSTD::forward<_Tp>(__t)...);
+100000c37:	48 8b bd 70 ff ff ff 	movq	-144(%rbp), %rdi
+; : __f_(piecewise_construct, _VSTD::forward_as_tuple(_VSTD::move(__f)),
+100000c3e:	48 89 bd 90 fe ff ff 	movq	%rdi, -368(%rbp)
+100000c45:	48 89 b5 58 ff ff ff 	movq	%rsi, -168(%rbp)
+100000c4c:	48 8b b5 58 ff ff ff 	movq	-168(%rbp), %rsi
+100000c53:	48 89 b5 60 ff ff ff 	movq	%rsi, -160(%rbp)
+100000c5a:	48 8b b5 90 fe ff ff 	movq	-368(%rbp), %rsi
+100000c61:	48 89 b5 b8 fe ff ff 	movq	%rsi, -328(%rbp)
+100000c68:	4c 89 95 b0 fe ff ff 	movq	%r10, -336(%rbp)
+100000c6f:	48 8b b5 b0 fe ff ff 	movq	-336(%rbp), %rsi
+; typename __make_tuple_indices<sizeof...(_Args2)>::type()) {}
+100000c76:	48 8b bd b8 fe ff ff 	movq	-328(%rbp), %rdi
+100000c7d:	48 89 bd 00 ff ff ff 	movq	%rdi, -256(%rbp)
+100000c84:	48 89 b5 f0 fe ff ff 	movq	%rsi, -272(%rbp)
+100000c8b:	48 8b b5 f0 fe ff ff 	movq	-272(%rbp), %rsi
+100000c92:	48 89 f7 	movq	%rsi, %rdi
+100000c95:	48 89 95 08 ff ff ff 	movq	%rdx, -248(%rbp)
+; return static_cast<_Up&&>(__t);
+100000c9c:	48 8b 95 08 ff ff ff 	movq	-248(%rbp), %rdx
+; : _Base1(__pc, _VSTD::move(__first_args),
+100000ca3:	48 8b 12 	movq	(%rdx), %rdx
+100000ca6:	48 89 95 e8 fe ff ff 	movq	%rdx, -280(%rbp)
+100000cad:	48 8b 95 e8 fe ff ff 	movq	-280(%rbp), %rdx
+100000cb4:	48 89 95 30 ff ff ff 	movq	%rdx, -208(%rbp)
+100000cbb:	48 89 bd 28 ff ff ff 	movq	%rdi, -216(%rbp)
+100000cc2:	48 89 8d 38 ff ff ff 	movq	%rcx, -200(%rbp)
+; return static_cast<__tuple_leaf<_Ip, type>&>(__t.__base_).get();
+100000cc9:	48 8b 8d 38 ff ff ff 	movq	-200(%rbp), %rcx
+100000cd0:	48 89 8d 40 ff ff ff 	movq	%rcx, -192(%rbp)
+100000cd7:	48 8b 8d 40 ff ff ff 	movq	-192(%rbp), %rcx
+; _LIBCPP_INLINE_VISIBILITY _LIBCPP_CONSTEXPR_AFTER_CXX11       _Hp& get()       _NOEXCEPT {return __value_;}
+100000cde:	48 8b 09 	movq	(%rcx), %rcx
+100000ce1:	48 89 8d 48 ff ff ff 	movq	%rcx, -184(%rbp)
+100000ce8:	48 89 85 20 ff ff ff 	movq	%rax, -224(%rbp)
+100000cef:	48 89 b5 10 ff ff ff 	movq	%rsi, -240(%rbp)
+100000cf6:	48 8b 85 10 ff ff ff 	movq	-240(%rbp), %rax
+100000cfd:	48 89 85 18 ff ff ff 	movq	%rax, -232(%rbp)
+; __f_ = ::new((void*)&__buf_) _FF(_VSTD::move(__f));
+100000d04:	48 8b 85 40 fe ff ff 	movq	-448(%rbp), %rax
+100000d0b:	4c 89 58 20 	movq	%r11, 32(%rax)
+; }
+100000d0f:	48 81 c4 38 01 00 00 	addq	$312, %rsp
+100000d16:	5b 	popq	%rbx
+100000d17:	5d 	popq	%rbp
+100000d18:	c3 	retq
+100000d19:	0f 1f 80 00 00 00 00 	nopl	(%rax)
+
+__ZNSt3__110__function6__funcIZ4mainE3$_0NS_9allocatorIS2_EEFivEED1Ev:
+; template<class _FD, class _Alloc, class _FB> class __func;
+100000d20:	55 	pushq	%rbp
+100000d21:	48 89 e5 	movq	%rsp, %rbp
+100000d24:	48 83 ec 10 	subq	$16, %rsp
+100000d28:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+100000d2c:	48 8b 7d f8 	movq	-8(%rbp), %rdi
+100000d30:	e8 6b 0e 00 00 	callq	3691 <__ZNSt3__110__function6__funcIZ4mainE3$_0NS_9allocatorIS2_EEFivEED2Ev>
+100000d35:	48 83 c4 10 	addq	$16, %rsp
+100000d39:	5d 	popq	%rbp
+100000d3a:	c3 	retq
+100000d3b:	0f 1f 44 00 00 	nopl	(%rax,%rax)
+
+__ZNSt3__110__function6__funcIZ4mainE3$_0NS_9allocatorIS2_EEFivEED0Ev:
+100000d40:	55 	pushq	%rbp
+100000d41:	48 89 e5 	movq	%rsp, %rbp
+100000d44:	48 83 ec 10 	subq	$16, %rsp
+100000d48:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+100000d4c:	48 8b 7d f8 	movq	-8(%rbp), %rdi
+100000d50:	48 89 7d f0 	movq	%rdi, -16(%rbp)
+100000d54:	e8 c7 ff ff ff 	callq	-57 <__ZNSt3__110__function6__funcIZ4mainE3$_0NS_9allocatorIS2_EEFivEED1Ev>
+100000d59:	48 8b 7d f0 	movq	-16(%rbp), %rdi
+100000d5d:	e8 96 0f 00 00 	callq	3990
+100000d62:	48 83 c4 10 	addq	$16, %rsp
+100000d66:	5d 	popq	%rbp
+100000d67:	c3 	retq
+100000d68:	0f 1f 84 00 00 00 00 00 	nopl	(%rax,%rax)
+
+__ZNKSt3__110__function6__funcIZ4mainE3$_0NS_9allocatorIS2_EEFivEE7__cloneEv:
+; {
+100000d70:	55 	pushq	%rbp
+100000d71:	48 89 e5 	movq	%rsp, %rbp
+100000d74:	41 57 	pushq	%r15
+100000d76:	41 56 	pushq	%r14
+100000d78:	41 55 	pushq	%r13
+100000d7a:	41 54 	pushq	%r12
+100000d7c:	53 	pushq	%rbx
+100000d7d:	48 81 ec e8 05 00 00 	subq	$1512, %rsp
+100000d84:	48 b8 ff ff ff ff ff ff ff 0f 	movabsq	$1152921504606846975, %rax
+100000d8e:	48 8d 8d 90 fa ff ff 	leaq	-1392(%rbp), %rcx
+100000d95:	48 89 bd 98 fa ff ff 	movq	%rdi, -1384(%rbp)
+100000d9c:	48 8b bd 98 fa ff ff 	movq	-1384(%rbp), %rdi
+; _Ap __a(__f_.second());
+100000da3:	48 89 fa 	movq	%rdi, %rdx
+100000da6:	48 83 c2 08 	addq	$8, %rdx
+100000daa:	48 89 95 a0 fa ff ff 	movq	%rdx, -1376(%rbp)
+100000db1:	48 8b 95 a0 fa ff ff 	movq	-1376(%rbp), %rdx
+100000db8:	48 89 95 a8 fa ff ff 	movq	%rdx, -1368(%rbp)
+100000dbf:	48 8b 95 a8 fa ff ff 	movq	-1368(%rbp), %rdx
+100000dc6:	48 89 8d 58 fb ff ff 	movq	%rcx, -1192(%rbp)
+100000dcd:	48 89 95 50 fb ff ff 	movq	%rdx, -1200(%rbp)
+100000dd4:	48 8b 95 58 fb ff ff 	movq	-1192(%rbp), %rdx
+; template <class _Up> _LIBCPP_INLINE_VISIBILITY allocator(const allocator<_Up>&) _NOEXCEPT {}
+100000ddb:	48 8b b5 50 fb ff ff 	movq	-1200(%rbp), %rsi
+100000de2:	48 89 95 68 fb ff ff 	movq	%rdx, -1176(%rbp)
+100000de9:	48 89 b5 60 fb ff ff 	movq	%rsi, -1184(%rbp)
+100000df0:	48 89 8d 20 fc ff ff 	movq	%rcx, -992(%rbp)
+100000df7:	48 c7 85 18 fc ff ff 01 00 00 00 	movq	$1, -1000(%rbp)
+100000e02:	48 c7 85 10 fc ff ff 00 00 00 00 	movq	$0, -1008(%rbp)
+100000e0d:	48 8b 8d 20 fc ff ff 	movq	-992(%rbp), %rcx
+; if (__n > max_size())
+100000e14:	48 8b 95 18 fc ff ff 	movq	-1000(%rbp), %rdx
+100000e1b:	48 89 8d 28 fc ff ff 	movq	%rcx, -984(%rbp)
+100000e22:	48 39 c2 	cmpq	%rax, %rdx
+100000e25:	48 89 bd 48 fa ff ff 	movq	%rdi, -1464(%rbp)
+100000e2c:	0f 86 d3 00 00 00 	jbe	211 <__ZNKSt3__110__function6__funcIZ4mainE3$_0NS_9allocatorIS2_EEFivEE7__cloneEv+0x195>
+100000e32:	48 8d 05 85 10 00 00 	leaq	4229(%rip), %rax
+100000e39:	48 89 85 48 fc ff ff 	movq	%rax, -952(%rbp)
+; throw length_error(__msg);
+100000e40:	b9 10 00 00 00 	movl	$16, %ecx
+100000e45:	89 cf 	movl	%ecx, %edi
+100000e47:	e8 b8 0e 00 00 	callq	3768
+100000e4c:	48 89 c7 	movq	%rax, %rdi
+100000e4f:	48 8b 95 48 fc ff ff 	movq	-952(%rbp), %rdx
+100000e56:	48 89 85 58 fc ff ff 	movq	%rax, -936(%rbp)
+100000e5d:	48 89 95 50 fc ff ff 	movq	%rdx, -944(%rbp)
+100000e64:	48 8b 85 58 fc ff ff 	movq	-936(%rbp), %rax
+; _LIBCPP_INLINE_VISIBILITY explicit length_error(const char* __s)   : logic_error(__s) {}
+100000e6b:	48 8b 95 50 fc ff ff 	movq	-944(%rbp), %rdx
+100000e72:	48 89 85 68 fc ff ff 	movq	%rax, -920(%rbp)
+100000e79:	48 89 95 60 fc ff ff 	movq	%rdx, -928(%rbp)
+100000e80:	48 8b 85 68 fc ff ff 	movq	-920(%rbp), %rax
+100000e87:	48 8b b5 60 fc ff ff 	movq	-928(%rbp), %rsi
+100000e8e:	48 89 bd 40 fa ff ff 	movq	%rdi, -1472(%rbp)
+100000e95:	48 89 c7 	movq	%rax, %rdi
+100000e98:	48 89 85 38 fa ff ff 	movq	%rax, -1480(%rbp)
+100000e9f:	e8 2a 0e 00 00 	callq	3626
+100000ea4:	e9 00 00 00 00 	jmp	0 <__ZNKSt3__110__function6__funcIZ4mainE3$_0NS_9allocatorIS2_EEFivEE7__cloneEv+0x139>
+100000ea9:	48 8b 05 88 11 00 00 	movq	4488(%rip), %rax
+100000eb0:	48 8b 0d 59 11 00 00 	movq	4441(%rip), %rcx
+100000eb7:	48 8b 15 92 11 00 00 	movq	4498(%rip), %rdx
+100000ebe:	48 83 c2 10 	addq	$16, %rdx
+100000ec2:	48 8b b5 38 fa ff ff 	movq	-1480(%rbp), %rsi
+100000ec9:	48 89 16 	movq	%rdx, (%rsi)
+; throw length_error(__msg);
+100000ecc:	48 8b bd 40 fa ff ff 	movq	-1472(%rbp), %rdi
+100000ed3:	48 89 c6 	movq	%rax, %rsi
+100000ed6:	48 89 ca 	movq	%rcx, %rdx
+100000ed9:	e8 38 0e 00 00 	callq	3640
+; }
+100000ede:	89 d1 	movl	%edx, %ecx
+100000ee0:	48 89 85 40 fc ff ff 	movq	%rax, -960(%rbp)
+100000ee7:	89 8d 3c fc ff ff 	movl	%ecx, -964(%rbp)
+; throw length_error(__msg);
+100000eed:	48 8b bd 40 fa ff ff 	movq	-1472(%rbp), %rdi
+100000ef4:	e8 17 0e 00 00 	callq	3607
+100000ef9:	48 8b bd 40 fc ff ff 	movq	-960(%rbp), %rdi
+100000f00:	e8 b1 0d 00 00 	callq	3505
+; return static_cast<pointer>(_VSTD::__allocate(__n * sizeof(_Tp)));
+100000f05:	48 8b 85 18 fc ff ff 	movq	-1000(%rbp), %rax
+100000f0c:	48 c1 e0 04 	shlq	$4, %rax
+100000f10:	48 89 85 30 fc ff ff 	movq	%rax, -976(%rbp)
+; return __builtin_operator_new(__size);
+100000f17:	48 8b bd 30 fc ff ff 	movq	-976(%rbp), %rdi
+100000f1e:	e8 db 0d 00 00 	callq	3547
+100000f23:	48 8d bd 88 fe ff ff 	leaq	-376(%rbp), %rdi
+100000f2a:	48 8d 8d 68 fe ff ff 	leaq	-408(%rbp), %rcx
+100000f31:	48 8d 95 b8 fe ff ff 	leaq	-328(%rbp), %rdx
+100000f38:	48 8d b5 70 fe ff ff 	leaq	-400(%rbp), %rsi
+100000f3f:	4c 8d 85 e0 fe ff ff 	leaq	-288(%rbp), %r8
+100000f46:	4c 8d 8d 68 ff ff ff 	leaq	-152(%rbp), %r9
+100000f4d:	4c 8d 15 bc 11 00 00 	leaq	4540(%rip), %r10
+100000f54:	49 83 c2 10 	addq	$16, %r10
+100000f58:	4c 8b 1d e1 10 00 00 	movq	4321(%rip), %r11
+100000f5f:	49 83 c3 10 	addq	$16, %r11
+100000f63:	48 8d 9d 60 fa ff ff 	leaq	-1440(%rbp), %rbx
+100000f6a:	4c 8d b5 90 fa ff ff 	leaq	-1392(%rbp), %r14
+100000f71:	4c 8d bd 78 fa ff ff 	leaq	-1416(%rbp), %r15
+100000f78:	4c 8d a5 c0 fc ff ff 	leaq	-832(%rbp), %r12
+100000f7f:	4c 8d ad 68 fa ff ff 	leaq	-1432(%rbp), %r13
+100000f86:	4c 89 ad 80 fc ff ff 	movq	%r13, -896(%rbp)
+100000f8d:	4c 89 b5 78 fc ff ff 	movq	%r14, -904(%rbp)
+100000f94:	48 c7 85 70 fc ff ff 01 00 00 00 	movq	$1, -912(%rbp)
+100000f9f:	48 89 85 30 fa ff ff 	movq	%rax, -1488(%rbp)
+100000fa6:	48 8b 85 80 fc ff ff 	movq	-896(%rbp), %rax
+; : __alloc_(__a), __s_(__s) {}
+100000fad:	48 89 85 28 fa ff ff 	movq	%rax, -1496(%rbp)
+100000fb4:	48 8b 85 78 fc ff ff 	movq	-904(%rbp), %rax
+100000fbb:	48 89 85 20 fa ff ff 	movq	%rax, -1504(%rbp)
+100000fc2:	48 8b 85 70 fc ff ff 	movq	-912(%rbp), %rax
+100000fc9:	48 89 85 18 fa ff ff 	movq	%rax, -1512(%rbp)
+100000fd0:	48 8b 85 28 fa ff ff 	movq	-1496(%rbp), %rax
+100000fd7:	48 89 85 98 fc ff ff 	movq	%rax, -872(%rbp)
+100000fde:	48 8b 85 20 fa ff ff 	movq	-1504(%rbp), %rax
+100000fe5:	48 89 85 90 fc ff ff 	movq	%rax, -880(%rbp)
+100000fec:	48 8b 85 18 fa ff ff 	movq	-1512(%rbp), %rax
+100000ff3:	48 89 85 88 fc ff ff 	movq	%rax, -888(%rbp)
+100000ffa:	48 8b 85 98 fc ff ff 	movq	-872(%rbp), %rax
+100001001:	48 89 85 10 fa ff ff 	movq	%rax, -1520(%rbp)
+100001008:	48 8b 85 90 fc ff ff 	movq	-880(%rbp), %rax
+10000100f:	48 89 85 08 fa ff ff 	movq	%rax, -1528(%rbp)
+100001016:	48 8b 85 10 fa ff ff 	movq	-1520(%rbp), %rax
+10000101d:	48 89 8d 00 fa ff ff 	movq	%rcx, -1536(%rbp)
+100001024:	48 8b 8d 08 fa ff ff 	movq	-1528(%rbp), %rcx
+10000102b:	48 89 08 	movq	%rcx, (%rax)
+10000102e:	48 8b 8d 88 fc ff ff 	movq	-888(%rbp), %rcx
+100001035:	48 89 48 08 	movq	%rcx, 8(%rax)
+100001039:	4c 89 bd b0 fc ff ff 	movq	%r15, -848(%rbp)
+100001040:	48 8b 8d 30 fa ff ff 	movq	-1488(%rbp), %rcx
+100001047:	48 89 8d a8 fc ff ff 	movq	%rcx, -856(%rbp)
+10000104e:	4c 89 ad a0 fc ff ff 	movq	%r13, -864(%rbp)
+100001055:	4c 8b ad b0 fc ff ff 	movq	-848(%rbp), %r13
+; : __ptr_(__p, _VSTD::move(__d)) {
+10000105c:	48 8b 85 a8 fc ff ff 	movq	-856(%rbp), %rax
+100001063:	48 8b 8d a0 fc ff ff 	movq	-864(%rbp), %rcx
+10000106a:	4c 89 ad c8 fc ff ff 	movq	%r13, -824(%rbp)
+100001071:	48 89 85 c0 fc ff ff 	movq	%rax, -832(%rbp)
+100001078:	48 89 8d b8 fc ff ff 	movq	%rcx, -840(%rbp)
+10000107f:	48 8b 85 c8 fc ff ff 	movq	-824(%rbp), %rax
+100001086:	48 8b 8d b8 fc ff ff 	movq	-840(%rbp), %rcx
+10000108d:	48 89 8d d0 fc ff ff 	movq	%rcx, -816(%rbp)
+; return static_cast<_Up&&>(__t);
+100001094:	48 8b 8d d0 fc ff ff 	movq	-816(%rbp), %rcx
+10000109b:	48 89 85 e8 fc ff ff 	movq	%rax, -792(%rbp)
+1000010a2:	4c 89 a5 e0 fc ff ff 	movq	%r12, -800(%rbp)
+1000010a9:	48 89 8d d8 fc ff ff 	movq	%rcx, -808(%rbp)
+1000010b0:	48 8b 85 e8 fc ff ff 	movq	-792(%rbp), %rax
+; : _Base1(std::forward<_U1>(__t1)), _Base2(std::forward<_U2>(__t2)) {}
+1000010b7:	48 8b 8d e0 fc ff ff 	movq	-800(%rbp), %rcx
+1000010be:	4c 8b a5 d8 fc ff ff 	movq	-808(%rbp), %r12
+1000010c5:	48 89 85 00 fd ff ff 	movq	%rax, -768(%rbp)
+1000010cc:	48 89 8d f8 fc ff ff 	movq	%rcx, -776(%rbp)
+1000010d3:	4c 89 a5 f0 fc ff ff 	movq	%r12, -784(%rbp)
+1000010da:	48 8b 85 00 fd ff ff 	movq	-768(%rbp), %rax
+1000010e1:	48 89 c1 	movq	%rax, %rcx
+1000010e4:	4c 8b a5 f8 fc ff ff 	movq	-776(%rbp), %r12
+1000010eb:	4c 89 a5 08 fd ff ff 	movq	%r12, -760(%rbp)
+; return static_cast<_Tp&&>(__t);
+1000010f2:	4c 8b a5 08 fd ff ff 	movq	-760(%rbp), %r12
+1000010f9:	48 89 8d 38 fd ff ff 	movq	%rcx, -712(%rbp)
+100001100:	4c 89 a5 30 fd ff ff 	movq	%r12, -720(%rbp)
+100001107:	48 8b 8d 38 fd ff ff 	movq	-712(%rbp), %rcx
+; : __value_(_VSTD::forward<_Up>(__u)){};
+10000110e:	4c 8b a5 30 fd ff ff 	movq	-720(%rbp), %r12
+100001115:	4c 89 a5 40 fd ff ff 	movq	%r12, -704(%rbp)
+; return static_cast<_Tp&&>(__t);
+10000111c:	4c 8b a5 40 fd ff ff 	movq	-704(%rbp), %r12
+; : __value_(_VSTD::forward<_Up>(__u)){};
+100001123:	4d 8b 24 24 	movq	(%r12), %r12
+100001127:	4c 89 21 	movq	%r12, (%rcx)
+; : _Base1(std::forward<_U1>(__t1)), _Base2(std::forward<_U2>(__t2)) {}
+10000112a:	48 83 c0 08 	addq	$8, %rax
+10000112e:	48 8b 8d f0 fc ff ff 	movq	-784(%rbp), %rcx
+100001135:	48 89 8d 28 fd ff ff 	movq	%rcx, -728(%rbp)
+; return static_cast<_Tp&&>(__t);
+10000113c:	48 8b 8d 28 fd ff ff 	movq	-728(%rbp), %rcx
+100001143:	48 89 85 18 fd ff ff 	movq	%rax, -744(%rbp)
+10000114a:	48 89 8d 10 fd ff ff 	movq	%rcx, -752(%rbp)
+100001151:	48 8b 85 18 fd ff ff 	movq	-744(%rbp), %rax
+; : __value_(_VSTD::forward<_Up>(__u)){};
+100001158:	48 8b 8d 10 fd ff ff 	movq	-752(%rbp), %rcx
+10000115f:	48 89 8d 20 fd ff ff 	movq	%rcx, -736(%rbp)
+; return static_cast<_Tp&&>(__t);
+100001166:	48 8b 8d 20 fd ff ff 	movq	-736(%rbp), %rcx
+; : __value_(_VSTD::forward<_Up>(__u)){};
+10000116d:	4c 8b 21 	movq	(%rcx), %r12
+100001170:	4c 89 20 	movq	%r12, (%rax)
+100001173:	48 8b 49 08 	movq	8(%rcx), %rcx
+100001177:	48 89 48 08 	movq	%rcx, 8(%rax)
+10000117b:	4c 89 bd 48 fd ff ff 	movq	%r15, -696(%rbp)
+100001182:	48 8b 85 48 fd ff ff 	movq	-696(%rbp), %rax
+100001189:	48 89 85 50 fd ff ff 	movq	%rax, -688(%rbp)
+100001190:	48 8b 85 50 fd ff ff 	movq	-688(%rbp), %rax
+100001197:	48 89 85 58 fd ff ff 	movq	%rax, -680(%rbp)
+10000119e:	48 8b 85 58 fd ff ff 	movq	-680(%rbp), %rax
+; return __ptr_.first();
+1000011a5:	48 8b 00 	movq	(%rax), %rax
+; ::new (__hold.get()) __func(__f_.first(), _Alloc(__a));
+1000011a8:	48 8b 8d 48 fa ff ff 	movq	-1464(%rbp), %rcx
+1000011af:	48 83 c1 08 	addq	$8, %rcx
+1000011b3:	48 89 8d 60 fd ff ff 	movq	%rcx, -672(%rbp)
+1000011ba:	48 8b 8d 60 fd ff ff 	movq	-672(%rbp), %rcx
+1000011c1:	48 89 8d 68 fd ff ff 	movq	%rcx, -664(%rbp)
+1000011c8:	48 8b 8d 68 fd ff ff 	movq	-664(%rbp), %rcx
+1000011cf:	48 89 9d 78 fd ff ff 	movq	%rbx, -648(%rbp)
+1000011d6:	4c 89 b5 70 fd ff ff 	movq	%r14, -656(%rbp)
+1000011dd:	4c 8b b5 78 fd ff ff 	movq	-648(%rbp), %r14
+; template <class _Up> _LIBCPP_INLINE_VISIBILITY allocator(const allocator<_Up>&) _NOEXCEPT {}
+1000011e4:	4c 8b bd 70 fd ff ff 	movq	-656(%rbp), %r15
+1000011eb:	4c 89 b5 88 fd ff ff 	movq	%r14, -632(%rbp)
+1000011f2:	4c 89 bd 80 fd ff ff 	movq	%r15, -640(%rbp)
+1000011f9:	48 89 85 d0 fd ff ff 	movq	%rax, -560(%rbp)
+100001200:	48 89 8d c8 fd ff ff 	movq	%rcx, -568(%rbp)
+100001207:	48 89 9d c0 fd ff ff 	movq	%rbx, -576(%rbp)
+10000120e:	48 8b 85 d0 fd ff ff 	movq	-560(%rbp), %rax
+; _VSTD::forward_as_tuple(_VSTD::move(__a))) {}
+100001215:	48 8b 8d c8 fd ff ff 	movq	-568(%rbp), %rcx
+10000121c:	48 8b 9d c0 fd ff ff 	movq	-576(%rbp), %rbx
+100001223:	48 89 85 08 fe ff ff 	movq	%rax, -504(%rbp)
+10000122a:	48 89 8d 00 fe ff ff 	movq	%rcx, -512(%rbp)
+100001231:	48 89 9d f8 fd ff ff 	movq	%rbx, -520(%rbp)
+100001238:	48 8b 85 08 fe ff ff 	movq	-504(%rbp), %rax
+10000123f:	48 89 c1 	movq	%rax, %rcx
+100001242:	48 89 8d 10 fe ff ff 	movq	%rcx, -496(%rbp)
+100001249:	48 8b 8d 10 fe ff ff 	movq	-496(%rbp), %rcx
+; _LIBCPP_INLINE_VISIBILITY __base() {}
+100001250:	4c 89 19 	movq	%r11, (%rcx)
+; _VSTD::forward_as_tuple(_VSTD::move(__a))) {}
+100001253:	4c 89 10 	movq	%r10, (%rax)
+; : __f_(piecewise_construct, _VSTD::forward_as_tuple(__f),
+100001256:	48 83 c0 08 	addq	$8, %rax
+10000125a:	48 8b 8d 00 fe ff ff 	movq	-512(%rbp), %rcx
+100001261:	48 89 8d 60 ff ff ff 	movq	%rcx, -160(%rbp)
+; return tuple<_Tp&&...>(_VSTD::forward<_Tp>(__t)...);
+100001268:	48 8b 8d 60 ff ff ff 	movq	-160(%rbp), %rcx
+10000126f:	48 89 8d 70 ff ff ff 	movq	%rcx, -144(%rbp)
+; return static_cast<_Tp&&>(__t);
+100001276:	48 8b 8d 70 ff ff ff 	movq	-144(%rbp), %rcx
+10000127d:	4c 89 4d 80 	movq	%r9, -128(%rbp)
+100001281:	48 89 8d 78 ff ff ff 	movq	%rcx, -136(%rbp)
+100001288:	48 8b 4d 80 	movq	-128(%rbp), %rcx
+; ) {}
+10000128c:	4c 8b 8d 78 ff ff ff 	movq	-136(%rbp), %r9
+100001293:	48 89 4d 90 	movq	%rcx, -112(%rbp)
+100001297:	4c 89 4d 88 	movq	%r9, -120(%rbp)
+10000129b:	48 8b 4d 90 	movq	-112(%rbp), %rcx
+; __t...
+10000129f:	4c 8b 4d 88 	movq	-120(%rbp), %r9
+1000012a3:	48 89 4d a0 	movq	%rcx, -96(%rbp)
+1000012a7:	4c 89 4d 98 	movq	%r9, -104(%rbp)
+1000012ab:	48 8b 4d a0 	movq	-96(%rbp), %rcx
+; {}
+1000012af:	4c 8b 4d 98 	movq	-104(%rbp), %r9
+1000012b3:	48 89 4d b0 	movq	%rcx, -80(%rbp)
+1000012b7:	4c 89 4d a8 	movq	%r9, -88(%rbp)
+1000012bb:	48 8b 4d b0 	movq	-80(%rbp), %rcx
+; __tuple_leaf<_Uf, _Tf>(_VSTD::forward<_Up>(__u))...,
+1000012bf:	4c 8b 4d a8 	movq	-88(%rbp), %r9
+1000012c3:	4c 89 4d b8 	movq	%r9, -72(%rbp)
+; return static_cast<_Tp&&>(__t);
+1000012c7:	4c 8b 4d b8 	movq	-72(%rbp), %r9
+1000012cb:	48 89 4d c8 	movq	%rcx, -56(%rbp)
+1000012cf:	4c 89 4d c0 	movq	%r9, -64(%rbp)
+1000012d3:	48 8b 4d c8 	movq	-56(%rbp), %rcx
+; : __value_(_VSTD::forward<_Tp>(__t))
+1000012d7:	4c 8b 4d c0 	movq	-64(%rbp), %r9
+1000012db:	4c 89 4d d0 	movq	%r9, -48(%rbp)
+; return static_cast<_Tp&&>(__t);
+1000012df:	4c 8b 4d d0 	movq	-48(%rbp), %r9
+; : __value_(_VSTD::forward<_Tp>(__t))
+1000012e3:	4c 89 09 	movq	%r9, (%rcx)
+; return tuple<_Tp&&...>(_VSTD::forward<_Tp>(__t)...);
+1000012e6:	48 8b 8d 68 ff ff ff 	movq	-152(%rbp), %rcx
+; : __f_(piecewise_construct, _VSTD::forward_as_tuple(__f),
+1000012ed:	48 89 8d f0 fd ff ff 	movq	%rcx, -528(%rbp)
+; _VSTD::forward_as_tuple(_VSTD::move(__a))) {}
+1000012f4:	48 8b 8d f8 fd ff ff 	movq	-520(%rbp), %rcx
+1000012fb:	48 89 8d 58 ff ff ff 	movq	%rcx, -168(%rbp)
+; return static_cast<_Up&&>(__t);
+100001302:	48 8b 8d 58 ff ff ff 	movq	-168(%rbp), %rcx
+100001309:	48 89 8d d8 fe ff ff 	movq	%rcx, -296(%rbp)
+; return tuple<_Tp&&...>(_VSTD::forward<_Tp>(__t)...);
+100001310:	48 8b 8d d8 fe ff ff 	movq	-296(%rbp), %rcx
+100001317:	48 89 8d e8 fe ff ff 	movq	%rcx, -280(%rbp)
+; return static_cast<_Tp&&>(__t);
+10000131e:	48 8b 8d e8 fe ff ff 	movq	-280(%rbp), %rcx
+100001325:	4c 89 85 f8 fe ff ff 	movq	%r8, -264(%rbp)
+10000132c:	48 89 8d f0 fe ff ff 	movq	%rcx, -272(%rbp)
+100001333:	48 8b 8d f8 fe ff ff 	movq	-264(%rbp), %rcx
+; _VSTD::forward<_Up>(__u)...) {}
+10000133a:	4c 8b 85 f0 fe ff ff 	movq	-272(%rbp), %r8
+100001341:	48 89 8d 08 ff ff ff 	movq	%rcx, -248(%rbp)
+100001348:	4c 89 85 00 ff ff ff 	movq	%r8, -256(%rbp)
+10000134f:	48 8b 8d 08 ff ff ff 	movq	-248(%rbp), %rcx
+100001356:	4c 8b 85 00 ff ff ff 	movq	-256(%rbp), %r8
+10000135d:	4c 89 85 10 ff ff ff 	movq	%r8, -240(%rbp)
+; return static_cast<_Tp&&>(__t);
+100001364:	4c 8b 85 10 ff ff ff 	movq	-240(%rbp), %r8
+10000136b:	48 89 8d 20 ff ff ff 	movq	%rcx, -224(%rbp)
+100001372:	4c 89 85 18 ff ff ff 	movq	%r8, -232(%rbp)
+100001379:	48 8b 8d 20 ff ff ff 	movq	-224(%rbp), %rcx
+; {}
+100001380:	4c 8b 85 18 ff ff ff 	movq	-232(%rbp), %r8
+100001387:	48 89 8d 30 ff ff ff 	movq	%rcx, -208(%rbp)
+10000138e:	4c 89 85 28 ff ff ff 	movq	%r8, -216(%rbp)
+100001395:	48 8b 8d 30 ff ff ff 	movq	-208(%rbp), %rcx
+; __tuple_leaf<_Uf, _Tf>(_VSTD::forward<_Up>(__u))...,
+10000139c:	4c 8b 85 28 ff ff ff 	movq	-216(%rbp), %r8
+1000013a3:	4c 89 85 38 ff ff ff 	movq	%r8, -200(%rbp)
+; return static_cast<_Tp&&>(__t);
+1000013aa:	4c 8b 85 38 ff ff ff 	movq	-200(%rbp), %r8
+1000013b1:	48 89 8d 48 ff ff ff 	movq	%rcx, -184(%rbp)
+1000013b8:	4c 89 85 40 ff ff ff 	movq	%r8, -192(%rbp)
+1000013bf:	48 8b 8d 48 ff ff ff 	movq	-184(%rbp), %rcx
+; : __value_(_VSTD::forward<_Tp>(__t))
+1000013c6:	4c 8b 85 40 ff ff ff 	movq	-192(%rbp), %r8
+1000013cd:	4c 89 85 50 ff ff ff 	movq	%r8, -176(%rbp)
+; return static_cast<_Tp&&>(__t);
+1000013d4:	4c 8b 85 50 ff ff ff 	movq	-176(%rbp), %r8
+; : __value_(_VSTD::forward<_Tp>(__t))
+1000013db:	4c 89 01 	movq	%r8, (%rcx)
+; return tuple<_Tp&&...>(_VSTD::forward<_Tp>(__t)...);
+1000013de:	48 8b 8d e0 fe ff ff 	movq	-288(%rbp), %rcx
+; _VSTD::forward_as_tuple(_VSTD::move(__a))) {}
+1000013e5:	48 89 8d e8 fd ff ff 	movq	%rcx, -536(%rbp)
+; : __f_(piecewise_construct, _VSTD::forward_as_tuple(__f),
+1000013ec:	48 8b 8d f0 fd ff ff 	movq	-528(%rbp), %rcx
+1000013f3:	4c 8b 85 e8 fd ff ff 	movq	-536(%rbp), %r8
+1000013fa:	48 89 8d 28 fe ff ff 	movq	%rcx, -472(%rbp)
+100001401:	4c 89 85 20 fe ff ff 	movq	%r8, -480(%rbp)
+100001408:	48 89 85 18 fe ff ff 	movq	%rax, -488(%rbp)
+10000140f:	48 8b 85 18 fe ff ff 	movq	-488(%rbp), %rax
+; typename __make_tuple_indices<sizeof...(_Args2)>::type()) {}
+100001416:	48 8b 8d 28 fe ff ff 	movq	-472(%rbp), %rcx
+10000141d:	4c 8b 85 20 fe ff ff 	movq	-480(%rbp), %r8
+100001424:	48 89 8d 70 fe ff ff 	movq	%rcx, -400(%rbp)
+10000142b:	4c 89 85 68 fe ff ff 	movq	%r8, -408(%rbp)
+100001432:	48 89 85 60 fe ff ff 	movq	%rax, -416(%rbp)
+100001439:	48 8b 85 60 fe ff ff 	movq	-416(%rbp), %rax
+100001440:	48 89 c1 	movq	%rax, %rcx
+100001443:	48 89 b5 78 fe ff ff 	movq	%rsi, -392(%rbp)
+; return static_cast<_Up&&>(__t);
+10000144a:	48 8b b5 78 fe ff ff 	movq	-392(%rbp), %rsi
+; : _Base1(__pc, _VSTD::move(__first_args),
+100001451:	48 8b 36 	movq	(%rsi), %rsi
+100001454:	48 89 b5 58 fe ff ff 	movq	%rsi, -424(%rbp)
+10000145b:	48 8b b5 58 fe ff ff 	movq	-424(%rbp), %rsi
+100001462:	48 89 b5 b8 fe ff ff 	movq	%rsi, -328(%rbp)
+100001469:	48 89 8d b0 fe ff ff 	movq	%rcx, -336(%rbp)
+100001470:	48 89 95 c0 fe ff ff 	movq	%rdx, -320(%rbp)
+; return static_cast<__tuple_leaf<_Ip, type>&>(__t.__base_).get();
+100001477:	48 8b 8d c0 fe ff ff 	movq	-320(%rbp), %rcx
+10000147e:	48 89 8d c8 fe ff ff 	movq	%rcx, -312(%rbp)
+100001485:	48 8b 8d c8 fe ff ff 	movq	-312(%rbp), %rcx
+; _LIBCPP_INLINE_VISIBILITY _LIBCPP_CONSTEXPR_AFTER_CXX11       _Hp& get()       _NOEXCEPT {return __value_;}
+10000148c:	48 8b 09 	movq	(%rcx), %rcx
+10000148f:	48 89 8d d0 fe ff ff 	movq	%rcx, -304(%rbp)
+100001496:	48 8b 8d 00 fa ff ff 	movq	-1536(%rbp), %rcx
+10000149d:	48 89 8d a8 fe ff ff 	movq	%rcx, -344(%rbp)
+; return static_cast<_Up&&>(__t);
+1000014a4:	48 8b 95 a8 fe ff ff 	movq	-344(%rbp), %rdx
+; _Base2(__pc, _VSTD::move(__second_args),
+1000014ab:	48 8b 12 	movq	(%rdx), %rdx
+1000014ae:	48 89 95 40 fe ff ff 	movq	%rdx, -448(%rbp)
+1000014b5:	48 8b 95 40 fe ff ff 	movq	-448(%rbp), %rdx
+1000014bc:	48 89 95 88 fe ff ff 	movq	%rdx, -376(%rbp)
+1000014c3:	48 89 85 80 fe ff ff 	movq	%rax, -384(%rbp)
+1000014ca:	48 89 bd 90 fe ff ff 	movq	%rdi, -368(%rbp)
+; return static_cast<__tuple_leaf<_Ip, type>&>(__t.__base_).get();
+1000014d1:	48 8b 85 90 fe ff ff 	movq	-368(%rbp), %rax
+1000014d8:	48 89 85 98 fe ff ff 	movq	%rax, -360(%rbp)
+1000014df:	48 8b 85 98 fe ff ff 	movq	-360(%rbp), %rax
+; _LIBCPP_INLINE_VISIBILITY _LIBCPP_CONSTEXPR_AFTER_CXX11       _Hp& get()       _NOEXCEPT {return __value_;}
+1000014e6:	48 8b 00 	movq	(%rax), %rax
+1000014e9:	48 89 85 a0 fe ff ff 	movq	%rax, -352(%rbp)
+1000014f0:	48 8d 85 78 fa ff ff 	leaq	-1416(%rbp), %rax
+1000014f7:	48 89 85 98 fd ff ff 	movq	%rax, -616(%rbp)
+1000014fe:	48 8b 8d 98 fd ff ff 	movq	-616(%rbp), %rcx
+100001505:	48 89 8d a0 fd ff ff 	movq	%rcx, -608(%rbp)
+10000150c:	48 8b 95 a0 fd ff ff 	movq	-608(%rbp), %rdx
+100001513:	48 89 95 a8 fd ff ff 	movq	%rdx, -600(%rbp)
+10000151a:	48 8b 95 a8 fd ff ff 	movq	-600(%rbp), %rdx
+; pointer __t = __ptr_.first();
+100001521:	48 8b 12 	movq	(%rdx), %rdx
+100001524:	48 89 95 90 fd ff ff 	movq	%rdx, -624(%rbp)
+10000152b:	48 89 8d b0 fd ff ff 	movq	%rcx, -592(%rbp)
+100001532:	48 8b 8d b0 fd ff ff 	movq	-592(%rbp), %rcx
+100001539:	48 89 8d b8 fd ff ff 	movq	%rcx, -584(%rbp)
+100001540:	48 8b 8d b8 fd ff ff 	movq	-584(%rbp), %rcx
+; __ptr_.first() = pointer();
+100001547:	48 c7 01 00 00 00 00 	movq	$0, (%rcx)
+; return __t;
+10000154e:	48 8b 8d 90 fd ff ff 	movq	-624(%rbp), %rcx
+100001555:	48 89 85 70 fb ff ff 	movq	%rax, -1168(%rbp)
+10000155c:	48 8b 85 70 fb ff ff 	movq	-1168(%rbp), %rax
+100001563:	48 89 85 78 fb ff ff 	movq	%rax, -1160(%rbp)
+10000156a:	48 8b 85 78 fb ff ff 	movq	-1160(%rbp), %rax
+100001571:	48 89 85 90 fb ff ff 	movq	%rax, -1136(%rbp)
+100001578:	48 c7 85 88 fb ff ff 00 00 00 00 	movq	$0, -1144(%rbp)
+100001583:	48 8b 85 90 fb ff ff 	movq	-1136(%rbp), %rax
+10000158a:	48 89 85 98 fb ff ff 	movq	%rax, -1128(%rbp)
+100001591:	48 8b 95 98 fb ff ff 	movq	-1128(%rbp), %rdx
+100001598:	48 89 95 a0 fb ff ff 	movq	%rdx, -1120(%rbp)
+10000159f:	48 8b 95 a0 fb ff ff 	movq	-1120(%rbp), %rdx
+; pointer __tmp = __ptr_.first();
+1000015a6:	48 8b 12 	movq	(%rdx), %rdx
+1000015a9:	48 89 95 80 fb ff ff 	movq	%rdx, -1152(%rbp)
+; __ptr_.first() = __p;
+1000015b0:	48 8b 95 88 fb ff ff 	movq	-1144(%rbp), %rdx
+1000015b7:	48 89 85 f0 fb ff ff 	movq	%rax, -1040(%rbp)
+1000015be:	48 8b b5 f0 fb ff ff 	movq	-1040(%rbp), %rsi
+1000015c5:	48 89 b5 f8 fb ff ff 	movq	%rsi, -1032(%rbp)
+1000015cc:	48 8b b5 f8 fb ff ff 	movq	-1032(%rbp), %rsi
+1000015d3:	48 89 16 	movq	%rdx, (%rsi)
+; if (__tmp)
+1000015d6:	48 83 bd 80 fb ff ff 00 	cmpq	$0, -1152(%rbp)
+1000015de:	48 89 8d f8 f9 ff ff 	movq	%rcx, -1544(%rbp)
+1000015e5:	48 89 85 f0 f9 ff ff 	movq	%rax, -1552(%rbp)
+1000015ec:	0f 84 aa 00 00 00 	je	170 <__ZNKSt3__110__function6__funcIZ4mainE3$_0NS_9allocatorIS2_EEFivEE7__cloneEv+0x92c>
+1000015f2:	48 8b 85 f0 f9 ff ff 	movq	-1552(%rbp), %rax
+1000015f9:	48 89 85 00 fc ff ff 	movq	%rax, -1024(%rbp)
+100001600:	48 8b 8d 00 fc ff ff 	movq	-1024(%rbp), %rcx
+; return static_cast<_Base2&>(*this).__get();
+100001607:	48 83 c1 08 	addq	$8, %rcx
+10000160b:	48 89 8d 08 fc ff ff 	movq	%rcx, -1016(%rbp)
+100001612:	48 8b 8d 08 fc ff ff 	movq	-1016(%rbp), %rcx
+; __ptr_.second()(__tmp);
+100001619:	48 8b 95 80 fb ff ff 	movq	-1152(%rbp), %rdx
+100001620:	48 89 8d b0 fb ff ff 	movq	%rcx, -1104(%rbp)
+100001627:	48 89 95 a8 fb ff ff 	movq	%rdx, -1112(%rbp)
+10000162e:	48 8b 8d b0 fb ff ff 	movq	-1104(%rbp), %rcx
+; {__alloc_traits::deallocate(__alloc_, __p, __s_);}
+100001635:	48 8b 11 	movq	(%rcx), %rdx
+100001638:	48 8b b5 a8 fb ff ff 	movq	-1112(%rbp), %rsi
+10000163f:	48 8b 49 08 	movq	8(%rcx), %rcx
+100001643:	48 89 95 c8 fb ff ff 	movq	%rdx, -1080(%rbp)
+10000164a:	48 89 b5 c0 fb ff ff 	movq	%rsi, -1088(%rbp)
+100001651:	48 89 8d b8 fb ff ff 	movq	%rcx, -1096(%rbp)
+; {__a.deallocate(__p, __n);}
+100001658:	48 8b 8d c8 fb ff ff 	movq	-1080(%rbp), %rcx
+10000165f:	48 8b 95 c0 fb ff ff 	movq	-1088(%rbp), %rdx
+100001666:	48 8b b5 b8 fb ff ff 	movq	-1096(%rbp), %rsi
+10000166d:	48 89 8d e0 fb ff ff 	movq	%rcx, -1056(%rbp)
+100001674:	48 89 95 d8 fb ff ff 	movq	%rdx, -1064(%rbp)
+10000167b:	48 89 b5 d0 fb ff ff 	movq	%rsi, -1072(%rbp)
+; {_VSTD::__libcpp_deallocate((void*)__p);}
+100001682:	48 8b 8d d8 fb ff ff 	movq	-1064(%rbp), %rcx
+100001689:	48 89 8d e8 fb ff ff 	movq	%rcx, -1048(%rbp)
+; __builtin_operator_delete(__ptr);
+100001690:	48 8b bd e8 fb ff ff 	movq	-1048(%rbp), %rdi
+100001697:	e8 5c 06 00 00 	callq	1628
+; }
+10000169c:	48 8b 85 f8 f9 ff ff 	movq	-1544(%rbp), %rax
+1000016a3:	48 81 c4 e8 05 00 00 	addq	$1512, %rsp
+1000016aa:	5b 	popq	%rbx
+1000016ab:	41 5c 	popq	%r12
+1000016ad:	41 5d 	popq	%r13
+1000016af:	41 5e 	popq	%r14
+1000016b1:	41 5f 	popq	%r15
+1000016b3:	5d 	popq	%rbp
+1000016b4:	c3 	retq
+1000016b5:	66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+1000016bf:	90 	nop
+
+__ZNKSt3__110__function6__funcIZ4mainE3$_0NS_9allocatorIS2_EEFivEE7__cloneEPNS0_6__baseIS5_EE:
+; {
+1000016c0:	55 	pushq	%rbp
+1000016c1:	48 89 e5 	movq	%rsp, %rbp
+1000016c4:	41 56 	pushq	%r14
+1000016c6:	53 	pushq	%rbx
+1000016c7:	48 81 ec b8 01 00 00 	subq	$440, %rsp
+1000016ce:	48 8d 85 a0 fe ff ff 	leaq	-352(%rbp), %rax
+1000016d5:	48 8d 8d 80 fe ff ff 	leaq	-384(%rbp), %rcx
+1000016dc:	48 8d 95 d0 fe ff ff 	leaq	-304(%rbp), %rdx
+1000016e3:	4c 8d 85 88 fe ff ff 	leaq	-376(%rbp), %r8
+1000016ea:	4c 8d 8d f8 fe ff ff 	leaq	-264(%rbp), %r9
+1000016f1:	4c 8d 95 70 ff ff ff 	leaq	-144(%rbp), %r10
+1000016f8:	4c 8d 1d 11 0a 00 00 	leaq	2577(%rip), %r11
+1000016ff:	49 83 c3 10 	addq	$16, %r11
+100001703:	48 8b 1d 36 09 00 00 	movq	2358(%rip), %rbx
+10000170a:	48 83 c3 10 	addq	$16, %rbx
+10000170e:	48 89 bd c0 fd ff ff 	movq	%rdi, -576(%rbp)
+100001715:	48 89 b5 b8 fd ff ff 	movq	%rsi, -584(%rbp)
+10000171c:	48 8b b5 c0 fd ff ff 	movq	-576(%rbp), %rsi
+; ::new (__p) __func(__f_.first(), __f_.second());
+100001723:	48 8b bd b8 fd ff ff 	movq	-584(%rbp), %rdi
+10000172a:	49 89 f6 	movq	%rsi, %r14
+10000172d:	49 83 c6 08 	addq	$8, %r14
+100001731:	4c 89 b5 c8 fd ff ff 	movq	%r14, -568(%rbp)
+100001738:	4c 8b b5 c8 fd ff ff 	movq	-568(%rbp), %r14
+10000173f:	4c 89 b5 d0 fd ff ff 	movq	%r14, -560(%rbp)
+100001746:	4c 8b b5 d0 fd ff ff 	movq	-560(%rbp), %r14
+10000174d:	48 83 c6 08 	addq	$8, %rsi
+100001751:	48 89 75 e0 	movq	%rsi, -32(%rbp)
+100001755:	48 8b 75 e0 	movq	-32(%rbp), %rsi
+100001759:	48 89 75 e8 	movq	%rsi, -24(%rbp)
+10000175d:	48 8b 75 e8 	movq	-24(%rbp), %rsi
+100001761:	48 89 bd e8 fd ff ff 	movq	%rdi, -536(%rbp)
+100001768:	4c 89 b5 e0 fd ff ff 	movq	%r14, -544(%rbp)
+10000176f:	48 89 b5 d8 fd ff ff 	movq	%rsi, -552(%rbp)
+100001776:	48 8b b5 e8 fd ff ff 	movq	-536(%rbp), %rsi
+; _VSTD::forward_as_tuple(__a)) {}
+10000177d:	48 8b bd e0 fd ff ff 	movq	-544(%rbp), %rdi
+100001784:	4c 8b b5 d8 fd ff ff 	movq	-552(%rbp), %r14
+10000178b:	48 89 b5 20 fe ff ff 	movq	%rsi, -480(%rbp)
+100001792:	48 89 bd 18 fe ff ff 	movq	%rdi, -488(%rbp)
+100001799:	4c 89 b5 10 fe ff ff 	movq	%r14, -496(%rbp)
+1000017a0:	48 8b b5 20 fe ff ff 	movq	-480(%rbp), %rsi
+1000017a7:	48 89 f7 	movq	%rsi, %rdi
+1000017aa:	48 89 bd 28 fe ff ff 	movq	%rdi, -472(%rbp)
+1000017b1:	48 8b bd 28 fe ff ff 	movq	-472(%rbp), %rdi
+; _LIBCPP_INLINE_VISIBILITY __base() {}
+1000017b8:	48 89 1f 	movq	%rbx, (%rdi)
+; _VSTD::forward_as_tuple(__a)) {}
+1000017bb:	4c 89 1e 	movq	%r11, (%rsi)
+; : __f_(piecewise_construct, _VSTD::forward_as_tuple(__f),
+1000017be:	48 83 c6 08 	addq	$8, %rsi
+1000017c2:	48 8b bd 18 fe ff ff 	movq	-488(%rbp), %rdi
+1000017c9:	48 89 bd 68 ff ff ff 	movq	%rdi, -152(%rbp)
+; return tuple<_Tp&&...>(_VSTD::forward<_Tp>(__t)...);
+1000017d0:	48 8b bd 68 ff ff ff 	movq	-152(%rbp), %rdi
+1000017d7:	48 89 bd 78 ff ff ff 	movq	%rdi, -136(%rbp)
+; return static_cast<_Tp&&>(__t);
+1000017de:	48 8b bd 78 ff ff ff 	movq	-136(%rbp), %rdi
+1000017e5:	4c 89 55 88 	movq	%r10, -120(%rbp)
+1000017e9:	48 89 7d 80 	movq	%rdi, -128(%rbp)
+1000017ed:	48 8b 7d 88 	movq	-120(%rbp), %rdi
+; ) {}
+1000017f1:	4c 8b 55 80 	movq	-128(%rbp), %r10
+1000017f5:	48 89 7d 98 	movq	%rdi, -104(%rbp)
+1000017f9:	4c 89 55 90 	movq	%r10, -112(%rbp)
+1000017fd:	48 8b 7d 98 	movq	-104(%rbp), %rdi
+; __t...
+100001801:	4c 8b 55 90 	movq	-112(%rbp), %r10
+100001805:	48 89 7d a8 	movq	%rdi, -88(%rbp)
+100001809:	4c 89 55 a0 	movq	%r10, -96(%rbp)
+10000180d:	48 8b 7d a8 	movq	-88(%rbp), %rdi
+; {}
+100001811:	4c 8b 55 a0 	movq	-96(%rbp), %r10
+100001815:	48 89 7d b8 	movq	%rdi, -72(%rbp)
+100001819:	4c 89 55 b0 	movq	%r10, -80(%rbp)
+10000181d:	48 8b 7d b8 	movq	-72(%rbp), %rdi
+; __tuple_leaf<_Uf, _Tf>(_VSTD::forward<_Up>(__u))...,
+100001821:	4c 8b 55 b0 	movq	-80(%rbp), %r10
+100001825:	4c 89 55 c0 	movq	%r10, -64(%rbp)
+; return static_cast<_Tp&&>(__t);
+100001829:	4c 8b 55 c0 	movq	-64(%rbp), %r10
+10000182d:	48 89 7d d0 	movq	%rdi, -48(%rbp)
+100001831:	4c 89 55 c8 	movq	%r10, -56(%rbp)
+100001835:	48 8b 7d d0 	movq	-48(%rbp), %rdi
+; : __value_(_VSTD::forward<_Tp>(__t))
+100001839:	4c 8b 55 c8 	movq	-56(%rbp), %r10
+10000183d:	4c 89 55 d8 	movq	%r10, -40(%rbp)
+; return static_cast<_Tp&&>(__t);
+100001841:	4c 8b 55 d8 	movq	-40(%rbp), %r10
+; : __value_(_VSTD::forward<_Tp>(__t))
+100001845:	4c 89 17 	movq	%r10, (%rdi)
+; return tuple<_Tp&&...>(_VSTD::forward<_Tp>(__t)...);
+100001848:	48 8b bd 70 ff ff ff 	movq	-144(%rbp), %rdi
+; : __f_(piecewise_construct, _VSTD::forward_as_tuple(__f),
+10000184f:	48 89 bd 08 fe ff ff 	movq	%rdi, -504(%rbp)
+; _VSTD::forward_as_tuple(__a)) {}
+100001856:	48 8b bd 10 fe ff ff 	movq	-496(%rbp), %rdi
+10000185d:	48 89 bd f0 fe ff ff 	movq	%rdi, -272(%rbp)
+; return tuple<_Tp&&...>(_VSTD::forward<_Tp>(__t)...);
+100001864:	48 8b bd f0 fe ff ff 	movq	-272(%rbp), %rdi
+10000186b:	48 89 bd 00 ff ff ff 	movq	%rdi, -256(%rbp)
+; return static_cast<_Tp&&>(__t);
+100001872:	48 8b bd 00 ff ff ff 	movq	-256(%rbp), %rdi
+100001879:	4c 89 8d 10 ff ff ff 	movq	%r9, -240(%rbp)
+100001880:	48 89 bd 08 ff ff ff 	movq	%rdi, -248(%rbp)
+100001887:	48 8b bd 10 ff ff ff 	movq	-240(%rbp), %rdi
+; ) {}
+10000188e:	4c 8b 8d 08 ff ff ff 	movq	-248(%rbp), %r9
+100001895:	48 89 bd 20 ff ff ff 	movq	%rdi, -224(%rbp)
+10000189c:	4c 89 8d 18 ff ff ff 	movq	%r9, -232(%rbp)
+1000018a3:	48 8b bd 20 ff ff ff 	movq	-224(%rbp), %rdi
+; __t...
+1000018aa:	4c 8b 8d 18 ff ff ff 	movq	-232(%rbp), %r9
+1000018b1:	48 89 bd 30 ff ff ff 	movq	%rdi, -208(%rbp)
+1000018b8:	4c 89 8d 28 ff ff ff 	movq	%r9, -216(%rbp)
+1000018bf:	48 8b bd 30 ff ff ff 	movq	-208(%rbp), %rdi
+; {}
+1000018c6:	4c 8b 8d 28 ff ff ff 	movq	-216(%rbp), %r9
+1000018cd:	48 89 bd 40 ff ff ff 	movq	%rdi, -192(%rbp)
+1000018d4:	4c 89 8d 38 ff ff ff 	movq	%r9, -200(%rbp)
+1000018db:	48 8b bd 40 ff ff ff 	movq	-192(%rbp), %rdi
+; __tuple_leaf<_Uf, _Tf>(_VSTD::forward<_Up>(__u))...,
+1000018e2:	4c 8b 8d 38 ff ff ff 	movq	-200(%rbp), %r9
+1000018e9:	4c 89 8d 48 ff ff ff 	movq	%r9, -184(%rbp)
+; return static_cast<_Tp&&>(__t);
+1000018f0:	4c 8b 8d 48 ff ff ff 	movq	-184(%rbp), %r9
+1000018f7:	48 89 bd 58 ff ff ff 	movq	%rdi, -168(%rbp)
+1000018fe:	4c 89 8d 50 ff ff ff 	movq	%r9, -176(%rbp)
+100001905:	48 8b bd 58 ff ff ff 	movq	-168(%rbp), %rdi
+; : __value_(_VSTD::forward<_Tp>(__t))
+10000190c:	4c 8b 8d 50 ff ff ff 	movq	-176(%rbp), %r9
+100001913:	4c 89 8d 60 ff ff ff 	movq	%r9, -160(%rbp)
+; return static_cast<_Tp&&>(__t);
+10000191a:	4c 8b 8d 60 ff ff ff 	movq	-160(%rbp), %r9
+; : __value_(_VSTD::forward<_Tp>(__t))
+100001921:	4c 89 0f 	movq	%r9, (%rdi)
+; return tuple<_Tp&&...>(_VSTD::forward<_Tp>(__t)...);
+100001924:	48 8b bd f8 fe ff ff 	movq	-264(%rbp), %rdi
+; _VSTD::forward_as_tuple(__a)) {}
+10000192b:	48 89 bd 00 fe ff ff 	movq	%rdi, -512(%rbp)
+; : __f_(piecewise_construct, _VSTD::forward_as_tuple(__f),
+100001932:	48 8b bd 08 fe ff ff 	movq	-504(%rbp), %rdi
+100001939:	4c 8b 8d 00 fe ff ff 	movq	-512(%rbp), %r9
+100001940:	48 89 bd 40 fe ff ff 	movq	%rdi, -448(%rbp)
+100001947:	4c 89 8d 38 fe ff ff 	movq	%r9, -456(%rbp)
+10000194e:	48 89 b5 30 fe ff ff 	movq	%rsi, -464(%rbp)
+100001955:	48 8b b5 30 fe ff ff 	movq	-464(%rbp), %rsi
+; typename __make_tuple_indices<sizeof...(_Args2)>::type()) {}
+10000195c:	48 8b bd 40 fe ff ff 	movq	-448(%rbp), %rdi
+100001963:	4c 8b 8d 38 fe ff ff 	movq	-456(%rbp), %r9
+10000196a:	48 89 bd 88 fe ff ff 	movq	%rdi, -376(%rbp)
+100001971:	4c 89 8d 80 fe ff ff 	movq	%r9, -384(%rbp)
+100001978:	48 89 b5 78 fe ff ff 	movq	%rsi, -392(%rbp)
+10000197f:	48 8b b5 78 fe ff ff 	movq	-392(%rbp), %rsi
+100001986:	48 89 f7 	movq	%rsi, %rdi
+100001989:	4c 89 85 90 fe ff ff 	movq	%r8, -368(%rbp)
+; return static_cast<_Up&&>(__t);
+100001990:	4c 8b 85 90 fe ff ff 	movq	-368(%rbp), %r8
+; : _Base1(__pc, _VSTD::move(__first_args),
+100001997:	4d 8b 00 	movq	(%r8), %r8
+10000199a:	4c 89 85 70 fe ff ff 	movq	%r8, -400(%rbp)
+1000019a1:	4c 8b 85 70 fe ff ff 	movq	-400(%rbp), %r8
+1000019a8:	4c 89 85 d0 fe ff ff 	movq	%r8, -304(%rbp)
+1000019af:	48 89 bd c8 fe ff ff 	movq	%rdi, -312(%rbp)
+1000019b6:	48 89 95 d8 fe ff ff 	movq	%rdx, -296(%rbp)
+; return static_cast<__tuple_leaf<_Ip, type>&>(__t.__base_).get();
+1000019bd:	48 8b 95 d8 fe ff ff 	movq	-296(%rbp), %rdx
+1000019c4:	48 89 95 e0 fe ff ff 	movq	%rdx, -288(%rbp)
+1000019cb:	48 8b 95 e0 fe ff ff 	movq	-288(%rbp), %rdx
+; _LIBCPP_INLINE_VISIBILITY _LIBCPP_CONSTEXPR_AFTER_CXX11       _Hp& get()       _NOEXCEPT {return __value_;}
+1000019d2:	48 8b 12 	movq	(%rdx), %rdx
+1000019d5:	48 89 95 e8 fe ff ff 	movq	%rdx, -280(%rbp)
+1000019dc:	48 89 8d c0 fe ff ff 	movq	%rcx, -320(%rbp)
+; return static_cast<_Up&&>(__t);
+1000019e3:	48 8b 8d c0 fe ff ff 	movq	-320(%rbp), %rcx
+; _Base2(__pc, _VSTD::move(__second_args),
+1000019ea:	48 8b 09 	movq	(%rcx), %rcx
+1000019ed:	48 89 8d 58 fe ff ff 	movq	%rcx, -424(%rbp)
+1000019f4:	48 8b 8d 58 fe ff ff 	movq	-424(%rbp), %rcx
+1000019fb:	48 89 8d a0 fe ff ff 	movq	%rcx, -352(%rbp)
+100001a02:	48 89 b5 98 fe ff ff 	movq	%rsi, -360(%rbp)
+100001a09:	48 89 85 a8 fe ff ff 	movq	%rax, -344(%rbp)
+; return static_cast<__tuple_leaf<_Ip, type>&>(__t.__base_).get();
+100001a10:	48 8b 85 a8 fe ff ff 	movq	-344(%rbp), %rax
+100001a17:	48 89 85 b0 fe ff ff 	movq	%rax, -336(%rbp)
+100001a1e:	48 8b 85 b0 fe ff ff 	movq	-336(%rbp), %rax
+; _LIBCPP_INLINE_VISIBILITY _LIBCPP_CONSTEXPR_AFTER_CXX11       _Hp& get()       _NOEXCEPT {return __value_;}
+100001a25:	48 8b 00 	movq	(%rax), %rax
+100001a28:	48 89 85 b8 fe ff ff 	movq	%rax, -328(%rbp)
+; }
+100001a2f:	48 81 c4 b8 01 00 00 	addq	$440, %rsp
+100001a36:	5b 	popq	%rbx
+100001a37:	41 5e 	popq	%r14
+100001a39:	5d 	popq	%rbp
+100001a3a:	c3 	retq
+100001a3b:	0f 1f 44 00 00 	nopl	(%rax,%rax)
+
+__ZNSt3__110__function6__funcIZ4mainE3$_0NS_9allocatorIS2_EEFivEE7destroyEv:
+; {
+100001a40:	55 	pushq	%rbp
+100001a41:	48 89 e5 	movq	%rsp, %rbp
+100001a44:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+; }
+100001a48:	5d 	popq	%rbp
+100001a49:	c3 	retq
+100001a4a:	66 0f 1f 44 00 00 	nopw	(%rax,%rax)
+
+__ZNSt3__110__function6__funcIZ4mainE3$_0NS_9allocatorIS2_EEFivEE18destroy_deallocateEv:
+; {
+100001a50:	55 	pushq	%rbp
+100001a51:	48 89 e5 	movq	%rsp, %rbp
+100001a54:	48 83 ec 60 	subq	$96, %rsp
+100001a58:	48 8d 45 a0 	leaq	-96(%rbp), %rax
+100001a5c:	48 89 7d a8 	movq	%rdi, -88(%rbp)
+100001a60:	48 8b 7d a8 	movq	-88(%rbp), %rdi
+; _Ap __a(__f_.second());
+100001a64:	48 89 f9 	movq	%rdi, %rcx
+100001a67:	48 83 c1 08 	addq	$8, %rcx
+100001a6b:	48 89 4d b0 	movq	%rcx, -80(%rbp)
+100001a6f:	48 8b 4d b0 	movq	-80(%rbp), %rcx
+100001a73:	48 89 4d b8 	movq	%rcx, -72(%rbp)
+100001a77:	48 8b 4d b8 	movq	-72(%rbp), %rcx
+100001a7b:	48 89 45 e8 	movq	%rax, -24(%rbp)
+100001a7f:	48 89 4d e0 	movq	%rcx, -32(%rbp)
+100001a83:	48 8b 4d e8 	movq	-24(%rbp), %rcx
+; template <class _Up> _LIBCPP_INLINE_VISIBILITY allocator(const allocator<_Up>&) _NOEXCEPT {}
+100001a87:	48 8b 55 e0 	movq	-32(%rbp), %rdx
+100001a8b:	48 89 4d f8 	movq	%rcx, -8(%rbp)
+100001a8f:	48 89 55 f0 	movq	%rdx, -16(%rbp)
+100001a93:	48 89 45 d0 	movq	%rax, -48(%rbp)
+100001a97:	48 89 7d c8 	movq	%rdi, -56(%rbp)
+100001a9b:	48 c7 45 c0 01 00 00 00 	movq	$1, -64(%rbp)
+; {_VSTD::__libcpp_deallocate((void*)__p);}
+100001aa3:	48 8b 45 c8 	movq	-56(%rbp), %rax
+100001aa7:	48 89 45 d8 	movq	%rax, -40(%rbp)
+; __builtin_operator_delete(__ptr);
+100001aab:	48 8b 7d d8 	movq	-40(%rbp), %rdi
+100001aaf:	e8 44 02 00 00 	callq	580
+; }
+100001ab4:	48 83 c4 60 	addq	$96, %rsp
+100001ab8:	5d 	popq	%rbp
+100001ab9:	c3 	retq
+100001aba:	66 0f 1f 44 00 00 	nopw	(%rax,%rax)
+
+__ZNSt3__110__function6__funcIZ4mainE3$_0NS_9allocatorIS2_EEFivEEclEv:
+; {
+100001ac0:	55 	pushq	%rbp
+100001ac1:	48 89 e5 	movq	%rsp, %rbp
+100001ac4:	48 83 ec 20 	subq	$32, %rsp
+100001ac8:	48 89 7d e8 	movq	%rdi, -24(%rbp)
+100001acc:	48 8b 7d e8 	movq	-24(%rbp), %rdi
+; return _Invoker::__call(__f_.first(), _VSTD::forward<_ArgTypes>(__arg)...);
+100001ad0:	48 83 c7 08 	addq	$8, %rdi
+100001ad4:	48 89 7d f0 	movq	%rdi, -16(%rbp)
+100001ad8:	48 8b 7d f0 	movq	-16(%rbp), %rdi
+100001adc:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+100001ae0:	48 8b 7d f8 	movq	-8(%rbp), %rdi
+100001ae4:	e8 e7 00 00 00 	callq	231 <__ZNSt3__128__invoke_void_return_wrapperIiE6__callIJRZ4mainE3$_0EEEiDpOT_>
+100001ae9:	48 83 c4 20 	addq	$32, %rsp
+100001aed:	5d 	popq	%rbp
+100001aee:	c3 	retq
+100001aef:	90 	nop
+
+__ZNKSt3__110__function6__funcIZ4mainE3$_0NS_9allocatorIS2_EEFivEE6targetERKSt9type_info:
+; {
+100001af0:	55 	pushq	%rbp
+100001af1:	48 89 e5 	movq	%rsp, %rbp
+100001af4:	48 8d 05 8d 06 00 00 	leaq	1677(%rip), %rax
+100001afb:	48 89 7d d0 	movq	%rdi, -48(%rbp)
+100001aff:	48 89 75 c8 	movq	%rsi, -56(%rbp)
+100001b03:	48 8b 75 d0 	movq	-48(%rbp), %rsi
+; if (__ti == typeid(_Fp))
+100001b07:	48 8b 7d c8 	movq	-56(%rbp), %rdi
+100001b0b:	48 89 7d e8 	movq	%rdi, -24(%rbp)
+100001b0f:	48 89 45 e0 	movq	%rax, -32(%rbp)
+100001b13:	48 8b 45 e8 	movq	-24(%rbp), %rax
+; { return __type_name == __arg.__type_name; }
+100001b17:	48 8b 40 08 	movq	8(%rax), %rax
+100001b1b:	48 8b 7d e0 	movq	-32(%rbp), %rdi
+100001b1f:	48 3b 47 08 	cmpq	8(%rdi), %rax
+; if (__ti == typeid(_Fp))
+100001b23:	48 89 75 c0 	movq	%rsi, -64(%rbp)
+100001b27:	0f 85 21 00 00 00 	jne	33 <__ZNKSt3__110__function6__funcIZ4mainE3$_0NS_9allocatorIS2_EEFivEE6targetERKSt9type_info+0x5e>
+; return &__f_.first();
+100001b2d:	48 8b 45 c0 	movq	-64(%rbp), %rax
+100001b31:	48 83 c0 08 	addq	$8, %rax
+100001b35:	48 89 45 f0 	movq	%rax, -16(%rbp)
+100001b39:	48 8b 45 f0 	movq	-16(%rbp), %rax
+100001b3d:	48 89 45 f8 	movq	%rax, -8(%rbp)
+100001b41:	48 8b 45 f8 	movq	-8(%rbp), %rax
+100001b45:	48 89 45 d8 	movq	%rax, -40(%rbp)
+100001b49:	e9 08 00 00 00 	jmp	8 <__ZNKSt3__110__function6__funcIZ4mainE3$_0NS_9allocatorIS2_EEFivEE6targetERKSt9type_info+0x66>
+; return (const void*)0;
+100001b4e:	48 c7 45 d8 00 00 00 00 	movq	$0, -40(%rbp)
+; }
+100001b56:	48 8b 45 d8 	movq	-40(%rbp), %rax
+100001b5a:	5d 	popq	%rbp
+100001b5b:	c3 	retq
+100001b5c:	0f 1f 40 00 	nopl	(%rax)
+
+__ZNKSt3__110__function6__funcIZ4mainE3$_0NS_9allocatorIS2_EEFivEE11target_typeEv:
+; {
+100001b60:	55 	pushq	%rbp
+100001b61:	48 89 e5 	movq	%rsp, %rbp
+100001b64:	48 8d 05 1d 06 00 00 	leaq	1565(%rip), %rax
+100001b6b:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+; return typeid(_Fp);
+100001b6f:	5d 	popq	%rbp
+100001b70:	c3 	retq
+100001b71:	66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+100001b7b:	0f 1f 44 00 00 	nopl	(%rax,%rax)
+
+__ZNSt3__110__function6__baseIFivEED1Ev:
+; _LIBCPP_INLINE_VISIBILITY virtual ~__base() {}
+100001b80:	55 	pushq	%rbp
+100001b81:	48 89 e5 	movq	%rsp, %rbp
+100001b84:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+100001b88:	0f 0b 	ud2
+100001b8a:	66 0f 1f 44 00 00 	nopw	(%rax,%rax)
+
+__ZNSt3__110__function6__baseIFivEED0Ev:
+100001b90:	55 	pushq	%rbp
+100001b91:	48 89 e5 	movq	%rsp, %rbp
+100001b94:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+100001b98:	0f 0b 	ud2
+100001b9a:	66 0f 1f 44 00 00 	nopw	(%rax,%rax)
+
+__ZNSt3__110__function6__funcIZ4mainE3$_0NS_9allocatorIS2_EEFivEED2Ev:
+; template<class _FD, class _Alloc, class _FB> class __func;
+100001ba0:	55 	pushq	%rbp
+100001ba1:	48 89 e5 	movq	%rsp, %rbp
+100001ba4:	48 89 7d f0 	movq	%rdi, -16(%rbp)
+100001ba8:	48 8b 7d f0 	movq	-16(%rbp), %rdi
+100001bac:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+100001bb0:	5d 	popq	%rbp
+100001bb1:	c3 	retq
+100001bb2:	66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+100001bbc:	0f 1f 40 00 	nopl	(%rax)
+
+___clang_call_terminate:
+100001bc0:	50 	pushq	%rax
+100001bc1:	e8 44 01 00 00 	callq	324
+100001bc6:	48 89 04 24 	movq	%rax, (%rsp)
+100001bca:	e8 23 01 00 00 	callq	291
+100001bcf:	90 	nop
+
+__ZNSt3__128__invoke_void_return_wrapperIiE6__callIJRZ4mainE3$_0EEEiDpOT_:
+; static _Ret __call(_Args&&... __args) {
+100001bd0:	55 	pushq	%rbp
+100001bd1:	48 89 e5 	movq	%rsp, %rbp
+100001bd4:	48 83 ec 20 	subq	$32, %rsp
+100001bd8:	48 89 7d e0 	movq	%rdi, -32(%rbp)
+; return __invoke(_VSTD::forward<_Args>(__args)...);
+100001bdc:	48 8b 7d e0 	movq	-32(%rbp), %rdi
+100001be0:	48 89 7d e8 	movq	%rdi, -24(%rbp)
+; return static_cast<_Tp&&>(__t);
+100001be4:	48 8b 7d e8 	movq	-24(%rbp), %rdi
+100001be8:	48 89 7d f0 	movq	%rdi, -16(%rbp)
+; _LIBCPP_INVOKE_RETURN(_VSTD::forward<_Fp>(__f)(_VSTD::forward<_Args>(__args)...))
+100001bec:	48 8b 7d f0 	movq	-16(%rbp), %rdi
+100001bf0:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+; return static_cast<_Tp&&>(__t);
+100001bf4:	48 8b 7d f8 	movq	-8(%rbp), %rdi
+; _LIBCPP_INVOKE_RETURN(_VSTD::forward<_Fp>(__f)(_VSTD::forward<_Args>(__args)...))
+100001bf8:	e8 13 00 00 00 	callq	19 <__ZZ4mainENK3$_0clEv>
+; return __invoke(_VSTD::forward<_Args>(__args)...);
+100001bfd:	48 83 c4 20 	addq	$32, %rsp
+100001c01:	5d 	popq	%rbp
+100001c02:	c3 	retq
+100001c03:	66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+100001c0d:	0f 1f 00 	nopl	(%rax)
+
+__ZZ4mainENK3$_0clEv:
+; test_lambda([]() {
+100001c10:	55 	pushq	%rbp
+100001c11:	48 89 e5 	movq	%rsp, %rbp
+100001c14:	48 83 ec 10 	subq	$16, %rsp
+100001c18:	48 8d 05 e3 02 00 00 	leaq	739(%rip), %rax
+100001c1f:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+; printf("%p\n", __builtin_return_address(0));
+100001c23:	48 8b 75 08 	movq	8(%rbp), %rsi
+100001c27:	48 89 c7 	movq	%rax, %rdi
+100001c2a:	b0 00 	movb	$0, %al
+100001c2c:	e8 f7 00 00 00 	callq	247
+100001c31:	b9 05 00 00 00 	movl	$5, %ecx
+; int i = 5;
+100001c36:	c7 45 f4 05 00 00 00 	movl	$5, -12(%rbp)
+; return 5;
+100001c3d:	89 45 f0 	movl	%eax, -16(%rbp)
+100001c40:	89 c8 	movl	%ecx, %eax
+100001c42:	48 83 c4 10 	addq	$16, %rsp
+100001c46:	5d 	popq	%rbp
+100001c47:	c3 	retq
+100001c48:	0f 1f 84 00 00 00 00 00 	nopl	(%rax,%rax)
+
+__ZNSt3__18functionIFivEED2Ev:
+; {
+100001c50:	55 	pushq	%rbp
+100001c51:	48 89 e5 	movq	%rsp, %rbp
+100001c54:	48 83 ec 10 	subq	$16, %rsp
+100001c58:	48 89 7d f8 	movq	%rdi, -8(%rbp)
+100001c5c:	48 8b 7d f8 	movq	-8(%rbp), %rdi
+; if ((void *)__f_ == &__buf_)
+100001c60:	48 8b 47 20 	movq	32(%rdi), %rax
+100001c64:	48 89 f9 	movq	%rdi, %rcx
+100001c67:	48 39 c8 	cmpq	%rcx, %rax
+100001c6a:	48 89 7d f0 	movq	%rdi, -16(%rbp)
+100001c6e:	0f 85 16 00 00 00 	jne	22 <__ZNSt3__18functionIFivEED2Ev+0x3a>
+; __f_->destroy();
+100001c74:	48 8b 45 f0 	movq	-16(%rbp), %rax
+100001c78:	48 8b 48 20 	movq	32(%rax), %rcx
+100001c7c:	48 8b 11 	movq	(%rcx), %rdx
+100001c7f:	48 89 cf 	movq	%rcx, %rdi
+100001c82:	ff 52 20 	callq	*32(%rdx)
+100001c85:	e9 25 00 00 00 	jmp	37 <__ZNSt3__18functionIFivEED2Ev+0x5f>
+; else if (__f_)
+100001c8a:	48 8b 45 f0 	movq	-16(%rbp), %rax
+100001c8e:	48 83 78 20 00 	cmpq	$0, 32(%rax)
+100001c93:	0f 84 11 00 00 00 	je	17 <__ZNSt3__18functionIFivEED2Ev+0x5a>
+; __f_->destroy_deallocate();
+100001c99:	48 8b 45 f0 	movq	-16(%rbp), %rax
+100001c9d:	48 8b 48 20 	movq	32(%rax), %rcx
+100001ca1:	48 8b 11 	movq	(%rcx), %rdx
+100001ca4:	48 89 cf 	movq	%rcx, %rdi
+100001ca7:	ff 52 28 	callq	*40(%rdx)
+100001caa:	e9 00 00 00 00 	jmp	0 <__ZNSt3__18functionIFivEED2Ev+0x5f>
+; }
+100001caf:	48 83 c4 10 	addq	$16, %rsp
+100001cb3:	5d 	popq	%rbp
+100001cb4:	c3 	retq
+Disassembly of section __TEXT,__stubs:
+__stubs:
+100001cb6:	ff 25 b4 03 00 00 	jmpq	*948(%rip)
+100001cbc:	ff 25 b6 03 00 00 	jmpq	*950(%rip)
+100001cc2:	ff 25 b8 03 00 00 	jmpq	*952(%rip)
+100001cc8:	ff 25 ba 03 00 00 	jmpq	*954(%rip)
+100001cce:	ff 25 bc 03 00 00 	jmpq	*956(%rip)
+100001cd4:	ff 25 be 03 00 00 	jmpq	*958(%rip)
+100001cda:	ff 25 c0 03 00 00 	jmpq	*960(%rip)
+100001ce0:	ff 25 c2 03 00 00 	jmpq	*962(%rip)
+100001ce6:	ff 25 c4 03 00 00 	jmpq	*964(%rip)
+100001cec:	ff 25 c6 03 00 00 	jmpq	*966(%rip)
+100001cf2:	ff 25 c8 03 00 00 	jmpq	*968(%rip)
+100001cf8:	ff 25 ca 03 00 00 	jmpq	*970(%rip)
+100001cfe:	ff 25 cc 03 00 00 	jmpq	*972(%rip)
+100001d04:	ff 25 ce 03 00 00 	jmpq	*974(%rip)
+100001d0a:	ff 25 d0 03 00 00 	jmpq	*976(%rip)
+100001d10:	ff 25 d2 03 00 00 	jmpq	*978(%rip)
+100001d16:	ff 25 d4 03 00 00 	jmpq	*980(%rip)
+100001d1c:	ff 25 d6 03 00 00 	jmpq	*982(%rip)
+100001d22:	ff 25 d8 03 00 00 	jmpq	*984(%rip)
+100001d28:	ff 25 da 03 00 00 	jmpq	*986(%rip)
+Disassembly of section __TEXT,__stub_helper:
+__stub_helper:
+100001d30:	4c 8d 1d d1 02 00 00 	leaq	721(%rip), %r11
+100001d37:	41 53 	pushq	%r11
+100001d39:	ff 25 c1 02 00 00 	jmpq	*705(%rip)
+100001d3f:	90 	nop
+100001d40:	68 16 00 00 00 	pushq	$22
+100001d45:	e9 e6 ff ff ff 	jmp	-26 </var/folders/s7/ks6rvx5s3tq1sh3swbbkfmp80000gn/T/lambda-191a2a.o+0xa5437249>
+100001d4a:	68 43 00 00 00 	pushq	$67
+100001d4f:	e9 dc ff ff ff 	jmp	-36 </var/folders/s7/ks6rvx5s3tq1sh3swbbkfmp80000gn/T/lambda-191a2a.o+0xa5437249>
+100001d54:	68 68 00 00 00 	pushq	$104
+100001d59:	e9 d2 ff ff ff 	jmp	-46 </var/folders/s7/ks6rvx5s3tq1sh3swbbkfmp80000gn/T/lambda-191a2a.o+0xa5437249>
+100001d5e:	68 89 00 00 00 	pushq	$137
+100001d63:	e9 c8 ff ff ff 	jmp	-56 </var/folders/s7/ks6rvx5s3tq1sh3swbbkfmp80000gn/T/lambda-191a2a.o+0xa5437249>
+100001d68:	68 c7 00 00 00 	pushq	$199
+100001d6d:	e9 be ff ff ff 	jmp	-66 </var/folders/s7/ks6rvx5s3tq1sh3swbbkfmp80000gn/T/lambda-191a2a.o+0xa5437249>
+100001d72:	68 07 01 00 00 	pushq	$263
+100001d77:	e9 b4 ff ff ff 	jmp	-76 </var/folders/s7/ks6rvx5s3tq1sh3swbbkfmp80000gn/T/lambda-191a2a.o+0xa5437249>
+100001d7c:	68 43 01 00 00 	pushq	$323
+100001d81:	e9 aa ff ff ff 	jmp	-86 </var/folders/s7/ks6rvx5s3tq1sh3swbbkfmp80000gn/T/lambda-191a2a.o+0xa5437249>
+100001d86:	68 60 01 00 00 	pushq	$352
+100001d8b:	e9 a0 ff ff ff 	jmp	-96 </var/folders/s7/ks6rvx5s3tq1sh3swbbkfmp80000gn/T/lambda-191a2a.o+0xa5437249>
+100001d90:	68 7c 01 00 00 	pushq	$380
+100001d95:	e9 96 ff ff ff 	jmp	-106 </var/folders/s7/ks6rvx5s3tq1sh3swbbkfmp80000gn/T/lambda-191a2a.o+0xa5437249>
+100001d9a:	68 94 01 00 00 	pushq	$404
+100001d9f:	e9 8c ff ff ff 	jmp	-116 </var/folders/s7/ks6rvx5s3tq1sh3swbbkfmp80000gn/T/lambda-191a2a.o+0xa5437249>
+100001da4:	68 b5 01 00 00 	pushq	$437
+100001da9:	e9 82 ff ff ff 	jmp	-126 </var/folders/s7/ks6rvx5s3tq1sh3swbbkfmp80000gn/T/lambda-191a2a.o+0xa5437249>
+100001dae:	68 cf 01 00 00 	pushq	$463
+100001db3:	e9 78 ff ff ff 	jmp	-136 </var/folders/s7/ks6rvx5s3tq1sh3swbbkfmp80000gn/T/lambda-191a2a.o+0xa5437249>
+100001db8:	68 ec 01 00 00 	pushq	$492
+100001dbd:	e9 6e ff ff ff 	jmp	-146 </var/folders/s7/ks6rvx5s3tq1sh3swbbkfmp80000gn/T/lambda-191a2a.o+0xa5437249>
+100001dc2:	68 00 00 00 00 	pushq	$0
+100001dc7:	e9 64 ff ff ff 	jmp	-156 </var/folders/s7/ks6rvx5s3tq1sh3swbbkfmp80000gn/T/lambda-191a2a.o+0xa5437249>
+100001dcc:	68 00 02 00 00 	pushq	$512
+100001dd1:	e9 5a ff ff ff 	jmp	-166 </var/folders/s7/ks6rvx5s3tq1sh3swbbkfmp80000gn/T/lambda-191a2a.o+0xa5437249>
+100001dd6:	68 19 02 00 00 	pushq	$537
+100001ddb:	e9 50 ff ff ff 	jmp	-176 </var/folders/s7/ks6rvx5s3tq1sh3swbbkfmp80000gn/T/lambda-191a2a.o+0xa5437249>
+100001de0:	68 28 02 00 00 	pushq	$552
+100001de5:	e9 46 ff ff ff 	jmp	-186 </var/folders/s7/ks6rvx5s3tq1sh3swbbkfmp80000gn/T/lambda-191a2a.o+0xa5437249>
