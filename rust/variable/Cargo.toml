@@ -1,0 +1,12 @@
+[package]
+name = "variable"
+version = "0.1.0"
+authors = ["meritozh <ah841814092@gmail.com>"]
+
+[dependencies]
+
+[profile.release]
+panic = 'abort'
+
+[features]
+const_fn = []
