@@ -1,5 +1,15 @@
 //: Playground - noun: a place where people can play
 
+//: ## extension and memory layout.
+
+print(MemoryLayout<String>.size);
+
+extension String {
+  var level: Int {
+    return 1;
+  }
+}
+
 //: ## lambda: capture value or reference
 
 var value = 42;
