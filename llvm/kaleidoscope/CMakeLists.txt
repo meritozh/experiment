@@ -3,8 +3,7 @@ project(kaleidoscope)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(LIB_FILES
-        lib/Lexer.cpp)
+file(GLOB_RECURSE LIB_FILES lib/**/*.cpp)
 
 set(SOURCE_FILES main.cpp ${LIB_FILES})
 
