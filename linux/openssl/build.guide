@@ -1,0 +1,2 @@
+# get_num_locks.c
+clang get_num_locks.c -o get_num_locks -I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib -lcrypto
