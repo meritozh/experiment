@@ -68,19 +68,19 @@ anotherClassLambda();
 
 //: ## CRTP: Curiously Recursive Template Pattern
 
-class Base<T> {
-  var i: Int = 0
-
-  func printValue() {
-    print("value is: \(i)")
-  }
-}
-
-class Sub : Base<Sub> {
-  override func printValue() {
-    print("value is: \(i + 1)")
-  }
-}
-
-let sub = Sub()
-sub.printValue()
+//class Base<T> {
+//  var i: Int = 0
+//
+//  func printValue() {
+//    print("value is: \(i)")
+//  }
+//}
+//
+//class Sub : Base<Sub> {
+//  override func printValue() {
+//    print("value is: \(i + 1)")
+//  }
+//}
+//
+//let sub = Sub()
+//sub.printValue()
